@@ -4,7 +4,11 @@ import joblib
 import time
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
+import threading
+from collections import defaultdict
+from typing import Dict, List, Any
+import logging
 
 class RealTimePredictor:
     """Real-time fraud prediction system"""
@@ -18,12 +22,183 @@ class RealTimePredictor:
             feature_engineer_path (str): Path to the saved feature engineer
             threshold (float): Decision threshold for fraud classification
         """
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"Model file not found: {model_path}")
+        if not os.path.exists(feature_engineer_path):
+            raise FileNotFoundError(f"Feature engineer file not found: {feature_engineer_path}")
+            
         self.model = joblib.load(model_path)
         self.feature_engineer = joblib.load(feature_engineer_path)
         self.threshold = threshold
         self.predictions_history = []
+        self.user_history = defaultdict(list)
+        self.history_lock = threading.Lock()
         
-    def predict_transaction(self, transaction):
+    def update_history(self, sender: str, timestamp: datetime) -> int:
+        """
+        Update transaction history for a user.
+        
+        Args:
+            sender (str): User ID
+            timestamp (datetime): Transaction timestamp
+            
+        Returns:
+            int: Number of transactions in last 10 minutes
+        """
+        with self.history_lock:
+            # Remove transactions older than 10 minutes
+            cutoff_time = timestamp - timedelta(minutes=10)
+            self.user_history[sender] = [
+                t for t in self.user_history[sender] 
+                if t > cutoff_time
+            ]
+            # Add new transaction
+            self.user_history[sender].append(timestamp)
+            return len(self.user_history[sender])
+    
+    def _infer_fraud_type(self, transaction: Dict[str, Any], fraud_prob: float) -> str:
+        """
+        Infer the type of fraud based on transaction features.
+        
+        Args:
+            transaction (dict): Transaction data
+            fraud_prob (float): Fraud probability
+            
+        Returns:
+            str: Inferred fraud type
+        """
+        # Feature weights for different fraud types
+        fraud_weights = {
+            'Phishing Link': {
+                'Amount': 0.3,
+                'Merchant_Type': 0.2,
+                'Receiver_ID': 0.3,
+                'Transaction_Type': 0.2
+            },
+            'QR Code Scam': {
+                'Amount': 0.3,
+                'Merchant_Type': 0.4,
+                'Transaction_Type': 0.3
+            },
+            'SIM Swap': {
+                'Device_ID': 0.4,
+                'Location': 0.3,
+                'Transaction_Type': 0.3
+            },
+            'Fake UPI App': {
+                'Device_ID': 0.4,
+                'Merchant_Type': 0.3,
+                'Transaction_Type': 0.3
+            },
+            'Small Testing': {
+                'Amount': 0.4,
+                'Txn_Count_Last_10_Min': 0.4,
+                'Transaction_Type': 0.2
+            },
+            'Card Skimming': {
+                'Amount': 0.4,
+                'Merchant_Type': 0.3,
+                'Device_ID': 0.3
+            },
+            'Data Breach Reuse': {
+                'Amount': 0.3,
+                'Merchant_Type': 0.3,
+                'Device_ID': 0.4
+            },
+            'Unusual Location': {
+                'Location': 0.5,
+                'Amount': 0.3,
+                'Transaction_Type': 0.2
+            },
+            'CNP Fraud': {
+                'Amount': 0.4,
+                'Merchant_Type': 0.3,
+                'Device_ID': 0.3
+            }
+        }
+        
+        # Calculate scores for each fraud type
+        fraud_scores = {}
+        for fraud_type, weights in fraud_weights.items():
+            score = 0
+            for feature, weight in weights.items():
+                if feature == 'Amount':
+                    # Higher score for unusual amounts
+                    amount = float(transaction.get('Amount', 0))
+                    if amount > 5000:  # Very high amount
+                        score += weight
+                    elif amount < 10:  # Very small amount
+                        score += weight * 0.8
+                elif feature == 'Merchant_Type':
+                    # Higher score for unknown merchants
+                    if transaction.get('Merchant_Type') == 'Unknown':
+                        score += weight
+                elif feature == 'Device_ID':
+                    # Higher score for new/unknown devices
+                    device_id = transaction.get('Device_ID', '')
+                    if 'New_Device' in device_id or 'Unknown_Device' in device_id:
+                        score += weight
+                elif feature == 'Location':
+                    # Higher score for unusual locations
+                    if transaction.get('Is_Unusual_Location', False):
+                        score += weight
+                elif feature == 'Txn_Count_Last_10_Min':
+                    # Higher score for frequent transactions
+                    if transaction.get('Txn_Count_Last_10_Min', 0) > 5:
+                        score += weight
+                elif feature == 'Transaction_Type':
+                    # Base score for transaction type
+                    score += weight * 0.5
+                elif feature == 'Receiver_ID':
+                    # Higher score for suspicious receivers
+                    if 'Suspicious' in transaction.get('Receiver_ID', ''):
+                        score += weight
+            
+            fraud_scores[fraud_type] = score
+        
+        # Return the fraud type with highest score
+        if fraud_scores:
+            return max(fraud_scores.items(), key=lambda x: x[1])[0]
+        return "Unknown Fraud Type"
+    
+    def _process_transaction(self, txn_df):
+        """
+        Process a transaction DataFrame through feature engineering.
+        
+        Args:
+            txn_df (pd.DataFrame): Transaction data
+            
+        Returns:
+            pd.DataFrame: Processed features
+        """
+        try:
+            # Ensure we have a DataFrame
+            if not isinstance(txn_df, pd.DataFrame):
+                txn_df = pd.DataFrame([txn_df])
+            
+            # Convert DataFrame to dictionary for feature engineering
+            transaction = txn_df.iloc[0].to_dict()
+            
+            # Process through feature engineering pipeline
+            X = self.feature_engineer.process_single_transaction(transaction)
+            
+            # Verify feature names match model expectations
+            missing_features = set(self.feature_engineer.encoded_cols) - set(X.columns)
+            if missing_features:
+                raise ValueError(f"Missing required features: {missing_features}")
+            
+            # Ensure features are in the correct order
+            X = X[self.feature_engineer.encoded_cols]
+            
+            return X
+            
+        except Exception as e:
+            logging.error(f"Error processing transaction: {str(e)}")
+            # Return a DataFrame with default values
+            return pd.DataFrame([[0] * len(self.feature_engineer.encoded_cols)],
+                              columns=self.feature_engineer.encoded_cols)
+    
+    def predict_transaction(self, transaction: Dict[str, Any]) -> Dict[str, Any]:
         """
         Predict whether a transaction is fraudulent.
         
@@ -35,130 +210,67 @@ class RealTimePredictor:
         """
         start_time = time.time()
         
-        # Create a copy to avoid modifying the original
-        transaction_copy = transaction.copy()
-        
-        # Ensure Timestamp is properly formatted
-        if isinstance(transaction_copy.get('Timestamp'), str):
-            transaction_copy['Timestamp'] = pd.to_datetime(transaction_copy['Timestamp'])
-        elif transaction_copy.get('Timestamp') is None:
-            transaction_copy['Timestamp'] = datetime.now()
+        try:
+            # Create a copy to avoid modifying the original
+            transaction_copy = transaction.copy()
             
-        # Convert to DataFrame
-        txn_df = pd.DataFrame([transaction_copy])
-        
-        # Process transaction data
-        X = self._process_transaction(txn_df)
-        
-        # Make prediction
-        _, fraud_prob = self.model.predict(X)
-        is_fraud = fraud_prob[0] >= self.threshold
-        
-        # Format result
-        result = {
-            'Transaction_ID': transaction.get('Transaction_ID', 'Unknown'),
-            'Timestamp': transaction_copy.get('Timestamp').strftime('%Y-%m-%d %H:%M:%S') if hasattr(transaction_copy.get('Timestamp'), 'strftime') else str(transaction_copy.get('Timestamp')),
-            'Amount': transaction.get('Amount', 0),
-            'Sender_ID': transaction.get('Sender_ID', 'Unknown'),
-            'Transaction_Type': transaction.get('Transaction_Type', 'Unknown'),
-            'Is_Fraud': bool(is_fraud),
-            'Fraud_Probability': float(fraud_prob[0]),
-            'Fraud_Type': self._detect_fraud_type(transaction, fraud_prob[0]) if is_fraud else "Not Fraud",
-            'Prediction_Time_ms': (time.time() - start_time) * 1000
-        }
-        
-        # Store prediction in history
-        self.predictions_history.append(result)
-        
-        return result
-    
-    def _process_transaction(self, txn_df):
-        """Process transaction data for prediction."""
-        # Apply feature engineering
-        from src.features.feature_engineering import process_single_transaction
-        # Convert DataFrame to dictionary if needed
-        if isinstance(txn_df, pd.DataFrame):
-            transaction = txn_df.iloc[0].to_dict()
-        else:
-            transaction = txn_df
-        X = process_single_transaction(transaction, self.feature_engineer)
-        return X
-    
-    def _detect_fraud_type(self, transaction, fraud_prob):
-        """
-        Detect the specific type of fraud.
-        
-        This is a simplified detection - in a real system, you would likely
-        use a more sophisticated approach or a dedicated model.
-        """
-        if fraud_prob < self.threshold:
-            return "Not Fraud"
+            # Ensure Timestamp is properly formatted
+            if isinstance(transaction_copy.get('Timestamp'), str):
+                transaction_copy['Timestamp'] = pd.to_datetime(transaction_copy['Timestamp'])
+            elif transaction_copy.get('Timestamp') is None:
+                transaction_copy['Timestamp'] = datetime.now()
             
-        # Extract transaction details
-        txn_type = transaction.get('Transaction_Type', '')
-        amount = transaction.get('Amount', 0)
-        merchant_type = transaction.get('Merchant_Type', '')
-        receiver_id = transaction.get('Receiver_ID', '')
-        device_id = transaction.get('Device_ID', '')
-        location = transaction.get('Location', '')
-        
-        # Simplified fraud type detection based on transaction characteristics
-        if txn_type == "UPI":
-            if "Suspicious" in receiver_id:
-                return "Phishing Link"
-            elif merchant_type == "Unknown":
-                return "QR Code Scam"
-            elif "New_Device" in device_id or "Unknown_Device" in device_id:
-                if "-34.6037, -58.3816" in location:  # Buenos Aires
-                    return "SIM Swap Attack"
-                else:
-                    return "Fake UPI App"
-            elif amount <= 10:
-                return "Small Testing Transaction"
-        else:  # Card
-            if merchant_type == "Retail_Physical" and amount > 3000:
-                return "Card Skimming"
-            elif merchant_type == "Online_Retail":
-                if amount > 5000:
-                    return "CNP Fraud"
-                else:
-                    return "Data Breach Reuse"
-            elif "35.6762, 139.6503" in location:  # Tokyo
-                return "Unusual Location/Activity"
-        
-        return "Unknown Fraud"
+            # Update transaction history
+            txn_count = self.update_history(
+                transaction_copy.get('Sender_ID', 'Unknown'),
+                transaction_copy['Timestamp']
+            )
+            transaction_copy['Recent_Txn_Count'] = txn_count
+            
+            # Process transaction data
+            X = self._process_transaction(transaction_copy)
+            
+            # Make prediction
+            fraud_prob = self.model.predict_proba(X)[0][1]
+            is_fraud = fraud_prob >= self.threshold
+            
+            # Format result
+            result = {
+                'is_fraud': bool(is_fraud),
+                'fraud_probability': float(fraud_prob),
+                'fraud_type': self._infer_fraud_type(transaction_copy, fraud_prob) if is_fraud else None,
+                'processing_time': time.time() - start_time
+            }
+            
+            # Add to history
+            self.predictions_history.append({
+                'timestamp': datetime.now().isoformat(),
+                'transaction': transaction_copy,
+                'prediction': result
+            })
+            
+            return result
+            
+        except Exception as e:
+            logging.error(f"Error processing transaction: {str(e)}")
+            return {
+                'is_fraud': False,
+                'fraud_probability': 0.0,
+                'fraud_type': None,
+                'processing_time': time.time() - start_time,
+                'error': str(e)
+            }
     
-    def get_recent_predictions(self, n=10):
-        """Get the most recent predictions."""
-        return self.predictions_history[-n:] if self.predictions_history else []
-        
-    def save_predictions(self, output_path):
-        """Save prediction history to JSON file."""
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    def save_predictions(self, output_path: str):
+        """Save prediction history to a JSON file."""
         with open(output_path, 'w') as f:
             json.dump(self.predictions_history, f, indent=2)
-        print(f"Predictions saved to {output_path}")
-        
-    def load_predictions(self, input_path):
-        """Load prediction history from JSON file."""
-        with open(input_path, 'r') as f:
-            self.predictions_history = json.load(f)
-        print(f"Loaded {len(self.predictions_history)} predictions from {input_path}")
-        
-    def get_fraud_type_summary(self):
-        """Get a summary of detected fraud types."""
-        fraud_predictions = [p for p in self.predictions_history if p['Is_Fraud']]
-        fraud_types = [p['Fraud_Type'] for p in fraud_predictions]
-        
-        if not fraud_types:
-            return {"No frauds detected": 0}
-            
-        # Count occurrences of each fraud type
-        fraud_counts = {}
-        for fraud_type in fraud_types:
-            if fraud_type in fraud_counts:
-                fraud_counts[fraud_type] += 1
-            else:
-                fraud_counts[fraud_type] = 1
-                
-        return fraud_counts 
+    
+    def get_fraud_type_summary(self) -> Dict[str, int]:
+        """Get summary of detected fraud types."""
+        fraud_types = {}
+        for pred in self.predictions_history:
+            if pred.get('is_fraud'):
+                fraud_type = pred.get('fraud_type', 'Unknown')
+                fraud_types[fraud_type] = fraud_types.get(fraud_type, 0) + 1
+        return fraud_types 

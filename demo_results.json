@@ -1,0 +1,110 @@
+[
+  {
+    "Sender_ID": "USER_0",
+    "Amount": 957.0891647513371,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": null,
+    "Processing_Time": 0.10884761810302734
+  },
+  {
+    "Sender_ID": "USER_1",
+    "Amount": 9038.947574421934,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.87,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.059149742126464844
+  },
+  {
+    "Sender_ID": "USER_2",
+    "Amount": 5226.310717000131,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.86,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.0738213062286377
+  },
+  {
+    "Sender_ID": "USER_3",
+    "Amount": 5806.157519326714,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.87,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.0709841251373291
+  },
+  {
+    "Sender_ID": "USER_4",
+    "Amount": 951.0128594266662,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": null,
+    "Processing_Time": 0.06818199157714844
+  },
+  {
+    "Sender_ID": "USER_5",
+    "Amount": 922.8045566310806,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": null,
+    "Processing_Time": 0.06757402420043945
+  },
+  {
+    "Sender_ID": "USER_6",
+    "Amount": 977.4583059869855,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": null,
+    "Processing_Time": 0.06426715850830078
+  },
+  {
+    "Sender_ID": "USER_7",
+    "Amount": 9650.61214455702,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.86,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.06249046325683594
+  },
+  {
+    "Sender_ID": "USER_8",
+    "Amount": 8905.081998191203,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.87,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.05585908889770508
+  },
+  {
+    "Sender_ID": "USER_9",
+    "Amount": 90.32683211571648,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": null,
+    "Processing_Time": 0.06320834159851074
+  },
+  {
+    "Sender_ID": "USER_TEST",
+    "Amount": 5.0,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.42,
+    "Fraud_Type": "QR Code Scam",
+    "Processing_Time": 0.06449413299560547
+  },
+  {
+    "Sender_ID": "USER_TEST",
+    "Amount": 8000.0,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 1,
+    "Confidence": 0.41,
+    "Fraud_Type": "Small Testing",
+    "Processing_Time": 0.059309959411621094
+  }
+]
