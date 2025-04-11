@@ -188,19 +188,69 @@ def process_single_transaction(transaction, feature_engineer):
     """
     # Convert to DataFrame if dictionary
     if isinstance(transaction, dict):
-        txn_df = pd.DataFrame([transaction])
+        # Create a copy to avoid modifying the original
+        transaction_copy = transaction.copy()
+        
+        # Ensure Timestamp is properly formatted
+        if isinstance(transaction_copy.get('Timestamp'), str):
+            transaction_copy['Timestamp'] = pd.to_datetime(transaction_copy['Timestamp'])
+        elif transaction_copy.get('Timestamp') is None:
+            transaction_copy['Timestamp'] = pd.Timestamp.now()
+            
+        # Add dummy values for required fields if missing
+        required_fields = {
+            'Amount': 0,
+            'Merchant_Type': 'Unknown',
+            'Device_ID': 'Unknown',
+            'Location': '0.0, 0.0',
+            'Sender_ID': 'Unknown',
+            'Receiver_ID': 'Unknown',
+            'Transaction_Type': 'Unknown'
+        }
+        for field, default_value in required_fields.items():
+            if field not in transaction_copy:
+                transaction_copy[field] = default_value
+                
+        txn_df = pd.DataFrame([transaction_copy])
     else:
         txn_df = pd.DataFrame([transaction.to_dict()])
     
-    # Process data
-    X, _ = feature_engineer.process_data(txn_df, fit=False)
+    # Process data through the feature engineering pipeline
+    preprocessed_data = feature_engineer.preprocess(txn_df, fit=False)
+    engineered_data = feature_engineer.engineer_features(preprocessed_data)
     
-    # Ensure all columns from training are present
-    for col in feature_engineer.encoded_cols:
-        if col not in X.columns and col != "Is_Fraud":
-            X[col] = 0
+    # Ensure all required features are present with correct names
+    required_features = [
+        'Amount',
+        'Transaction_Type_UPI',
+        'Merchant_Type_Food',
+        'Merchant_Type_Online_Retail',
+        'Merchant_Type_Retail_Physical',
+        'Merchant_Type_Travel',
+        'Merchant_Type_Unknown',
+        'Merchant_Type_Utilities',
+        'Hour',
+        'Day_of_Week',
+        'Is_Weekend',
+        'Is_Night',
+        'Time_Since_Last_Txn',
+        'Txn_Count_Total',
+        'Time_Diff_Hours',
+        'Recent_Txn_Count',
+        'Amount_Deviation',
+        'Amount_Ratio',
+        'Is_New_Device',
+        'Is_Unusual_Location',
+        'Is_Suspicious_Receiver',
+        'Is_First_Time_Receiver'
+    ]
     
-    # Keep only the columns used during training
-    X = X[feature_engineer.encoded_cols]
+    # Add missing features with default value 0
+    for feature in required_features:
+        if feature not in engineered_data.columns:
+            engineered_data[feature] = 0
+    
+    # Keep only the required features in the correct order
+    X = engineered_data[required_features]
     
     return X 

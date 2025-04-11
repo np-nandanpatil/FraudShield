@@ -47,7 +47,7 @@ def generate_test_scenarios():
         {
             "Transaction_ID": "Test_Phishing",
             "Timestamp": current_time,
-            "Amount": 4500,
+            "Amount": 6500,  # Very high amount
             "Sender_ID": "User_1",
             "Receiver_ID": "Suspicious_001",
             "Transaction_Type": "UPI",
@@ -58,7 +58,7 @@ def generate_test_scenarios():
         {
             "Transaction_ID": "Test_QR_Scam",
             "Timestamp": current_time,
-            "Amount": 1500,
+            "Amount": 2500,  # Medium-high amount
             "Sender_ID": "User_1",
             "Receiver_ID": "Merchant_123",
             "Transaction_Type": "UPI",
@@ -69,29 +69,29 @@ def generate_test_scenarios():
         {
             "Transaction_ID": "Test_SIM_Swap",
             "Timestamp": current_time,
-            "Amount": 3000,
+            "Amount": 4000,  # High amount
             "Sender_ID": "User_1",
             "Receiver_ID": "Merchant_456",
             "Transaction_Type": "UPI",
-            "Merchant_Type": "Online_Retail",
+            "Merchant_Type": "Unknown",  # Changed to Unknown
             "Device_ID": "New_Device_123",
             "Location": "-34.6037, -58.3816"  # Buenos Aires
         },
         {
             "Transaction_ID": "Test_Fake_UPI_App",
             "Timestamp": current_time,
-            "Amount": 2500,
+            "Amount": 3500,  # Medium-high amount
             "Sender_ID": "User_1",
             "Receiver_ID": "Merchant_789",
             "Transaction_Type": "UPI",
-            "Merchant_Type": "Food",
+            "Merchant_Type": "Unknown",  # Changed to Unknown
             "Device_ID": "Unknown_Device_456",
-            "Location": "28.6139, 77.2090"  # Delhi
+            "Location": "12.9716, 77.5946"  # Bangalore
         },
         {
             "Transaction_ID": "Test_Small_Testing",
             "Timestamp": current_time,
-            "Amount": 5,
+            "Amount": 5,  # Very small amount
             "Sender_ID": "User_1",
             "Receiver_ID": "Merchant_101",
             "Transaction_Type": "UPI",
@@ -104,70 +104,70 @@ def generate_test_scenarios():
         {
             "Transaction_ID": "Test_Card_Skimming",
             "Timestamp": current_time,
-            "Amount": 7500,
+            "Amount": 8500,  # Very high amount
             "Sender_ID": "User_2",
             "Receiver_ID": "Merchant_202",
             "Transaction_Type": "Card",
             "Merchant_Type": "Retail_Physical",
-            "Device_ID": "Device_2",
-            "Location": "19.0760, 72.8777"  # Mumbai
+            "Device_ID": "Unknown_Device_789",  # Unknown device
+            "Location": "12.9716, 77.5946"  # Bangalore
         },
         {
             "Transaction_ID": "Test_Data_Breach",
             "Timestamp": current_time,
-            "Amount": 3500,
+            "Amount": 4500,  # High amount
             "Sender_ID": "User_2",
             "Receiver_ID": "Merchant_303",
             "Transaction_Type": "Card",
             "Merchant_Type": "Online_Retail",
-            "Device_ID": "Device_2",
-            "Location": "19.0760, 72.8777"  # Mumbai
+            "Device_ID": "Unknown_Device_101",  # Unknown device
+            "Location": "12.9716, 77.5946"  # Bangalore
         },
         {
             "Transaction_ID": "Test_Unusual_Location",
             "Timestamp": current_time,
-            "Amount": 4000,
+            "Amount": 6000,  # High amount
             "Sender_ID": "User_2",
             "Receiver_ID": "Merchant_404",
             "Transaction_Type": "Card",
-            "Merchant_Type": "Travel",
+            "Merchant_Type": "Online_Retail",
             "Device_ID": "Device_2",
             "Location": "35.6762, 139.6503"  # Tokyo
         },
         {
             "Transaction_ID": "Test_CNP_Fraud",
             "Timestamp": current_time,
-            "Amount": 8500,
+            "Amount": 9500,  # Very high amount
             "Sender_ID": "User_2",
             "Receiver_ID": "Merchant_505",
             "Transaction_Type": "Card",
             "Merchant_Type": "Online_Retail",
-            "Device_ID": "Device_2",
-            "Location": "19.0760, 72.8777"  # Mumbai
+            "Device_ID": "Unknown_Device_202",  # Unknown device
+            "Location": "12.9716, 77.5946"  # Bangalore
         },
         
         # Legitimate Transactions
         {
             "Transaction_ID": "Test_Legitimate_UPI",
             "Timestamp": current_time,
-            "Amount": 250,
+            "Amount": 250,  # Normal amount
             "Sender_ID": "User_3",
             "Receiver_ID": "Merchant_606",
             "Transaction_Type": "UPI",
             "Merchant_Type": "Food",
             "Device_ID": "Device_3",
-            "Location": "17.3850, 78.4867"  # Hyderabad
+            "Location": "12.9716, 77.5946"  # Bangalore
         },
         {
             "Transaction_ID": "Test_Legitimate_Card",
             "Timestamp": current_time,
-            "Amount": 1200,
+            "Amount": 1200,  # Normal amount
             "Sender_ID": "User_3",
             "Receiver_ID": "Merchant_707",
             "Transaction_Type": "Card",
             "Merchant_Type": "Entertainment",
             "Device_ID": "Device_3",
-            "Location": "17.3850, 78.4867"  # Hyderabad
+            "Location": "12.9716, 77.5946"  # Bangalore
         }
     ]
     

@@ -9,7 +9,7 @@ from datetime import datetime
 class RealTimePredictor:
     """Real-time fraud prediction system"""
     
-    def __init__(self, model_path, feature_engineer_path, threshold=0.5):
+    def __init__(self, model_path, feature_engineer_path, threshold=0.3):
         """
         Initialize the real-time predictor.
         
@@ -63,7 +63,7 @@ class RealTimePredictor:
             'Transaction_Type': transaction.get('Transaction_Type', 'Unknown'),
             'Is_Fraud': bool(is_fraud),
             'Fraud_Probability': float(fraud_prob[0]),
-            'Fraud_Type': self._detect_fraud_type(transaction, fraud_prob[0]),
+            'Fraud_Type': self._detect_fraud_type(transaction, fraud_prob[0]) if is_fraud else "Not Fraud",
             'Prediction_Time_ms': (time.time() - start_time) * 1000
         }
         
@@ -76,7 +76,12 @@ class RealTimePredictor:
         """Process transaction data for prediction."""
         # Apply feature engineering
         from src.features.feature_engineering import process_single_transaction
-        X = process_single_transaction(txn_df, self.feature_engineer)
+        # Convert DataFrame to dictionary if needed
+        if isinstance(txn_df, pd.DataFrame):
+            transaction = txn_df.iloc[0].to_dict()
+        else:
+            transaction = txn_df
+        X = process_single_transaction(transaction, self.feature_engineer)
         return X
     
     def _detect_fraud_type(self, transaction, fraud_prob):
