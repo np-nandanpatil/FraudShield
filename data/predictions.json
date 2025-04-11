@@ -1,123 +1,123 @@
 [
   {
     "Transaction_ID": "Test_Phishing",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 6500,
     "Sender_ID": "User_1",
     "Transaction_Type": "UPI",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "Phishing Link",
-    "Prediction_Time_ms": 150.7704257965088
+    "Prediction_Time_ms": 218.5063362121582
   },
   {
     "Transaction_ID": "Test_QR_Scam",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 2500,
     "Sender_ID": "User_1",
     "Transaction_Type": "UPI",
     "Is_Fraud": true,
     "Fraud_Probability": 0.40612690613351404,
     "Fraud_Type": "QR Code Scam",
-    "Prediction_Time_ms": 127.86722183227539
+    "Prediction_Time_ms": 136.46721839904785
   },
   {
     "Transaction_ID": "Test_SIM_Swap",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 4000,
     "Sender_ID": "User_1",
     "Transaction_Type": "UPI",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "QR Code Scam",
-    "Prediction_Time_ms": 123.83413314819336
+    "Prediction_Time_ms": 123.34179878234863
   },
   {
     "Transaction_ID": "Test_Fake_UPI_App",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 3500,
     "Sender_ID": "User_1",
     "Transaction_Type": "UPI",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "QR Code Scam",
-    "Prediction_Time_ms": 133.91947746276855
+    "Prediction_Time_ms": 127.26211547851562
   },
   {
     "Transaction_ID": "Test_Small_Testing",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 5,
     "Sender_ID": "User_1",
     "Transaction_Type": "UPI",
     "Is_Fraud": false,
     "Fraud_Probability": 0.13019833470494263,
     "Fraud_Type": "Not Fraud",
-    "Prediction_Time_ms": 122.56240844726562
+    "Prediction_Time_ms": 129.61816787719727
   },
   {
     "Transaction_ID": "Test_Card_Skimming",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 8500,
     "Sender_ID": "User_2",
     "Transaction_Type": "Card",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "Card Skimming",
-    "Prediction_Time_ms": 138.5793685913086
+    "Prediction_Time_ms": 120.75996398925781
   },
   {
     "Transaction_ID": "Test_Data_Breach",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 4500,
     "Sender_ID": "User_2",
     "Transaction_Type": "Card",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "Data Breach Reuse",
-    "Prediction_Time_ms": 125.39863586425781
+    "Prediction_Time_ms": 125.20217895507812
   },
   {
     "Transaction_ID": "Test_Unusual_Location",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 6000,
     "Sender_ID": "User_2",
     "Transaction_Type": "Card",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "CNP Fraud",
-    "Prediction_Time_ms": 144.2723274230957
+    "Prediction_Time_ms": 120.77522277832031
   },
   {
     "Transaction_ID": "Test_CNP_Fraud",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 9500,
     "Sender_ID": "User_2",
     "Transaction_Type": "Card",
     "Is_Fraud": true,
     "Fraud_Probability": 0.46612690613351404,
     "Fraud_Type": "CNP Fraud",
-    "Prediction_Time_ms": 140.62976837158203
+    "Prediction_Time_ms": 132.27081298828125
   },
   {
     "Transaction_ID": "Test_Legitimate_UPI",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 250,
     "Sender_ID": "User_3",
     "Transaction_Type": "UPI",
     "Is_Fraud": false,
     "Fraud_Probability": 0.003059764348067702,
     "Fraud_Type": "Not Fraud",
-    "Prediction_Time_ms": 154.4797420501709
+    "Prediction_Time_ms": 116.40429496765137
   },
   {
     "Transaction_ID": "Test_Legitimate_Card",
-    "Timestamp": "2025-04-11 15:41:56",
+    "Timestamp": "2025-04-11 15:59:45",
     "Amount": 1200,
     "Sender_ID": "User_3",
     "Transaction_Type": "Card",
     "Is_Fraud": false,
     "Fraud_Probability": 0.003059764348067702,
     "Fraud_Type": "Not Fraud",
-    "Prediction_Time_ms": 127.98500061035156
+    "Prediction_Time_ms": 146.85845375061035
   }
 ]
