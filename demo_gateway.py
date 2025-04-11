@@ -16,6 +16,9 @@ from src.utils.predictor import RealTimePredictor
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # For session management
 
+# Load admin password from environment variable or use default for demo
+ADMIN_PASSWORD = os.environ.get('SYNTHHACK_ADMIN_PASSWORD', 'synthhack_admin')
+
 # Initialize the fraud detection system
 predictor = RealTimePredictor('models/fraud_detection_model.pkl', 'models/feature_engineer.pkl')
 
@@ -57,6 +60,8 @@ def dashboard():
 def ensure_transaction_csv_exists():
     csv_path = 'data/processed_transactions.csv'
     if not os.path.exists(csv_path):
+        app.logger.info(f"Creating new transaction CSV file at {csv_path}")
+        os.makedirs(os.path.dirname(csv_path), exist_ok=True)
         with open(csv_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([
@@ -74,6 +79,10 @@ def ensure_transaction_csv_exists():
                 'Fraud_Probability',
                 'Status'
             ])
+        # Return True if we created a new file
+        return True
+    # Return False if file already existed
+    return False
 
 @app.route('/payment_methods')
 def payment_methods():
@@ -107,50 +116,89 @@ def wallets():
 
 @app.route('/process_transaction', methods=['POST'])
 def process_transaction():
-    transaction_data = request.json
-    
-    # Generate a unique transaction ID if not provided
-    if 'Transaction_ID' not in transaction_data:
-        transaction_data['Transaction_ID'] = f"TXN_{uuid.uuid4().hex[:10]}"
-    
-    # Add Receiver_ID if not present
-    if 'Receiver_ID' not in transaction_data:
-        transaction_data['Receiver_ID'] = 'Merchant_' + str(hash(transaction_data.get('Merchant_Type', '')) % 10000)
-    
-    # Step 1: Fraud detection
-    result = predictor.predict_transaction(transaction_data)
-    
-    # If fraudulent, block immediately
-    if result['is_fraud']:
-        log_transaction(transaction_data, result, "BLOCKED")
+    try:
+        transaction_data = request.json
+        
+        # Input validation
+        if not transaction_data:
+            return jsonify({
+                'status': 'error',
+                'message': 'No transaction data provided'
+            }), 400
+        
+        # Validate required fields
+        required_fields = ['Amount', 'Transaction_Type']
+        missing_fields = [field for field in required_fields if field not in transaction_data]
+        if missing_fields:
+            return jsonify({
+                'status': 'error',
+                'message': f'Missing required fields: {", ".join(missing_fields)}'
+            }), 400
+        
+        # Validate amount is a number
+        try:
+            amount = float(transaction_data.get('Amount', 0))
+            if amount <= 0:
+                return jsonify({
+                    'status': 'error',
+                    'message': 'Amount must be greater than zero'
+                }), 400
+            # Update with validated amount
+            transaction_data['Amount'] = amount
+        except (ValueError, TypeError):
+            return jsonify({
+                'status': 'error',
+                'message': 'Invalid amount format'
+            }), 400
+            
+        # Generate a unique transaction ID if not provided
+        if 'Transaction_ID' not in transaction_data:
+            transaction_data['Transaction_ID'] = f"TXN_{uuid.uuid4().hex[:10]}"
+        
+        # Add Receiver_ID if not present
+        if 'Receiver_ID' not in transaction_data:
+            transaction_data['Receiver_ID'] = 'Merchant_' + str(hash(transaction_data.get('Merchant_Type', '')) % 10000)
+        
+        # Step 1: Fraud detection
+        result = predictor.predict_transaction(transaction_data)
+        
+        # If fraudulent, block immediately
+        if result['is_fraud']:
+            log_transaction(transaction_data, result, "BLOCKED")
+            return jsonify({
+                'status': 'blocked',
+                'reason': result['fraud_type'],
+                'confidence': result['fraud_probability']
+            }), 403
+        
+        # Step 2: For legitimate transactions, proceed with payment flow
+        txn_id = transaction_data['Transaction_ID']
+        
+        # Store transaction for later verification
+        transactions_db[txn_id] = {
+            'data': transaction_data,
+            'result': result,
+            'status': 'PENDING'
+        }
+        
+        # Generate OTP for authentication (simulate bank OTP)
+        otp = str(random.randint(100000, 999999))
+        otps[txn_id] = otp
+        
+        # In real implementation, OTP would be sent via SMS/email
+        
         return jsonify({
-            'status': 'blocked',
-            'reason': result['fraud_type'],
+            'status': 'pending_verification',
+            'transaction_id': txn_id,
+            'redirect_url': f"/verify_otp/{txn_id}",
             'confidence': result['fraud_probability']
-        }), 403
-    
-    # Step 2: For legitimate transactions, proceed with payment flow
-    txn_id = transaction_data['Transaction_ID']
-    
-    # Store transaction for later verification
-    transactions_db[txn_id] = {
-        'data': transaction_data,
-        'result': result,
-        'status': 'PENDING'
-    }
-    
-    # Generate OTP for authentication (simulate bank OTP)
-    otp = str(random.randint(100000, 999999))
-    otps[txn_id] = otp
-    
-    # In real implementation, OTP would be sent via SMS/email
-    
-    return jsonify({
-        'status': 'pending_verification',
-        'transaction_id': txn_id,
-        'redirect_url': f"/verify_otp/{txn_id}",
-        'confidence': result['fraud_probability']
-    }), 200
+        }), 200
+    except Exception as e:
+        app.logger.error(f"Error processing transaction: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': 'An unexpected error occurred while processing the transaction'
+        }), 500
 
 @app.route('/verify_otp/<txn_id>', methods=['GET', 'POST'])
 def verify_otp(txn_id):
@@ -198,9 +246,33 @@ def api_transactions():
     """API endpoint for transactions data"""
     txn_data = []
     try:
-        with open('data/processed_transactions.csv', 'r') as file:
+        app.logger.info("Loading transactions from CSV file")
+        csv_path = 'data/processed_transactions.csv'
+        
+        # Check if file exists first
+        if not os.path.exists(csv_path):
+            app.logger.warning(f"Transaction CSV file not found at {csv_path}, creating new one")
+            ensure_transaction_csv_exists()
+            return jsonify([])  # Return empty array if no transactions
+            
+        # Try to read the file
+        with open(csv_path, 'r') as file:
             reader = csv.DictReader(file)
+            
+            # Check if reader has fieldnames
+            if not reader.fieldnames:
+                app.logger.error("CSV file has no headers")
+                return jsonify([])  # Return empty array if no headers
+                
+            # Print fieldnames for debugging
+            app.logger.info(f"CSV fieldnames: {reader.fieldnames}")
+            
             for row in reader:
+                # Check for valid transaction ID
+                if 'Transaction_ID' not in row or not row['Transaction_ID']:
+                    app.logger.warning("Found row without Transaction_ID, skipping")
+                    continue
+                    
                 # Clean up None values and ensure all keys are strings
                 cleaned_row = {}
                 for key, value in row.items():
@@ -211,11 +283,16 @@ def api_transactions():
                     if value is None:
                         cleaned_row[str(key)] = ""
                     else:
-                        cleaned_row[str(key)] = value
+                        cleaned_row[str(key)] = str(value)
                         
                 txn_data.append(cleaned_row)
-    except FileNotFoundError:
-        pass
+            
+            app.logger.info(f"Loaded {len(txn_data)} transactions from CSV")
+            
+    except Exception as e:
+        app.logger.error(f"Error loading transactions: {str(e)}")
+        # Return empty list on error rather than failing
+        return jsonify([])
     
     return jsonify(txn_data)
 
@@ -258,19 +335,49 @@ def transaction_feedback():
     This enables continuous learning in the fraud detection model by
     allowing admins to correct predictions and improve the model over time.
     """
-    data = request.json
-    
-    if not data or 'transaction_id' not in data or 'is_fraud' not in data:
-        return jsonify({'status': 'error', 'message': 'Invalid feedback data'}), 400
-    
-    transaction_id = data['transaction_id']
-    is_fraud = bool(data['is_fraud'])
-    feedback_source = data.get('source', 'admin')
-    
-    # Add feedback to the model
-    success = predictor.feedback(transaction_id, is_fraud, feedback_source)
-    
-    if success:
+    try:
+        data = request.json
+        app.logger.info(f"Received feedback data: {data}")
+        
+        if not data:
+            app.logger.error("No JSON data received in feedback request")
+            return jsonify({
+                'status': 'error', 
+                'message': 'No data provided'
+            }), 400
+            
+        if 'transaction_id' not in data:
+            app.logger.error("Missing transaction_id in feedback request")
+            return jsonify({
+                'status': 'error', 
+                'message': 'Missing transaction_id field'
+            }), 400
+            
+        if 'is_fraud' not in data:
+            app.logger.error("Missing is_fraud in feedback request")
+            return jsonify({
+                'status': 'error', 
+                'message': 'Missing is_fraud field'
+            }), 400
+        
+        transaction_id = str(data['transaction_id'])
+        is_fraud = bool(data['is_fraud'])
+        feedback_source = data.get('source', 'admin')
+        
+        app.logger.info(f"Processing feedback for transaction {transaction_id}, is_fraud={is_fraud}, source={feedback_source}")
+        
+        # Process the feedback in the predictor
+        # But don't fail if an error occurs
+        try:
+            predictor.feedback(transaction_id, is_fraud, feedback_source)
+            app.logger.info(f"Predictor feedback processed for {transaction_id}")
+        except Exception as e:
+            app.logger.error(f"Error in predictor feedback: {str(e)}")
+            # Continue anyway - we'll update the CSV at least
+        
+        # Update the transaction in the CSV
+        update_transaction_csv(transaction_id, is_fraud)
+        
         return jsonify({
             'status': 'success',
             'message': f'Feedback recorded for transaction {transaction_id}',
@@ -279,11 +386,80 @@ def transaction_feedback():
                 'is_fraud': is_fraud
             }
         })
-    else:
+    except Exception as e:
+        app.logger.error(f"Error processing feedback: {str(e)}")
         return jsonify({
             'status': 'error',
-            'message': f'Unable to process feedback for transaction {transaction_id}'
-        }), 404
+            'message': f'Error processing feedback: {str(e)}'
+        }), 500
+
+def update_transaction_csv(transaction_id, is_fraud):
+    """Update the transaction CSV file with new fraud status from feedback"""
+    app.logger.info(f"Updating CSV for transaction {transaction_id}, is_fraud={is_fraud}")
+    
+    csv_path = 'data/processed_transactions.csv'
+    if not os.path.exists(csv_path):
+        app.logger.error(f"CSV file not found: {csv_path}")
+        ensure_transaction_csv_exists()
+    
+    # Read the existing CSV file
+    rows = []
+    found = False
+    
+    try:
+        with open(csv_path, 'r', newline='') as file:
+            reader = csv.DictReader(file)
+            
+            if not reader.fieldnames:
+                app.logger.error("CSV file has no headers")
+                return
+                
+            fieldnames = reader.fieldnames
+            
+            for row in reader:
+                if row.get('Transaction_ID') == transaction_id:
+                    # Update the fraud status
+                    found = True
+                    app.logger.info(f"Found transaction {transaction_id} in CSV, updating fraud status")
+                    row['Is_Fraud'] = str(is_fraud)
+                    
+                    if is_fraud:
+                        # If marked as fraud but no fraud type, add generic one
+                        if not row.get('Fraud_Type') or row.get('Fraud_Type') == '-':
+                            row['Fraud_Type'] = 'Admin Flagged'
+                    elif not is_fraud and row.get('Fraud_Type') != '-':
+                        # If marked as legitimate, clear fraud type
+                        row['Fraud_Type'] = '-'
+                        
+                rows.append(row)
+        
+        # If transaction not found, add a new entry
+        if not found:
+            app.logger.info(f"Transaction {transaction_id} not found in CSV, adding new entry")
+            
+            new_row = {field: '' for field in fieldnames}  # Initialize with empty values
+            new_row['Transaction_ID'] = transaction_id
+            new_row['Is_Fraud'] = str(is_fraud)
+            new_row['Timestamp'] = datetime.now().isoformat()
+            new_row['Amount'] = '0'  # Default amount
+            new_row['Transaction_Type'] = 'Unknown'
+            new_row['Fraud_Type'] = 'Admin Flagged' if is_fraud else '-'
+            new_row['Fraud_Probability'] = '0.5'  # Default probability
+            new_row['Status'] = 'COMPLETED'  # Mark as completed
+            
+            rows.append(new_row)
+        
+        # Write back to the CSV file
+        with open(csv_path, 'w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+        
+        app.logger.info(f"Successfully updated CSV for transaction {transaction_id}")
+        
+    except Exception as e:
+        app.logger.error(f"Error updating transaction CSV: {str(e)}")
+        raise
 
 # Add model stats endpoint to monitor continuous learning
 @app.route('/api/model_stats', methods=['GET'])
@@ -358,7 +534,7 @@ def admin_login():
     """Admin login page for dashboard access"""
     if request.method == 'POST':
         # Simple password check - in a real app, use proper authentication
-        if request.form.get('password') == 'synthhack_admin':
+        if request.form.get('password') == ADMIN_PASSWORD:
             session['is_admin'] = True
             return redirect(url_for('dashboard'))
         else:

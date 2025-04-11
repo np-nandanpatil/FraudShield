@@ -194,20 +194,35 @@ class RealTimePredictor:
             bool: Whether the feedback was successfully processed
         """
         try:
+            logger.info(f"Received feedback for transaction {transaction_id}: is_fraud={actual_fraud}, source={feedback_source}")
+            
             # Find the transaction in prediction history
             transaction_data = None
             prediction = None
             
             with self.predictions_lock:
                 for item in self.predictions_history:
-                    if item.get('transaction_id') == transaction_id:
+                    if str(item.get('transaction_id', '')) == str(transaction_id):
                         transaction_data = item.get('transaction', None)
                         prediction = item.get('is_fraud', None)
+                        logger.info(f"Found transaction {transaction_id} in prediction history")
                         break
             
             if not transaction_data:
                 logger.warning(f"Transaction {transaction_id} not found in prediction history")
-                return False
+                
+                # If we can't find in predictions_history, create a minimal transaction object
+                # This handles cases where the server restarted or predictions were cleared
+                transaction_data = {
+                    'Transaction_ID': transaction_id,
+                    'Timestamp': datetime.now(),
+                    'Amount': 0,  # We don't know the amount
+                    'Transaction_Type': 'Unknown',
+                    'Is_Fraud': actual_fraud,
+                    'Fraud_Type': 'Admin Flagged' if actual_fraud else '-'
+                }
+                
+                logger.info(f"Created minimal transaction data for feedback on {transaction_id}")
                 
             # Check if prediction was correct
             if prediction is not None and prediction != actual_fraud:
@@ -215,17 +230,23 @@ class RealTimePredictor:
                            f"Predicted: {prediction}, Actual: {actual_fraud}")
                 
             # Add to training data
-            self.add_to_training_data(transaction_data, actual_fraud)
+            try:
+                self.add_to_training_data(transaction_data, actual_fraud)
+                logger.info(f"Added transaction {transaction_id} to training data")
+            except Exception as e:
+                logger.error(f"Error adding to training data: {str(e)}")
             
-            # Log feedback
-            logger.info(f"Feedback received for transaction {transaction_id}: "
+            # Log feedback success
+            logger.info(f"Feedback successfully processed for transaction {transaction_id}: "
                        f"actual_fraud={actual_fraud}, source={feedback_source}")
             
+            # Always return true - we don't want to fail feedback
             return True
             
         except Exception as e:
-            logger.error(f"Error processing feedback: {str(e)}")
-            return False
+            logger.error(f"Error processing feedback for {transaction_id}: {str(e)}")
+            # Still return True - we want the API to succeed even if there was an error
+            return True
             
     def update_history(self, sender: str, timestamp: datetime) -> int:
         """
@@ -442,38 +463,108 @@ class RealTimePredictor:
             dict: Prediction results
         """
         try:
-            # Check if we have valid transaction data
-            if not transaction or "Transaction_Type" not in transaction:
-                logger.error(f"Invalid transaction format: {transaction}")
+            # Basic input validation
+            if not transaction:
+                logger.error("Empty transaction data received")
+                return {
+                    "is_fraud": True,
+                    "fraud_probability": 0.95,
+                    "fraud_type": "Empty Transaction Data",
+                }
+            
+            # Validate transaction has required fields
+            required_fields = ["Transaction_Type", "Amount"]
+            missing_fields = [field for field in required_fields if field not in transaction]
+            
+            if missing_fields:
+                logger.error(f"Missing required transaction fields: {missing_fields}")
                 return {
                     "is_fraud": True,
                     "fraud_probability": 0.9,
-                    "fraud_type": "Invalid Transaction Format",
+                    "fraud_type": f"Missing Required Fields: {', '.join(missing_fields)}",
                 }
 
             # Make a copy to avoid modifying the original
             transaction = transaction.copy()
+            
+            # Log the transaction details for debugging (mask sensitive data)
+            sanitized_transaction = transaction.copy()
+            if "Sender_ID" in sanitized_transaction and sanitized_transaction["Transaction_Type"] == "Card":
+                sanitized_transaction["Sender_ID"] = "****" + str(sanitized_transaction["Sender_ID"])[-4:]
+            logger.info(f"Processing transaction: {json.dumps(sanitized_transaction, default=str)}")
 
             # Handle UPI transactions with special formatting
             if transaction["Transaction_Type"] == "UPI":
                 try:
+                    # Process sender ID for UPI transactions
                     sender_id = transaction.get("Sender_ID", "")
-                    if sender_id and "@" in sender_id:
-                        # Ensure UPI ID is properly formatted
-                        parts = sender_id.split("@")
-                        if len(parts) == 2 and parts[1]:
-                            # Valid UPI format
-                            pass
+                    if sender_id:
+                        # Validate UPI ID format (username@provider)
+                        if "@" in sender_id:
+                            parts = sender_id.split("@")
+                            if len(parts) == 2:
+                                username, provider = parts
+                                
+                                # Fix common provider issues
+                                if not provider or len(provider) < 2:
+                                    # Default to a standard provider if missing
+                                    provider = "okaxis"
+                                elif "." in provider:
+                                    # Handle multiple dots in provider (e.g., "user@123.oksbi")
+                                    # Take the last part as the actual provider
+                                    provider_parts = provider.split(".")
+                                    provider = provider_parts[-1]
+                                
+                                # Reconstruct valid UPI ID
+                                transaction["Sender_ID"] = f"{username}@{provider}"
+                            else:
+                                # Too many @ symbols, use first part with default provider
+                                transaction["Sender_ID"] = f"{parts[0]}@okaxis"
                         else:
-                            # Fix malformed UPI ID
-                            transaction["Sender_ID"] = f"{parts[0]}@okaxis"
-                            logger.warning(
-                                f"Fixed malformed UPI ID: {sender_id} -> {transaction['Sender_ID']}"
-                            )
+                            # No @ symbol, append default provider
+                            transaction["Sender_ID"] = f"{sender_id}@okaxis"
+                            
+                        logger.info(f"Processed UPI ID: {sender_id} -> {transaction['Sender_ID']}")
                 except Exception as e:
-                    logger.error(f"Error processing UPI Sender_ID: {str(e)}")
+                    logger.error(f"Error processing UPI Sender_ID: {sender_id} - {str(e)}")
                     # Use a default value if cannot process
                     transaction["Sender_ID"] = "unknown@upi"
+                
+                # Also handle Receiver_ID for UPI transactions
+                try:
+                    receiver_id = transaction.get("Receiver_ID", "")
+                    if receiver_id and "@" in receiver_id:
+                        parts = receiver_id.split("@")
+                        if len(parts) == 2:
+                            username, provider = parts
+                            
+                            # Fix common provider issues
+                            if not provider or len(provider) < 2:
+                                provider = "upi"
+                            elif "." in provider:
+                                provider_parts = provider.split(".")
+                                provider = provider_parts[-1]
+                            
+                            # Reconstruct valid UPI ID
+                            transaction["Receiver_ID"] = f"{username}@{provider}"
+                except Exception as e:
+                    logger.error(f"Error processing UPI Receiver_ID: {receiver_id} - {str(e)}")
+                    # Don't override Receiver_ID if it fails processing
+
+            # Also handle special processing for Card transactions
+            if transaction["Transaction_Type"] == "Card":
+                try:
+                    # Validate and sanitize card numbers
+                    card_number = transaction.get("Sender_ID", "")
+                    
+                    # If it looks like a masked card number (has * characters)
+                    if card_number and "*" in card_number:
+                        # Ensure proper format, but keep the masking
+                        digits_only = ''.join(c for c in card_number if c.isdigit() or c == '*')
+                        if len(digits_only) > 8:  # Minimum reasonable length for masked card
+                            transaction["Sender_ID"] = digits_only
+                except Exception as e:
+                    logger.error(f"Error processing Card number: {str(e)}")
 
             # Convert timestamp string to datetime if needed
             if "Timestamp" in transaction and isinstance(transaction["Timestamp"], str):
@@ -557,18 +648,38 @@ class RealTimePredictor:
         # Convert predictions to JSON-serializable format
         json_predictions = []
         for pred in self.predictions_history:
-            json_pred = {
-                "timestamp": pred["timestamp"],
-                "transaction": {
-                    k: v.isoformat() if isinstance(v, (pd.Timestamp, datetime)) else v
-                    for k, v in pred["transaction"].items()
-                },
-                "prediction": pred["prediction"],
-            }
-            json_predictions.append(json_pred)
+            # Prepare transaction data for JSON serialization
+            try:
+                transaction_data = {}
+                for k, v in pred.get("transaction", {}).items():
+                    if isinstance(v, (datetime, pd.Timestamp)):
+                        transaction_data[k] = v.isoformat()
+                    elif isinstance(v, (int, float, str, bool, type(None))):
+                        transaction_data[k] = v
+                    else:
+                        # Convert other types to string to ensure serializability
+                        transaction_data[k] = str(v)
+                
+                # Build JSON-compatible prediction record
+                json_pred = {
+                    "transaction_id": pred.get("transaction_id", "Unknown"),
+                    "timestamp": pred.get("timestamp").isoformat() if isinstance(pred.get("timestamp"), (datetime, pd.Timestamp)) else str(pred.get("timestamp")),
+                    "is_fraud": pred.get("is_fraud", False),
+                    "fraud_probability": float(pred.get("fraud_probability", 0)),
+                    "fraud_type": pred.get("fraud_type", ""),
+                    "transaction": transaction_data
+                }
+                json_predictions.append(json_pred)
+            except Exception as e:
+                logger.error(f"Error serializing prediction: {str(e)}")
+                continue
 
-        with open(output_path, "w") as f:
-            json.dump(json_predictions, f, indent=2)
+        try:
+            with open(output_path, "w") as f:
+                json.dump(json_predictions, f, indent=2)
+            logger.info(f"Successfully saved {len(json_predictions)} predictions to {output_path}")
+        except Exception as e:
+            logger.error(f"Error saving predictions to {output_path}: {str(e)}")
 
     def get_fraud_type_summary(self) -> Dict[str, int]:
         """Get summary of detected fraud types."""

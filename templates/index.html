@@ -297,7 +297,7 @@
                     <div class="d-flex justify-content-between mb-3">
                         <span>Product:</span>
                         <span>Demo Product</span>
-                    </div>
+            </div>
                     <div class="d-flex justify-content-between mb-3">
                         <span>Merchant:</span>
                         <span>SynthHack Demo Store</span>
@@ -396,7 +396,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹2,500.00</button>
-                        </form>
+                </form>
                     </div>
                     
                     <!-- Other forms would be defined here -->
@@ -468,7 +468,7 @@
             // Simple regex for UPI ID format validation
             return /^[\w.-]+@[\w.-]+$/.test(upiId);
         }
-        
+
         function getDeviceId() {
             // Simple device ID generation
             if (localStorage.getItem('deviceId')) {
@@ -637,38 +637,38 @@
             
             // Card form submission
             $('#cardForm').on('submit', function(event) {
-                event.preventDefault();
+            event.preventDefault();
                 const cardNumber = $('#cardNumber').val().replace(/\s+/g, '');
                 const cvv = $('#cvv').val();
                 const expiry = $('#expiry').val();
                 const cardHolder = $('#cardHolder').val();
 
-                if (!isValidCardNumber(cardNumber)) {
+            if (!isValidCardNumber(cardNumber)) {
                     alert('Invalid card number. Please check and try again.');
-                    return;
-                }
-                if (!isValidCVV(cvv)) {
+                return;
+            }
+            if (!isValidCVV(cvv)) {
                     alert('Invalid CVV. Must be 3 digits.');
-                    return;
-                }
-                if (!isValidExpiryDate(expiry)) {
+                return;
+            }
+            if (!isValidExpiryDate(expiry)) {
                     alert('Invalid expiry date. Use MM/YY format and ensure date is in the future.');
-                    return;
-                }
+                return;
+            }
 
-                const data = {
+            const data = {
                     Transaction_ID: 'CARD_' + Date.now(),
-                    Timestamp: new Date().toISOString(),
+                Timestamp: new Date().toISOString(),
                     Amount: 2500.00,
                     Sender_ID: cardNumber.substring(0, 6) + '******' + cardNumber.substring(12),
                     Receiver_ID: 'Merchant_SynthHack',
-                    Transaction_Type: 'Card',
-                    Merchant_Type: 'Online',
+                Transaction_Type: 'Card',
+                Merchant_Type: 'Online',
                     Device_ID: getDeviceId(),
                     Location: getLocation()
-                };
+            };
                 
-                processTransaction(data);
+            processTransaction(data);
             });
             
             // UPI form submission
