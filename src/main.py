@@ -196,14 +196,14 @@ def simulate_real_time_detection(model_path="models/fraud_detection_model.pkl",
         result = predictor.predict_transaction(transaction)
         
         # Display result
-        status = "FRAUD DETECTED ❌" if result['Is_Fraud'] else "Legitimate ✓"
-        print(f"  Amount: {result['Amount']:.2f} | {result['Transaction_Type']} | {status}")
+        status = "FRAUD DETECTED ❌" if result['is_fraud'] else "Legitimate ✓"
+        print(f"  Amount: {transaction['Amount']:.2f} | {transaction['Transaction_Type']} | {status}")
         
-        if result['Is_Fraud']:
-            print(f"  Fraud Type: {result['Fraud_Type']}")
-            print(f"  Probability: {result['Fraud_Probability']:.4f}")
+        if result['is_fraud']:
+            print(f"  Fraud Type: {result['fraud_type']}")
+            print(f"  Probability: {result['fraud_probability']:.4f}")
         
-        print(f"  Processing Time: {result['Prediction_Time_ms']:.2f} ms")
+        print(f"  Processing Time: {result['processing_time']:.2f} ms")
         print()
     
     # Save predictions
@@ -212,13 +212,20 @@ def simulate_real_time_detection(model_path="models/fraud_detection_model.pkl",
     # Display summary
     print("\n=== Fraud Detection Summary ===")
     total_txns = len(scenarios)
-    fraud_txns = sum(1 for p in predictor.predictions_history if p['Is_Fraud'])
+    fraud_txns = sum(1 for p in predictor.predictions_history if p['prediction']['is_fraud'])
     print(f"Total Transactions: {total_txns}")
     print(f"Fraudulent Transactions: {fraud_txns} ({fraud_txns/total_txns*100:.1f}%)")
     print("Fraud Types Detected:")
     
-    fraud_summary = predictor.get_fraud_type_summary()
-    for fraud_type, count in fraud_summary.items():
+    # Count fraud types
+    fraud_types = {}
+    for p in predictor.predictions_history:
+        if p['prediction']['is_fraud'] and p['prediction']['fraud_type']:
+            fraud_type = p['prediction']['fraud_type']
+            fraud_types[fraud_type] = fraud_types.get(fraud_type, 0) + 1
+    
+    # Display fraud type summary
+    for fraud_type, count in fraud_types.items():
         print(f"  - {fraud_type}: {count}")
 
 if __name__ == "__main__":

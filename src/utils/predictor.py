@@ -263,8 +263,21 @@ class RealTimePredictor:
     
     def save_predictions(self, output_path: str):
         """Save prediction history to a JSON file."""
+        # Convert predictions to JSON-serializable format
+        json_predictions = []
+        for pred in self.predictions_history:
+            json_pred = {
+                'timestamp': pred['timestamp'],
+                'transaction': {
+                    k: v.isoformat() if isinstance(v, (pd.Timestamp, datetime)) else v
+                    for k, v in pred['transaction'].items()
+                },
+                'prediction': pred['prediction']
+            }
+            json_predictions.append(json_pred)
+            
         with open(output_path, 'w') as f:
-            json.dump(self.predictions_history, f, indent=2)
+            json.dump(json_predictions, f, indent=2)
     
     def get_fraud_type_summary(self) -> Dict[str, int]:
         """Get summary of detected fraud types."""
