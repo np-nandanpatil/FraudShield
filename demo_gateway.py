@@ -250,6 +250,58 @@ def api_fraud_stats():
             'fraud_types': {}
         })
 
+@app.route('/api/feedback', methods=['POST'])
+@admin_required
+def transaction_feedback():
+    """API endpoint to provide feedback on transaction classification
+    
+    This enables continuous learning in the fraud detection model by
+    allowing admins to correct predictions and improve the model over time.
+    """
+    data = request.json
+    
+    if not data or 'transaction_id' not in data or 'is_fraud' not in data:
+        return jsonify({'status': 'error', 'message': 'Invalid feedback data'}), 400
+    
+    transaction_id = data['transaction_id']
+    is_fraud = bool(data['is_fraud'])
+    feedback_source = data.get('source', 'admin')
+    
+    # Add feedback to the model
+    success = predictor.feedback(transaction_id, is_fraud, feedback_source)
+    
+    if success:
+        return jsonify({
+            'status': 'success',
+            'message': f'Feedback recorded for transaction {transaction_id}',
+            'data': {
+                'transaction_id': transaction_id,
+                'is_fraud': is_fraud
+            }
+        })
+    else:
+        return jsonify({
+            'status': 'error',
+            'message': f'Unable to process feedback for transaction {transaction_id}'
+        }), 404
+
+# Add model stats endpoint to monitor continuous learning
+@app.route('/api/model_stats', methods=['GET'])
+@admin_required
+def model_stats():
+    """API endpoint for model statistics and continuous learning info"""
+    return jsonify({
+        'model_info': {
+            'last_retrained': predictor.last_retrain_time.isoformat(),
+            'training_data_size': len(predictor.training_data),
+            'min_samples_needed': predictor.min_samples_for_retraining,
+            'next_retrain_due': (predictor.last_retrain_time + predictor.retrain_interval).isoformat(),
+            'continuous_learning_enabled': predictor.continuous_learning_enabled
+        },
+        'fraud_types': predictor.get_fraud_type_summary(),
+        'predictions_count': len(predictor.predictions_history)
+    })
+
 def log_transaction(transaction_data, result, status):
     """Log transaction to CSV file"""
     # Ensure CSV file exists
