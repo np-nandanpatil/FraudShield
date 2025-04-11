@@ -4,6 +4,11 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import os
 from typing import Dict, Any
+from datetime import datetime, timedelta
+
+# Add module path
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 class FeatureEngineer:
     def __init__(self):
@@ -136,7 +141,8 @@ class FeatureEngineer:
         data["Is_Recent"] = (data["Time_Diff_Hours"] <= 1).astype(int)
         data["Recent_Txn_Count"] = data.groupby("Sender_ID")["Is_Recent"].cumsum()
         
-        if "Txn_Count_Last_10_Min" in data.columns:
+        # Only use Txn_Count_Last_10_Min if it exists and Recent_Txn_Count is not already set
+        if "Txn_Count_Last_10_Min" in data.columns and "Recent_Txn_Count" not in data.columns:
             data["Recent_Txn_Count"] = data["Txn_Count_Last_10_Min"]
         
         # Amount-based features
@@ -151,7 +157,26 @@ class FeatureEngineer:
         
         # Location-based features
         data["Prev_Location"] = data.groupby("Sender_ID")["Location"].shift(1)
-        data["Is_Unusual_Location"] = (data["Location"] != data["Prev_Location"]).astype(int)
+        
+        def calculate_distance(loc1, loc2):
+            try:
+                if pd.isna(loc1) or pd.isna(loc2):
+                    return float('inf')
+                lat1, lon1 = map(float, loc1.split(','))
+                lat2, lon2 = map(float, loc2.split(','))
+                # Simple Euclidean distance - can be replaced with Haversine formula for more accuracy
+                return ((lat2 - lat1) ** 2 + (lon2 - lon1) ** 2) ** 0.5
+            except:
+                return float('inf')
+        
+        data["Location_Distance"] = data.apply(
+            lambda x: calculate_distance(x["Location"], x["Prev_Location"]), axis=1
+        )
+        
+        # Consider location unusual if distance is greater than 100km and time difference is less than 24 hours
+        data["Time_Diff_Hours"] = data.groupby("Sender_ID")["Timestamp"].diff().dt.total_seconds() / 3600
+        data["Is_Unusual_Location"] = ((data["Location_Distance"] > 100) & 
+                                     (data["Time_Diff_Hours"] < 24)).astype(int)
         data["Is_Unusual_Location"] = data["Is_Unusual_Location"].fillna(0)
         
         # Receiver-based features

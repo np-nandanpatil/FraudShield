@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Successful - SynthHack Payment Gateway</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { margin-top: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header { background-color: #007bff; color: white; padding: 20px; margin-bottom: 30px; border-radius: 5px; }
+        .success-icon { font-size: 80px; color: #28a745; text-align: center; margin: 20px 0; }
+        .receipt { background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-top: 20px; }
+        .receipt-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #dee2e6; }
+        .receipt-row:last-child { border-bottom: none; }
+        .receipt-label { font-weight: bold; }
+        .merchant-logo { text-align: center; margin-bottom: 20px; }
+        .merchant-logo img { max-height: 60px; }
+        .security-info { margin-top: 30px; padding: 15px; border: 1px solid #dee2e6; border-radius: 5px; }
+        .security-info h6 { color: #6c757d; }
+        .security-info i { color: #28a745; margin-right: 5px; }
+        @media print {
+            .no-print { display: none; }
+            .card { box-shadow: none; }
+            body { background-color: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header no-print">
+            <h1 class="text-center">SynthHack Payment Gateway</h1>
+            <p class="text-center">Secure Payments with Real-time Fraud Detection</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                <h3 class="text-center text-success">Payment Successful!</h3>
+                <p class="text-center">Your transaction has been completed successfully.</p>
+                
+                <div class="merchant-logo">
+                    <img src="https://via.placeholder.com/200x60?text=Merchant+Logo" alt="Merchant Logo">
+                </div>
+                
+                <div class="receipt">
+                    <h5 class="mb-3">Payment Receipt</h5>
+                    
+                    <div class="receipt-row">
+                        <span class="receipt-label">Transaction ID:</span>
+                        <span>{{ transaction.data.Transaction_ID }}</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Date & Time:</span>
+                        <span>{{ transaction.data.Timestamp }}</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Payment Method:</span>
+                        <span>{{ transaction.data.Transaction_Type }}</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Amount:</span>
+                        <span>₹{{ transaction.data.Amount }}</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Merchant:</span>
+                        <span>{{ transaction.data.Receiver_ID }}</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Status:</span>
+                        <span class="text-success">COMPLETED</span>
+                    </div>
+                </div>
+                
+                <div class="security-info">
+                    <h6>Fraud Detection Results:</h6>
+                    <p><i class="fas fa-shield-alt"></i> This transaction was analyzed by our fraud detection system and cleared as legitimate.</p>
+                    <p><i class="fas fa-chart-line"></i> Fraud Probability: <span class="text-success">{{ "%.2f"|format(transaction.result.fraud_probability*100) }}%</span></p>
+                </div>
+                
+                <div class="text-center mt-4 no-print">
+                    <button class="btn btn-outline-secondary" onclick="window.print()">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+            <div class="card-footer text-center no-print">
+                <small class="text-muted">
+                    This transaction is secured by SynthHack Fraud Detection Technology
+                </small>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4 no-print">
+            <img src="https://via.placeholder.com/300x40?text=Secure+Payment+Partners" alt="Payment Partners">
+        </div>
+    </div>
+</body>
+</html> 

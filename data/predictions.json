@@ -1,9 +1,9 @@
 [
   {
-    "timestamp": "2025-04-11T17:18:58.209456",
+    "timestamp": "2025-04-11T18:50:04.149661",
     "transaction": {
       "Transaction_ID": "Test_Phishing",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 6500,
       "Sender_ID": "User_1",
       "Receiver_ID": "Suspicious_001",
@@ -17,14 +17,14 @@
       "is_fraud": true,
       "fraud_probability": 0.86,
       "fraud_type": "Phishing Link",
-      "processing_time": 0.0290524959564209
+      "processing_time": 0.19241786003112793
     }
   },
   {
-    "timestamp": "2025-04-11T17:18:58.735746",
+    "timestamp": "2025-04-11T18:50:04.821945",
     "transaction": {
       "Transaction_ID": "Test_QR_Scam",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 2500,
       "Sender_ID": "User_1",
       "Receiver_ID": "Merchant_123",
@@ -38,14 +38,14 @@
       "is_fraud": true,
       "fraud_probability": 0.41,
       "fraud_type": "QR Code Scam",
-      "processing_time": 0.024517059326171875
+      "processing_time": 0.15320253372192383
     }
   },
   {
-    "timestamp": "2025-04-11T17:18:59.264172",
+    "timestamp": "2025-04-11T18:50:05.474307",
     "transaction": {
       "Transaction_ID": "Test_SIM_Swap",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 4000,
       "Sender_ID": "User_1",
       "Receiver_ID": "Merchant_456",
@@ -59,14 +59,14 @@
       "is_fraud": true,
       "fraud_probability": 0.86,
       "fraud_type": "Fake UPI App",
-      "processing_time": 0.026062965393066406
+      "processing_time": 0.1501157283782959
     }
   },
   {
-    "timestamp": "2025-04-11T17:18:59.791295",
+    "timestamp": "2025-04-11T18:50:06.297515",
     "transaction": {
       "Transaction_ID": "Test_Fake_UPI_App",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 3500,
       "Sender_ID": "User_1",
       "Receiver_ID": "Merchant_789",
@@ -80,14 +80,14 @@
       "is_fraud": true,
       "fraud_probability": 0.84,
       "fraud_type": "Fake UPI App",
-      "processing_time": 0.02453303337097168
+      "processing_time": 0.3213214874267578
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:00.318721",
+    "timestamp": "2025-04-11T18:50:06.908636",
     "transaction": {
       "Transaction_ID": "Test_Small_Testing",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 5,
       "Sender_ID": "User_1",
       "Receiver_ID": "Merchant_101",
@@ -101,14 +101,14 @@
       "is_fraud": true,
       "fraud_probability": 0.41,
       "fraud_type": "QR Code Scam",
-      "processing_time": 0.024361371994018555
+      "processing_time": 0.10357832908630371
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:00.846086",
+    "timestamp": "2025-04-11T18:50:07.524896",
     "transaction": {
       "Transaction_ID": "Test_Card_Skimming",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 8500,
       "Sender_ID": "User_2",
       "Receiver_ID": "Merchant_202",
@@ -122,14 +122,14 @@
       "is_fraud": true,
       "fraud_probability": 0.45,
       "fraud_type": "Card Skimming",
-      "processing_time": 0.025582075119018555
+      "processing_time": 0.11390280723571777
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:01.373374",
+    "timestamp": "2025-04-11T18:50:08.326932",
     "transaction": {
       "Transaction_ID": "Test_Data_Breach",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 4500,
       "Sender_ID": "User_2",
       "Receiver_ID": "Merchant_303",
@@ -143,14 +143,14 @@
       "is_fraud": true,
       "fraud_probability": 0.45,
       "fraud_type": "SIM Swap",
-      "processing_time": 0.025523900985717773
+      "processing_time": 0.30032801628112793
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:01.905054",
+    "timestamp": "2025-04-11T18:50:08.901413",
     "transaction": {
       "Transaction_ID": "Test_Unusual_Location",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 6000,
       "Sender_ID": "User_2",
       "Receiver_ID": "Merchant_404",
@@ -164,14 +164,14 @@
       "is_fraud": true,
       "fraud_probability": 0.45,
       "fraud_type": "Small Testing",
-      "processing_time": 0.029054880142211914
+      "processing_time": 0.07075929641723633
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:02.431726",
+    "timestamp": "2025-04-11T18:50:09.453286",
     "transaction": {
       "Transaction_ID": "Test_CNP_Fraud",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 9500,
       "Sender_ID": "User_2",
       "Receiver_ID": "Merchant_505",
@@ -185,14 +185,14 @@
       "is_fraud": true,
       "fraud_probability": 0.45,
       "fraud_type": "Card Skimming",
-      "processing_time": 0.024298667907714844
+      "processing_time": 0.050609588623046875
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:02.960601",
+    "timestamp": "2025-04-11T18:50:10.060298",
     "transaction": {
       "Transaction_ID": "Test_Legitimate_UPI",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 250,
       "Sender_ID": "User_3",
       "Receiver_ID": "Merchant_606",
@@ -206,14 +206,14 @@
       "is_fraud": false,
       "fraud_probability": 0.0,
       "fraud_type": null,
-      "processing_time": 0.02702641487121582
+      "processing_time": 0.10467147827148438
     }
   },
   {
-    "timestamp": "2025-04-11T17:19:03.488912",
+    "timestamp": "2025-04-11T18:50:10.653971",
     "transaction": {
       "Transaction_ID": "Test_Legitimate_Card",
-      "Timestamp": "2025-04-11T17:18:57",
+      "Timestamp": "2025-04-11T18:50:03",
       "Amount": 1200,
       "Sender_ID": "User_3",
       "Receiver_ID": "Merchant_707",
@@ -227,7 +227,7 @@
       "is_fraud": false,
       "fraud_probability": 0.0,
       "fraud_type": null,
-      "processing_time": 0.027077436447143555
+      "processing_time": 0.0915219783782959
     }
   }
 ]

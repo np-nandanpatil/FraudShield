@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify OTP - Payment Gateway</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { margin-top: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header { background-color: #007bff; color: white; padding: 20px; margin-bottom: 30px; border-radius: 5px; }
+        .form-control-lg { font-size: 24px; letter-spacing: 10px; text-align: center; }
+        .timer { font-size: 18px; color: #dc3545; text-align: center; margin-bottom: 20px; }
+        .bank-logo { text-align: center; margin-bottom: 20px; }
+        .bank-logo img { max-height: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">Secure Payment Verification</h1>
+            <p class="text-center">Powered by SynthHack Fraud Detection</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">OTP Verification</h4>
+            </div>
+            <div class="card-body">
+                <div class="bank-logo">
+                    <img src="https://via.placeholder.com/200x60?text=Bank+Logo" alt="Bank Logo">
+                </div>
+                
+                <p class="lead text-center">
+                    A One-Time Password (OTP) has been sent to your registered mobile number
+                </p>
+                
+                <div class="timer" id="timer">Time remaining: 05:00</div>
+                
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {% endif %}
+                
+                <form method="post" action="/verify_otp/{{ txn_id }}">
+                    <div class="form-group">
+                        <label for="otp">Enter OTP</label>
+                        <input type="text" class="form-control form-control-lg" id="otp" name="otp" maxlength="6" placeholder="******" required autofocus>
+                        <small class="form-text text-muted">
+                            For demo purposes, the OTP is <strong>123456</strong>
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Verify &amp; Complete Payment</button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="#" class="btn btn-link">Resend OTP</a>
+                        <a href="/" class="btn btn-link text-danger">Cancel Payment</a>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <small class="text-muted">
+                    This is a secure 3D Secure 2.0 verification page. Do not share your OTP with anyone.
+                </small>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <img src="https://via.placeholder.com/300x40?text=Secure+Payment+Partners" alt="Payment Partners">
+        </div>
+    </div>
+    
+    <script>
+        // Timer functionality
+        let timeLeft = 300; // 5 minutes in seconds
+        const timerElement = document.getElementById('timer');
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            timerElement.textContent = `Time remaining: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                timerElement.textContent = 'Time expired! Please request a new OTP.';
+                document.querySelector('button[type="submit"]').disabled = true;
+            } else {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+        
+        updateTimer();
+    </script>
+</body>
+</html> 

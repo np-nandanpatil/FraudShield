@@ -10,6 +10,13 @@ from collections import defaultdict
 from typing import Dict, List, Any
 import logging
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 class RealTimePredictor:
     """Real-time fraud prediction system"""
     
@@ -22,17 +29,25 @@ class RealTimePredictor:
             feature_engineer_path (str): Path to the saved feature engineer
             threshold (float): Decision threshold for fraud classification
         """
-        if not os.path.exists(model_path):
-            raise FileNotFoundError(f"Model file not found: {model_path}")
-        if not os.path.exists(feature_engineer_path):
-            raise FileNotFoundError(f"Feature engineer file not found: {feature_engineer_path}")
+        try:
+            if not os.path.exists(model_path):
+                raise FileNotFoundError(f"Model file not found: {model_path}")
+            if not os.path.exists(feature_engineer_path):
+                raise FileNotFoundError(f"Feature engineer file not found: {feature_engineer_path}")
+                
+            self.model = joblib.load(model_path)
+            self.feature_engineer = joblib.load(feature_engineer_path)
+            self.threshold = threshold
+            self.predictions_history = []
+            self.user_history = defaultdict(list)
+            self.history_lock = threading.Lock()
+            self.predictions_lock = threading.Lock()
             
-        self.model = joblib.load(model_path)
-        self.feature_engineer = joblib.load(feature_engineer_path)
-        self.threshold = threshold
-        self.predictions_history = []
-        self.user_history = defaultdict(list)
-        self.history_lock = threading.Lock()
+            logger.info("RealTimePredictor initialized successfully")
+            
+        except Exception as e:
+            logger.error(f"Error initializing RealTimePredictor: {str(e)}")
+            raise
         
     def update_history(self, sender: str, timestamp: datetime) -> int:
         """
@@ -54,6 +69,14 @@ class RealTimePredictor:
             ]
             # Add new transaction
             self.user_history[sender].append(timestamp)
+            
+            # Clean up old users (no transactions in last 24 hours)
+            old_cutoff = timestamp - timedelta(hours=24)
+            self.user_history = {
+                user: times for user, times in self.user_history.items()
+                if any(t > old_cutoff for t in times)
+            }
+            
             return len(self.user_history[sender])
     
     def _infer_fraud_type(self, transaction: Dict[str, Any], fraud_prob: float) -> str:
@@ -67,6 +90,18 @@ class RealTimePredictor:
         Returns:
             str: Inferred fraud type
         """
+        # Get transaction type
+        transaction_type = transaction.get('Transaction_Type', 'Unknown')
+        
+        # Define which fraud types apply to which transaction types
+        transaction_type_mapping = {
+            'UPI': ['Phishing Link', 'QR Code Scam', 'SIM Swap', 'Fake UPI App', 'Small Testing', 'Unusual Location'],
+            'Card': ['Card Skimming', 'Data Breach Reuse', 'CNP Fraud', 'Unusual Location', 'Small Testing']
+        }
+        
+        # Default to all fraud types if transaction type is unknown
+        applicable_fraud_types = transaction_type_mapping.get(transaction_type, list(transaction_type_mapping['UPI'] + transaction_type_mapping['Card']))
+        
         # Feature weights for different fraud types
         fraud_weights = {
             'Phishing Link': {
@@ -117,9 +152,15 @@ class RealTimePredictor:
             }
         }
         
-        # Calculate scores for each fraud type
+        # Calculate scores for each applicable fraud type
         fraud_scores = {}
-        for fraud_type, weights in fraud_weights.items():
+        
+        # Only consider fraud types applicable to this transaction type
+        for fraud_type in applicable_fraud_types:
+            if fraud_type not in fraud_weights:
+                continue
+                
+            weights = fraud_weights[fraud_type]
             score = 0
             for feature, weight in weights.items():
                 if feature == 'Amount':
@@ -159,7 +200,14 @@ class RealTimePredictor:
         # Return the fraud type with highest score
         if fraud_scores:
             return max(fraud_scores.items(), key=lambda x: x[1])[0]
-        return "Unknown Fraud Type"
+            
+        # If no applicable fraud type has a score, return a generic fraud type based on transaction type
+        if transaction_type == 'Card':
+            return "Suspicious Card Transaction"
+        elif transaction_type == 'UPI':
+            return "Suspicious UPI Transaction"
+        else:
+            return "Unknown Fraud Type"
     
     def _process_transaction(self, txn_df):
         """
@@ -193,7 +241,7 @@ class RealTimePredictor:
             return X
             
         except Exception as e:
-            logging.error(f"Error processing transaction: {str(e)}")
+            logger.error(f"Error processing transaction: {str(e)}")
             # Return a DataFrame with default values
             return pd.DataFrame([[0] * len(self.feature_engineer.encoded_cols)],
                               columns=self.feature_engineer.encoded_cols)
@@ -216,7 +264,11 @@ class RealTimePredictor:
             
             # Ensure Timestamp is properly formatted
             if isinstance(transaction_copy.get('Timestamp'), str):
-                transaction_copy['Timestamp'] = pd.to_datetime(transaction_copy['Timestamp'])
+                try:
+                    transaction_copy['Timestamp'] = pd.to_datetime(transaction_copy['Timestamp'])
+                except Exception as e:
+                    logger.warning(f"Error parsing timestamp: {str(e)}. Using current time.")
+                    transaction_copy['Timestamp'] = datetime.now()
             elif transaction_copy.get('Timestamp') is None:
                 transaction_copy['Timestamp'] = datetime.now()
             
@@ -242,17 +294,23 @@ class RealTimePredictor:
                 'processing_time': time.time() - start_time
             }
             
-            # Add to history
-            self.predictions_history.append({
-                'timestamp': datetime.now().isoformat(),
-                'transaction': transaction_copy,
-                'prediction': result
-            })
+            # Add to history with thread safety
+            with self.predictions_lock:
+                self.predictions_history.append({
+                    'timestamp': datetime.now().isoformat(),
+                    'transaction': transaction_copy,
+                    'prediction': result
+                })
+                
+                # Keep only last 1000 predictions to prevent memory issues
+                if len(self.predictions_history) > 1000:
+                    self.predictions_history = self.predictions_history[-1000:]
             
+            logger.info(f"Transaction {transaction_copy.get('Transaction_ID', 'Unknown')} processed successfully")
             return result
             
         except Exception as e:
-            logging.error(f"Error processing transaction: {str(e)}")
+            logger.error(f"Error processing transaction: {str(e)}")
             return {
                 'is_fraud': False,
                 'fraud_probability': 0.0,
