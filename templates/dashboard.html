@@ -2,59 +2,268 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Gateway Dashboard</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .card { margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .header { background-color: #007bff; color: white; padding: 20px; margin-bottom: 30px; border-radius: 5px; }
-        .stat-card { text-align: center; padding: 20px; }
-        .stat-value { font-size: 2rem; font-weight: bold; }
-        .fraud { color: #dc3545; }
-        .legitimate { color: #28a745; }
-        .table-responsive { margin-top: 20px; }
-        .chart-container { height: 300px; margin-bottom: 30px; }
+        :root {
+            --bg-dark: #121212;
+            --card-bg: rgba(40, 40, 40, 0.8);
+            --primary: #6C63FF;
+            --secondary: #32CCBC;
+            --success: #56E39F;
+            --danger: #FF5C5C;
+            --warning: #FFC857;
+            --text: #F8F9FA;
+            --text-muted: #ADB5BD;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background-color: var(--bg-dark);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(50, 204, 188, 0.08) 0%, transparent 35%);
+            min-height: 100vh;
+        }
+        
+        .container { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .header {
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            height: 100%;
+            border-left: 4px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .fraud {
+            color: var(--danger);
+            background: linear-gradient(to right, var(--danger), #ff8a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .legitimate {
+            color: var(--success);
+            background: linear-gradient(to right, var(--success), #a1ffc3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .chart-container {
+            height: 330px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .card-header {
+            background: rgba(30, 30, 30, 0.6);
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .card-body {
+            padding: 24px;
+        }
+        
+        .table {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table td {
+            border-color: rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        .badge {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background-color: rgba(86, 227, 159, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(86, 227, 159, 0.3);
+        }
+        
+        .badge-danger {
+            background-color: rgba(255, 92, 92, 0.2);
+            color: var(--danger);
+            border: 1px solid rgba(255, 92, 92, 0.3);
+        }
+        
+        .badge-warning {
+            background-color: rgba(255, 200, 87, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(255, 200, 87, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #7A70FF);
+            border: none;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 24px;
+            border-radius: 10px;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7A70FF, var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .stat-card {
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 class="text-center">Payment Gateway Dashboard</h1>
-            <p class="text-center">Fraud Detection Statistics and Transaction History</p>
+        <div class="header glass-card">
+            <h1>Payment Gateway Dashboard</h1>
+            <p class="mb-0">Fraud Detection Statistics and Transaction History</p>
+            
+            <!-- Add admin indicator and logout -->
+            <div class="mt-3">
+                <span class="badge bg-primary">
+                    <i class="fas fa-user-shield me-1"></i> Admin Access
+                </span>
+                <a href="/admin/logout" class="btn btn-sm btn-outline-light ms-2">
+                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </a>
+            </div>
         </div>
         
         <div class="row">
             <div class="col-md-3">
-                <div class="card stat-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Transactions</h5>
+                <div class="glass-card stat-card" style="border-color: var(--primary);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Total Transactions</h5>
                         <div class="stat-value" id="total-transactions">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-exchange-alt fa-lg text-primary"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card stat-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Fraud Detected</h5>
+                <div class="glass-card stat-card" style="border-color: var(--danger);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Fraud Detected</h5>
                         <div class="stat-value fraud" id="fraud-count">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-shield-alt fa-lg text-danger"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card stat-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Legitimate</h5>
+                <div class="glass-card stat-card" style="border-color: var(--success);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Legitimate</h5>
                         <div class="stat-value legitimate" id="legitimate-count">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-check-circle fa-lg text-success"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card stat-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Fraud Rate</h5>
+                <div class="glass-card stat-card" style="border-color: var(--warning);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Fraud Rate</h5>
                         <div class="stat-value" id="fraud-rate">0%</div>
+                        <div class="mt-3">
+                            <i class="fas fa-chart-pie fa-lg text-warning"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,9 +271,9 @@
         
         <div class="row">
             <div class="col-md-6">
-                <div class="card">
+                <div class="glass-card">
                     <div class="card-header">
-                        Fraud Types Distribution
+                        <i class="fas fa-chart-pie me-2"></i> Fraud Types Distribution
                     </div>
                     <div class="card-body">
                         <div class="chart-container">
@@ -74,9 +283,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card">
+                <div class="glass-card">
                     <div class="card-header">
-                        Transaction Volume
+                        <i class="fas fa-chart-bar me-2"></i> Transaction Volume
                     </div>
                     <div class="card-body">
                         <div class="chart-container">
@@ -87,9 +296,9 @@
             </div>
         </div>
         
-        <div class="card">
+        <div class="glass-card">
             <div class="card-header">
-                Recent Transactions
+                <i class="fas fa-history me-2"></i> Recent Transactions
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -115,32 +324,52 @@
         </div>
         
         <div class="text-center mt-4">
-            <a href="/" class="btn btn-primary">Back to Payment Gateway</a>
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home me-2"></i> Back to Payment Gateway
+            </a>
         </div>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script>
+        // Apply Chart.js dark mode globally
+        Chart.defaults.color = 'rgba(248, 249, 250, 0.7)';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+        Chart.defaults.font.family = "'Inter', 'Segoe UI', sans-serif";
+        
         $(document).ready(function() {
-            // Fetch transaction data
-            $.getJSON('/api/transactions', function(data) {
-                populateTransactionTable(data);
-            });
+            // Fetch transaction data with animation
+            setTimeout(() => {
+                $.getJSON('/api/transactions', function(data) {
+                    populateTransactionTable(data);
+                });
+            }, 300);
             
-            // Fetch fraud statistics
-            $.getJSON('/api/fraud_stats', function(data) {
-                updateDashboardStats(data);
-                createFraudTypesChart(data.fraud_types);
-            });
+            // Fetch fraud statistics with animation
+            setTimeout(() => {
+                $.getJSON('/api/fraud_stats', function(data) {
+                    updateDashboardStats(data);
+                    createFraudTypesChart(data.fraud_types);
+                });
+            }, 600);
         });
         
         function populateTransactionTable(transactions) {
             const tableBody = $('#transactions-table');
             tableBody.empty();
             
-            transactions.slice(0, 20).forEach(function(txn) {
-                const row = $('<tr>');
+            if (!transactions || transactions.length === 0) {
+                tableBody.append(`
+                    <tr>
+                        <td colspan="8" class="text-center py-4">No transactions found</td>
+                    </tr>
+                `);
+                return;
+            }
+            
+            transactions.slice(0, 20).forEach(function(txn, index) {
+                const row = $('<tr>').addClass('fade-in').css('animation-delay', (index * 0.05) + 's');
                 const isFraud = txn.Is_Fraud === 'True';
                 
                 row.append($('<td>').text(txn.Transaction_ID));
@@ -177,15 +406,39 @@
         }
         
         function updateDashboardStats(stats) {
-            $('#total-transactions').text(stats.total_transactions);
-            $('#fraud-count').text(stats.fraud_count);
-            $('#legitimate-count').text(stats.total_transactions - stats.fraud_count);
-            $('#fraud-rate').text(stats.fraud_percentage + '%');
+            // Animate counter increments
+            animateCounter('total-transactions', 0, stats.total_transactions, 1500);
+            animateCounter('fraud-count', 0, stats.fraud_count, 1500);
+            animateCounter('legitimate-count', 0, stats.total_transactions - stats.fraud_count, 1500);
+            animateCounter('fraud-rate', 0, stats.fraud_percentage, 1500, '%');
+        }
+        
+        function animateCounter(elementId, start, end, duration, suffix = '') {
+            const element = document.getElementById(elementId);
+            const range = end - start;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+            
+            const timer = setInterval(function() {
+                current += 1;
+                element.textContent = current + suffix;
+                
+                if (current >= end) {
+                    clearInterval(timer);
+                    element.textContent = end + suffix;
+                }
+            }, stepTime);
         }
         
         function createFraudTypesChart(fraudTypes) {
             const labels = Object.keys(fraudTypes);
             const data = Object.values(fraudTypes);
+            
+            // Custom colors with glassmorphism effect
+            const colors = [
+                '#FF5C5C', '#FFC857', '#56E39F', '#6C63FF', '#32CCBC',
+                '#FF85B3', '#A97FFF', '#60D7FF', '#FFD166', '#FF9057'
+            ];
             
             const ctx = document.getElementById('fraud-types-chart').getContext('2d');
             new Chart(ctx, {
@@ -194,23 +447,70 @@
                     labels: labels,
                     datasets: [{
                         data: data,
-                        backgroundColor: [
-                            '#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997',
-                            '#17a2b8', '#007bff', '#6c757d', '#6f42c1', '#e83e8c'
-                        ]
+                        backgroundColor: colors,
+                        borderColor: 'rgba(40, 40, 40, 0.8)',
+                        borderWidth: 2,
+                        hoverOffset: 15
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    legend: {
-                        position: 'right'
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                padding: 20,
+                                boxWidth: 15,
+                                font: {
+                                    size: 13
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(40, 40, 40, 0.9)',
+                            titleFont: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            padding: 15,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
                     }
                 }
             });
             
-            // Simple transaction volume chart
+            // Transaction volume chart with gradient fill
             const volumeCtx = document.getElementById('transaction-volume-chart').getContext('2d');
+            
+            // Create gradient fills
+            const cardGradient = volumeCtx.createLinearGradient(0, 0, 0, 300);
+            cardGradient.addColorStop(0, 'rgba(108, 99, 255, 0.7)');
+            cardGradient.addColorStop(1, 'rgba(108, 99, 255, 0.1)');
+            
+            const upiGradient = volumeCtx.createLinearGradient(0, 0, 0, 300);
+            upiGradient.addColorStop(0, 'rgba(86, 227, 159, 0.7)');
+            upiGradient.addColorStop(1, 'rgba(86, 227, 159, 0.1)');
+            
+            const netGradient = volumeCtx.createLinearGradient(0, 0, 0, 300);
+            netGradient.addColorStop(0, 'rgba(255, 200, 87, 0.7)');
+            netGradient.addColorStop(1, 'rgba(255, 200, 87, 0.1)');
+            
+            const walletGradient = volumeCtx.createLinearGradient(0, 0, 0, 300);
+            walletGradient.addColorStop(0, 'rgba(50, 204, 188, 0.7)');
+            walletGradient.addColorStop(1, 'rgba(50, 204, 188, 0.1)');
+            
             new Chart(volumeCtx, {
                 type: 'bar',
                 data: {
@@ -223,18 +523,56 @@
                             Math.floor(Math.random() * 30) + 20,
                             Math.floor(Math.random() * 20) + 10
                         ],
-                        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#17a2b8']
+                        backgroundColor: [
+                            cardGradient,
+                            upiGradient,
+                            netGradient,
+                            walletGradient
+                        ],
+                        borderWidth: 0,
+                        borderRadius: 8
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
                             }
-                        }]
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(40, 40, 40, 0.9)',
+                            titleFont: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            padding: 15,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    animation: {
+                        delay: function(context) {
+                            return context.dataIndex * 300;
+                        },
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
                 }
             });

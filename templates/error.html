@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - SynthHack Payment Gateway</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: rgba(40, 40, 40, 0.8);
+            --primary: #6C63FF;
+            --secondary: #32CCBC;
+            --success: #56E39F;
+            --danger: #FF5C5C;
+            --warning: #FFC857;
+            --text: #F8F9FA;
+            --text-muted: #ADB5BD;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background-color: var(--bg-dark);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(50, 204, 188, 0.08) 0%, transparent 35%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .container { 
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .header {
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .error-icon { 
+            font-size: 90px; 
+            color: var(--danger);
+            text-align: center;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #7A70FF);
+            border: none;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7A70FF, var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .error-details {
+            background: rgba(255, 92, 92, 0.1);
+            border-left: 4px solid var(--danger);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            animation: fadeIn 0.5s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .error-code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 90%;
+        }
+        
+        .card-footer {
+            background: rgba(20, 20, 20, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header glass-card">
+            <h1>SynthHack Payment Gateway</h1>
+            <p class="mb-0">Secure Payments with Real-time Fraud Detection</p>
+        </div>
+        
+        <div class="glass-card">
+            <div class="card-body px-4 py-5">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                
+                <h3 class="text-center text-danger mb-3">{{ error_title | default('Oops! Something went wrong') }}</h3>
+                <p class="text-center mb-4">{{ error_message | default('We encountered an error while processing your request.') }}</p>
+                
+                {% if error_details %}
+                <div class="error-details">
+                    <h5 class="mb-3 text-white">Error Details</h5>
+                    <p class="mb-2">{{ error_details }}</p>
+                    {% if error_code %}
+                    <div class="error-code">{{ error_code }}</div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+                <div class="text-center mt-5">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-home me-2"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <small class="text-muted">
+                    If you continue to experience issues, please contact customer support.
+                </small>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <img src="https://via.placeholder.com/300x40?text=Secure+Payment+Partners" alt="Payment Partners" class="img-fluid">
+        </div>
+    </div>
+</body>
+</html> 

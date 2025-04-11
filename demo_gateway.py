@@ -5,11 +5,12 @@ import json
 import random
 import uuid
 from datetime import datetime, timedelta
+from functools import wraps
 
 # Add the project root directory to the Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from flask import Flask, request, jsonify, render_template, session, redirect, url_for
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for, flash
 from src.utils.predictor import RealTimePredictor
 
 app = Flask(__name__)
@@ -22,11 +23,22 @@ predictor = RealTimePredictor('models/fraud_detection_model.pkl', 'models/featur
 transactions_db = {}
 otps = {}
 
+# Add simple authentication decorator
+def admin_required(f):
+    """Decorator to require admin password for dashboard access"""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'is_admin' not in session or not session['is_admin']:
+            return redirect(url_for('admin_login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/dashboard')
+@admin_required
 def dashboard():
     """Payment gateway dashboard showing transaction history"""
     # In a real implementation, this would fetch from a database
@@ -181,6 +193,7 @@ def payment_status(txn_id):
     })
 
 @app.route('/api/transactions', methods=['GET'])
+@admin_required
 def api_transactions():
     """API endpoint for transactions data"""
     txn_data = []
@@ -188,13 +201,26 @@ def api_transactions():
         with open('data/processed_transactions.csv', 'r') as file:
             reader = csv.DictReader(file)
             for row in reader:
-                txn_data.append(row)
+                # Clean up None values and ensure all keys are strings
+                cleaned_row = {}
+                for key, value in row.items():
+                    if key is None:
+                        continue  # Skip None keys
+                    
+                    # Ensure values are properly formatted
+                    if value is None:
+                        cleaned_row[str(key)] = ""
+                    else:
+                        cleaned_row[str(key)] = value
+                        
+                txn_data.append(cleaned_row)
     except FileNotFoundError:
         pass
     
     return jsonify(txn_data)
 
 @app.route('/api/fraud_stats', methods=['GET'])
+@admin_required
 def api_fraud_stats():
     """API endpoint for fraud statistics"""
     try:
@@ -248,7 +274,58 @@ def log_transaction(transaction_data, result, status):
             status
         ])
 
+# Error handlers
+@app.errorhandler(404)
+def page_not_found(e):
+    """Handle 404 errors"""
+    return render_template('error.html', 
+                          error_title="Page Not Found", 
+                          error_message="The page you are looking for does not exist.",
+                          error_code="404"), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    """Handle 500 errors"""
+    return render_template('error.html', 
+                          error_title="Server Error", 
+                          error_message="We're experiencing some technical difficulties.",
+                          error_details="An unexpected error occurred on our servers.",
+                          error_code="500"), 500
+
+@app.errorhandler(403)
+def forbidden(e):
+    """Handle 403 errors"""
+    return render_template('error.html', 
+                          error_title="Access Denied", 
+                          error_message="You do not have permission to access this resource.",
+                          error_code="403"), 403
+
+# Add admin login route
+@app.route('/admin', methods=['GET', 'POST'])
+def admin_login():
+    """Admin login page for dashboard access"""
+    if request.method == 'POST':
+        # Simple password check - in a real app, use proper authentication
+        if request.form.get('password') == 'synthhack_admin':
+            session['is_admin'] = True
+            return redirect(url_for('dashboard'))
+        else:
+            return render_template('admin_login.html', error="Invalid password")
+    return render_template('admin_login.html')
+
+# Add admin logout route
+@app.route('/admin/logout')
+def admin_logout():
+    """Admin logout"""
+    session.pop('is_admin', None)
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
-    # Ensure CSV exists before starting server
+    # Ensure data directory exists
+    os.makedirs('data', exist_ok=True)
+    
+    # Ensure transaction CSV exists
     ensure_transaction_csv_exists()
+    
+    # Run the Flask app in debug mode
     app.run(debug=True) 
