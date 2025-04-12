@@ -467,8 +467,8 @@ class RealTimePredictor:
             if not transaction:
                 logger.error("Empty transaction data received")
                 return {
-                    "is_fraud": True,
-                    "fraud_probability": 0.95,
+                    "is_fraud": False,  # Changed to False - empty data shouldn't auto-block
+                    "fraud_probability": 0.5,
                     "fraud_type": "Empty Transaction Data",
                 }
             
@@ -479,13 +479,52 @@ class RealTimePredictor:
             if missing_fields:
                 logger.error(f"Missing required transaction fields: {missing_fields}")
                 return {
-                    "is_fraud": True,
-                    "fraud_probability": 0.9,
+                    "is_fraud": False,  # Changed to False - missing fields shouldn't auto-block
+                    "fraud_probability": 0.5,
                     "fraud_type": f"Missing Required Fields: {', '.join(missing_fields)}",
                 }
 
             # Make a copy to avoid modifying the original
             transaction = transaction.copy()
+            
+            # Check for clear fraud patterns
+            amount = float(transaction.get("Amount", 0))
+            location = transaction.get("Location", "")
+            device_id = transaction.get("Device_ID", "")
+            merchant_type = transaction.get("Merchant_Type", "")
+            
+            # Define clear fraud patterns
+            is_suspicious = False
+            fraud_type = ""
+            
+            # Pattern 1: Very high amount (> 50,000)
+            if amount > 50000:
+                is_suspicious = True
+                fraud_type = "Unusually High Amount"
+            
+            # Pattern 2: Foreign location for first time transaction
+            if location and location != "12.9716, 77.5946":  # Not Bangalore
+                if "Recent_Txn_Count" in transaction and transaction["Recent_Txn_Count"] <= 1:
+                    is_suspicious = True
+                    fraud_type = "Unusual Location"
+            
+            # Pattern 3: Unknown device with high amount
+            if "Unknown_Device" in device_id and amount > 10000:
+                is_suspicious = True
+                fraud_type = "Unknown Device High Value"
+            
+            # Pattern 4: Very small amount testing
+            if amount < 10:
+                is_suspicious = True
+                fraud_type = "Small Testing Transaction"
+            
+            # If clearly suspicious, block immediately
+            if is_suspicious:
+                return {
+                    "is_fraud": True,
+                    "fraud_probability": 0.95,
+                    "fraud_type": fraud_type,
+                }
             
             # Log the transaction details for debugging (mask sensitive data)
             sanitized_transaction = transaction.copy()
@@ -528,7 +567,7 @@ class RealTimePredictor:
                 except Exception as e:
                     logger.error(f"Error processing UPI Sender_ID: {sender_id} - {str(e)}")
                     # Use a default value if cannot process
-                    transaction["Sender_ID"] = "unknown@upi"
+                    transaction["Sender_ID"] = f"{sender_id}@upi"  # Changed to keep original ID
                 
                 # Also handle Receiver_ID for UPI transactions
                 try:
@@ -549,22 +588,8 @@ class RealTimePredictor:
                             transaction["Receiver_ID"] = f"{username}@{provider}"
                 except Exception as e:
                     logger.error(f"Error processing UPI Receiver_ID: {receiver_id} - {str(e)}")
-                    # Don't override Receiver_ID if it fails processing
-
-            # Also handle special processing for Card transactions
-            if transaction["Transaction_Type"] == "Card":
-                try:
-                    # Validate and sanitize card numbers
-                    card_number = transaction.get("Sender_ID", "")
-                    
-                    # If it looks like a masked card number (has * characters)
-                    if card_number and "*" in card_number:
-                        # Ensure proper format, but keep the masking
-                        digits_only = ''.join(c for c in card_number if c.isdigit() or c == '*')
-                        if len(digits_only) > 8:  # Minimum reasonable length for masked card
-                            transaction["Sender_ID"] = digits_only
-                except Exception as e:
-                    logger.error(f"Error processing Card number: {str(e)}")
+                    # Keep original receiver ID
+                    transaction["Receiver_ID"] = receiver_id
 
             # Convert timestamp string to datetime if needed
             if "Timestamp" in transaction and isinstance(transaction["Timestamp"], str):
@@ -598,7 +623,7 @@ class RealTimePredictor:
 
             # Make prediction
             fraud_probability = self.model.predict_proba(X)[0, 1]
-            is_fraud = fraud_probability > self.threshold
+            is_fraud = fraud_probability > 0.7  # Increased threshold to 0.7
 
             # Infer fraud type if predicted as fraud
             fraud_type = ""
@@ -638,8 +663,8 @@ class RealTimePredictor:
         except Exception as e:
             logger.error(f"Error processing transaction: {str(e)}")
             return {
-                "is_fraud": True,  # Fail safe - treat as fraud if we can't process
-                "fraud_probability": 0.9,
+                "is_fraud": False,  # Changed to False - errors shouldn't auto-block
+                "fraud_probability": 0.5,
                 "fraud_type": "Processing Error",
             }
 

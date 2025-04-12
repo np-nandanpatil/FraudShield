@@ -1,501 +1,501 @@
 Transaction_ID,Timestamp,Amount,Sender_ID,Receiver_ID,Transaction_Type,Merchant_Type,Device_ID,Location,Is_Fraud,Status,Fraud_Type,Fraud_Probability
-Txn_02928,2025-04-05 07:22:24,3073.2172254723505,User_474,Merchant_122,UPI,Food,New_Device_11,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.9936
-Txn_04577,2025-04-10 00:05:32,1742.72,User_469,Merchant_428,UPI,Travel,Device_426,"12.9716, 77.5946",0,Success,None,0.1042
-Txn_01409,2025-04-09 23:20:03,1801.57,User_553,Merchant_370,UPI,Food,Device_736,"12.9716, 77.5946",0,Success,None,0.0552
-Txn_00872,2025-04-08 08:49:36,1432.97,User_328,Merchant_16,Card,Travel,Device_1450,"12.9716, 77.5946",0,Success,None,0.1999
-Txn_09889,2025-04-10 03:31:55,1626.22,User_750,Merchant_101,Card,Online_Retail,Device_394,"12.9716, 77.5946",0,Success,None,0.001
-Txn_09140,2025-04-07 01:44:57,5282.044473975892,User_833,Merchant_27,Card,Online_Retail,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Phishing,0.7178
-Txn_02937,2025-04-07 22:53:30,1195.01,User_875,Merchant_249,UPI,Travel,Device_1331,"12.9716, 77.5946",0,Success,None,0.0743
-Txn_04156,2025-03-24 10:58:26,7558.584697648796,User_763,Merchant_33,Card,Retail_Physical,Unknown_Device_12,"12.9716, 77.5946",1,Fraud,Account Takeover,0.795
-Txn_02343,2025-04-08 22:21:41,1388.82,User_562,Merchant_485,Card,Utilities,Device_19,"12.9716, 77.5946",0,Success,None,0.1873
-Txn_05539,2025-04-08 06:44:44,589.38,User_786,Merchant_319,UPI,Entertainment,Device_969,"12.9716, 77.5946",0,Success,None,0.0166
-Txn_02789,2025-03-17 08:43:44,5643.250898033637,User_990,Merchant_61,Card,Entertainment,Device_1778,"35.6762, 139.6503",1,Fraud,Merchant Fraud,0.968
-Txn_05473,2025-04-10 10:01:40,1037.83,User_692,Merchant_441,UPI,Online_Retail,Device_700,"12.9716, 77.5946",0,Success,None,0.1987
-Txn_04652,2025-04-10 00:22:51,360.17,User_327,Merchant_284,UPI,Food,Device_333,"12.9716, 77.5946",0,Success,None,0.1247
-Txn_02656,2025-04-10 11:58:43,1390.22,User_906,Merchant_300,UPI,Entertainment,Device_383,"12.9716, 77.5946",0,Success,None,0.1842
-Txn_02511,2025-04-08 02:37:30,692.87,User_994,Merchant_476,Card,Utilities,Device_1303,"12.9716, 77.5946",0,Success,None,0.0984
-Txn_03481,2025-04-09 01:50:55,1581.87,User_684,Merchant_93,Card,Travel,Device_186,"12.9716, 77.5946",0,Success,None,0.0186
-Txn_01245,2025-04-10 21:09:05,1607.14,User_403,Merchant_63,Card,Entertainment,Device_544,"12.9716, 77.5946",0,Success,None,0.146
-Txn_05923,2025-04-08 06:52:03,1431.25,User_444,Merchant_185,Card,Entertainment,Device_825,"12.9716, 77.5946",0,Success,None,0.0839
-Txn_06741,2025-04-10 05:59:26,1252.2,User_667,Merchant_33,Card,Online_Retail,Device_1259,"12.9716, 77.5946",0,Success,None,0.1066
-Txn_03318,2025-04-08 18:06:17,1095.27,User_420,Merchant_120,UPI,Entertainment,Device_465,"12.9716, 77.5946",0,Success,None,0.0491
-Txn_08170,2025-04-07 19:44:30,461.11,User_101,Merchant_357,Card,Utilities,Device_1285,"12.9716, 77.5946",0,Success,None,0.0905
-Txn_00534,2025-04-11 06:15:37,344.72,User_530,Merchant_165,Card,Food,Device_838,"12.9716, 77.5946",0,Success,None,0.0205
-Txn_06343,2025-04-07 22:41:58,1315.91,User_730,Merchant_305,Card,Food,Device_318,"12.9716, 77.5946",0,Success,None,0.0304
-Txn_03448,2025-04-10 02:47:28,843.21,User_62,Merchant_73,Card,Food,Device_1269,"12.9716, 77.5946",0,Success,None,0.1188
-Txn_00098,2025-04-08 05:19:47,1553.91,User_212,Merchant_110,UPI,Entertainment,Device_1506,"12.9716, 77.5946",0,Success,None,0.0964
-Txn_09949,2025-04-08 01:32:24,478.99,User_412,Merchant_317,UPI,Entertainment,Device_1822,"12.9716, 77.5946",0,Success,None,0.0834
-Txn_03449,2025-04-10 09:14:25,1787.93,User_137,Merchant_234,UPI,Food,Device_1936,"12.9716, 77.5946",0,Success,None,0.0572
-Txn_03893,2025-03-24 02:58:19,5717.633849746876,User_530,Merchant_90,Card,Utilities,Device_1147,"35.6762, 139.6503",1,Fraud,Phishing,0.9825
-Txn_00057,2025-04-09 01:59:58,1141.61,User_462,Merchant_283,UPI,Entertainment,Device_1378,"12.9716, 77.5946",0,Success,None,0.1491
-Txn_08662,2025-04-08 22:48:32,552.75,User_627,Merchant_388,Card,Online_Retail,Device_386,"12.9716, 77.5946",0,Success,None,0.1948
-Txn_08144,2025-04-09 23:32:26,226.88,User_798,Merchant_124,Card,Online_Retail,Device_850,"12.9716, 77.5946",0,Success,None,0.1479
-Txn_06530,2025-04-08 07:03:48,555.27,User_948,Merchant_233,UPI,Utilities,Device_632,"12.9716, 77.5946",0,Success,None,0.059
-Txn_01314,2025-04-11 10:31:41,8092.713572596289,User_719,Merchant_345,Card,Retail_Physical,Unknown_Device_27,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9718
-Txn_00140,2025-04-09 03:03:03,1792.13,User_113,Merchant_382,UPI,Travel,Device_1109,"12.9716, 77.5946",0,Success,None,0.0886
-Txn_08986,2025-04-11 05:56:34,433.25,User_976,Merchant_487,Card,Food,Device_1260,"12.9716, 77.5946",0,Success,None,0.0691
-Txn_03431,2025-04-08 00:37:43,722.43,User_307,Merchant_371,UPI,Food,Device_1966,"12.9716, 77.5946",0,Success,None,0.0484
-Txn_03473,2025-04-10 05:29:26,187.16,User_732,Merchant_278,Card,Utilities,Device_1624,"12.9716, 77.5946",0,Success,None,0.0747
-Txn_05132,2025-04-09 17:13:54,1123.15,User_974,Merchant_172,UPI,Online_Retail,Device_1207,"12.9716, 77.5946",0,Success,None,0.0554
-Txn_02821,2025-04-08 01:07:25,1724.83,User_425,Merchant_221,UPI,Online_Retail,Device_743,"12.9716, 77.5946",0,Success,None,0.1962
-Txn_02160,2025-04-08 01:33:47,781.88,User_329,Merchant_120,UPI,Online_Retail,Device_1158,"12.9716, 77.5946",0,Success,None,0.0655
-Txn_04243,2025-04-06 07:21:21,2764.398661116956,User_809,Merchant_265,UPI,Unknown,Unknown_Device_31,"12.9716, 77.5946",1,Fraud,Phishing,0.992
-Txn_02209,2025-03-24 22:28:00,4.51176715392135,User_155,Merchant_248,UPI,Unknown,Device_1680,"12.9716, 77.5946",1,Fraud,Phishing,0.7913
-Txn_07810,2025-04-11 14:48:58,694.73,User_986,Merchant_53,Card,Online_Retail,Device_783,"12.9716, 77.5946",0,Success,None,0.1651
-Txn_09615,2025-04-10 22:40:37,1690.03,User_552,Merchant_487,UPI,Travel,Device_806,"12.9716, 77.5946",0,Success,None,0.0633
-Txn_09247,2025-04-10 06:20:25,916.08,User_738,Merchant_268,Card,Online_Retail,Device_148,"12.9716, 77.5946",0,Success,None,0.1185
-Txn_06923,2025-03-16 12:23:12,4597.659886564874,User_479,Merchant_113,Card,Travel,Device_1999,"35.6762, 139.6503",1,Fraud,Account Takeover,0.9053
-Txn_01431,2025-04-08 08:22:56,766.2,User_859,Merchant_314,Card,Online_Retail,Device_739,"12.9716, 77.5946",0,Success,None,0.1269
-Txn_04815,2025-04-10 19:06:02,700.98,User_975,Merchant_475,UPI,Travel,Device_904,"12.9716, 77.5946",0,Success,None,0.1975
-Txn_02412,2025-04-11 10:11:03,171.72,User_154,Merchant_357,Card,Utilities,Device_1342,"12.9716, 77.5946",0,Success,None,0.0523
-Txn_02673,2025-04-09 12:34:34,8187.526757580851,User_687,Merchant_71,Card,Online_Retail,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8246
-Txn_09943,2025-04-06 04:17:54,7163.74757676857,User_935,Suspicious_20,UPI,Unknown,Device_1971,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8728
-Txn_02936,2025-04-09 22:13:48,1057.39,User_561,Merchant_156,Card,Travel,Device_1766,"12.9716, 77.5946",0,Success,None,0.0238
-Txn_09422,2025-04-11 09:31:57,1975.68,User_244,Merchant_280,UPI,Food,Device_1316,"12.9716, 77.5946",0,Success,None,0.1822
-Txn_03586,2025-03-26 20:15:10,8650.62402818582,User_951,Merchant_310,Card,Retail_Physical,Unknown_Device_31,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9593
-Txn_03495,2025-04-03 12:42:26,2311.075498828526,User_600,Merchant_374,UPI,Unknown,Unknown_Device_16,"12.9716, 77.5946",1,Fraud,Phishing,0.9525
-Txn_03860,2025-04-11 14:38:11,1229.95,User_725,Merchant_430,Card,Utilities,Device_1998,"12.9716, 77.5946",0,Success,None,0.049
-Txn_00624,2025-04-10 22:20:44,1391.42,User_739,Merchant_426,UPI,Entertainment,Device_819,"12.9716, 77.5946",0,Success,None,0.0567
-Txn_05328,2025-03-11 01:23:58,7005.3067179666,User_374,Merchant_165,Card,Entertainment,Device_1227,"35.6762, 139.6503",1,Fraud,Identity Theft,0.7029
-Txn_07807,2025-03-18 21:33:02,4086.194476610214,User_270,Merchant_171,Card,Online_Retail,Unknown_Device_22,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8233
-Txn_08800,2025-04-08 09:57:12,5337.214219400012,User_879,Merchant_284,Card,Entertainment,Device_1472,"35.6762, 139.6503",1,Fraud,Account Takeover,0.7957
-Txn_03527,2025-03-26 13:22:42,1641.2429198637135,User_408,Merchant_218,UPI,Unknown,Device_451,"12.9716, 77.5946",1,Fraud,Account Takeover,0.922
-Txn_02526,2025-03-27 22:50:52,3181.799219455532,User_830,Merchant_247,UPI,Entertainment,New_Device_13,"-34.6037, -58.3816",1,Fraud,Account Takeover,0.9721
-Txn_00796,2025-04-09 23:58:35,899.65,User_482,Merchant_193,UPI,Food,Device_59,"12.9716, 77.5946",0,Success,None,0.0075
-Txn_01078,2025-04-08 19:48:52,322.36,User_137,Merchant_93,UPI,Utilities,Device_1808,"12.9716, 77.5946",0,Success,None,0.0626
-Txn_07558,2025-03-23 18:43:13,1273.2120411227684,User_749,Merchant_315,UPI,Unknown,Device_1656,"12.9716, 77.5946",1,Fraud,Identity Theft,0.847
-Txn_06916,2025-03-29 22:50:24,2040.748394712574,User_321,Merchant_142,UPI,Unknown,Unknown_Device_1,"12.9716, 77.5946",1,Fraud,Identity Theft,0.851
-Txn_07447,2025-04-08 00:28:59,225.15,User_276,Merchant_345,UPI,Travel,Device_513,"12.9716, 77.5946",0,Success,None,0.1902
-Txn_05800,2025-03-13 17:51:19,1754.442270738316,User_28,Merchant_161,UPI,Unknown,Device_306,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9298
-Txn_08818,2025-04-08 07:35:21,500.96,User_463,Merchant_483,Card,Food,Device_1917,"12.9716, 77.5946",0,Success,None,0.1912
-Txn_00821,2025-04-09 09:46:24,1384.22,User_407,Merchant_421,UPI,Travel,Device_1592,"12.9716, 77.5946",0,Success,None,0.0169
-Txn_08035,2025-04-11 04:44:48,304.66,User_380,Merchant_227,UPI,Online_Retail,Device_1308,"12.9716, 77.5946",0,Success,None,0.1293
-Txn_09165,2025-03-13 00:13:05,2.648372896528516,User_781,Merchant_420,UPI,Unknown,Device_1054,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9375
-Txn_02306,2025-04-10 23:50:29,1615.73,User_189,Merchant_385,UPI,Utilities,Device_1004,"12.9716, 77.5946",0,Success,None,0.0821
-Txn_08282,2025-04-08 02:19:40,1332.51,User_69,Merchant_451,UPI,Online_Retail,Device_379,"12.9716, 77.5946",0,Success,None,0.0443
-Txn_02249,2025-04-10 02:54:45,1345.32,User_690,Merchant_404,UPI,Online_Retail,Device_1965,"12.9716, 77.5946",0,Success,None,0.026
-Txn_02284,2025-03-31 07:53:00,3379.968667943298,User_819,Merchant_453,UPI,Unknown,Unknown_Device_25,"12.9716, 77.5946",1,Fraud,Phishing,0.8562
-Txn_00065,2025-04-09 04:28:08,1809.86,User_542,Merchant_421,UPI,Travel,Device_234,"12.9716, 77.5946",0,Success,None,0.0915
-Txn_05845,2025-04-08 04:08:16,582.0,User_250,Merchant_354,UPI,Entertainment,Device_1424,"12.9716, 77.5946",0,Success,None,0.1362
-Txn_00104,2025-03-16 19:27:58,2.176434067087372,User_637,Merchant_44,UPI,Unknown,Device_1293,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8059
-Txn_00014,2025-04-08 18:58:56,1409.38,User_574,Merchant_292,Card,Utilities,Device_1080,"12.9716, 77.5946",0,Success,None,0.0258
-Txn_01357,2025-04-07 23:49:27,165.97,User_318,Merchant_210,UPI,Online_Retail,Device_38,"12.9716, 77.5946",0,Success,None,0.1869
-Txn_04382,2025-04-09 14:04:58,1038.51,User_32,Merchant_373,Card,Travel,Device_1417,"12.9716, 77.5946",0,Success,None,0.0267
-Txn_08143,2025-04-09 04:49:27,285.28,User_756,Merchant_70,UPI,Online_Retail,Device_1222,"12.9716, 77.5946",0,Success,None,0.0878
-Txn_09062,2025-04-04 02:00:51,10108.27423640588,User_89,Merchant_352,Card,Online_Retail,Unknown_Device_26,"12.9716, 77.5946",1,Fraud,Phishing,0.8289
-Txn_07660,2025-04-08 21:03:12,1738.27,User_369,Merchant_420,Card,Food,Device_1241,"12.9716, 77.5946",0,Success,None,0.1068
-Txn_03032,2025-04-08 02:10:34,1223.85,User_431,Merchant_330,UPI,Entertainment,Device_1671,"12.9716, 77.5946",0,Success,None,0.132
-Txn_00949,2025-04-08 14:08:00,904.86,User_196,Merchant_114,UPI,Online_Retail,Device_438,"12.9716, 77.5946",0,Success,None,0.0128
-Txn_06334,2025-04-10 12:27:18,1505.13,User_699,Merchant_427,Card,Utilities,Device_1963,"12.9716, 77.5946",0,Success,None,0.0787
-Txn_09492,2025-04-08 06:50:12,737.39,User_592,Merchant_60,UPI,Travel,Device_316,"12.9716, 77.5946",0,Success,None,0.0265
-Txn_01013,2025-04-11 11:32:37,630.15,User_651,Merchant_117,Card,Utilities,Device_869,"12.9716, 77.5946",0,Success,None,0.1747
-Txn_00393,2025-04-08 23:12:57,777.22,User_102,Merchant_137,UPI,Utilities,Device_720,"12.9716, 77.5946",0,Success,None,0.1016
-Txn_07843,2025-04-11 11:57:49,1897.79,User_814,Merchant_107,Card,Utilities,Device_1261,"12.9716, 77.5946",0,Success,None,0.0353
-Txn_09452,2025-03-28 02:06:41,5570.807824353424,User_515,Suspicious_10,UPI,Unknown,Device_1868,"12.9716, 77.5946",1,Fraud,Phishing,0.7802
-Txn_01747,2025-04-08 16:51:59,1598.78,User_373,Merchant_483,UPI,Entertainment,Device_1705,"12.9716, 77.5946",0,Success,None,0.0527
-Txn_04858,2025-04-10 20:31:27,1737.59,User_837,Merchant_163,UPI,Travel,Device_1320,"12.9716, 77.5946",0,Success,None,0.1953
-Txn_02192,2025-04-10 05:37:45,471.06,User_771,Merchant_100,UPI,Travel,Device_1879,"12.9716, 77.5946",0,Success,None,0.0174
-Txn_06410,2025-04-11 02:41:38,766.39,User_961,Merchant_132,Card,Entertainment,Device_754,"12.9716, 77.5946",0,Success,None,0.0642
-Txn_04663,2025-04-11 00:09:33,161.63,User_803,Merchant_455,Card,Utilities,Device_1307,"12.9716, 77.5946",0,Success,None,0.1773
-Txn_00401,2025-04-09 17:08:42,1479.74,User_995,Merchant_115,UPI,Utilities,Device_363,"12.9716, 77.5946",0,Success,None,0.008
-Txn_01983,2025-04-10 18:49:24,1173.2,User_732,Merchant_234,UPI,Online_Retail,Device_340,"12.9716, 77.5946",0,Success,None,0.1486
-Txn_04235,2025-04-07 14:46:48,6.788182229750543,User_924,Merchant_247,UPI,Unknown,Device_1377,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8494
-Txn_06589,2025-03-29 21:11:01,1416.6641256590765,User_672,Merchant_132,UPI,Unknown,Device_1540,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9552
-Txn_09647,2025-04-08 18:36:30,704.9,User_679,Merchant_225,UPI,Utilities,Device_1318,"12.9716, 77.5946",0,Success,None,0.0307
-Txn_08132,2025-04-08 15:24:55,1611.84,User_973,Merchant_187,Card,Online_Retail,Device_1384,"12.9716, 77.5946",0,Success,None,0.0953
-Txn_07705,2025-04-09 02:14:16,481.17,User_135,Merchant_191,UPI,Food,Device_1328,"12.9716, 77.5946",0,Success,None,0.1947
-Txn_04095,2025-04-11 08:52:19,1207.97,User_6,Merchant_310,UPI,Travel,Device_411,"12.9716, 77.5946",0,Success,None,0.1124
-Txn_05000,2025-04-10 22:48:17,143.98,User_317,Merchant_60,UPI,Online_Retail,Device_1767,"12.9716, 77.5946",0,Success,None,0.1199
-Txn_09223,2025-04-09 22:29:20,761.47,User_444,Merchant_275,UPI,Entertainment,Device_1020,"12.9716, 77.5946",0,Success,None,0.1524
-Txn_06096,2025-03-31 18:44:01,4367.868991546416,User_655,Merchant_99,Card,Travel,Device_826,"35.6762, 139.6503",1,Fraud,Phishing,0.8446
-Txn_03910,2025-04-11 06:11:32,653.19,User_217,Merchant_196,UPI,Utilities,Device_972,"12.9716, 77.5946",0,Success,None,0.1649
-Txn_05823,2025-04-10 17:01:27,1637.43,User_277,Merchant_260,Card,Food,Device_800,"12.9716, 77.5946",0,Success,None,0.0226
-Txn_05571,2025-04-09 21:14:48,573.1,User_44,Merchant_209,Card,Entertainment,Device_1374,"12.9716, 77.5946",0,Success,None,0.0115
-Txn_03387,2025-04-08 15:45:22,767.51,User_493,Merchant_396,UPI,Utilities,Device_70,"12.9716, 77.5946",0,Success,None,0.1614
-Txn_06149,2025-04-09 03:01:33,4345.040262179643,User_858,Suspicious_22,UPI,Unknown,Device_1962,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7335
-Txn_06645,2025-04-10 20:15:17,1238.34,User_493,Merchant_42,Card,Food,Device_621,"12.9716, 77.5946",0,Success,None,0.0956
-Txn_05399,2025-04-10 00:41:16,1634.22,User_568,Merchant_342,Card,Online_Retail,Device_1905,"12.9716, 77.5946",0,Success,None,0.0544
-Txn_09263,2025-04-09 05:07:27,738.03,User_897,Merchant_49,Card,Food,Device_1787,"12.9716, 77.5946",0,Success,None,0.0477
-Txn_02500,2025-04-10 08:31:24,856.19,User_931,Merchant_425,Card,Food,Device_99,"12.9716, 77.5946",0,Success,None,0.1221
-Txn_07820,2025-04-10 11:45:25,2368.9989741931954,User_64,Merchant_113,UPI,Unknown,Unknown_Device_28,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9374
-Txn_04934,2025-04-09 02:23:41,1444.78,User_603,Merchant_152,Card,Entertainment,Device_812,"12.9716, 77.5946",0,Success,None,0.0484
-Txn_03158,2025-03-09 15:06:15,2596.319590706608,User_463,Merchant_143,UPI,Online_Retail,New_Device_31,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.7577
-Txn_07914,2025-03-12 18:47:37,9852.909827062234,User_575,Merchant_424,Card,Retail_Physical,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7645
-Txn_07730,2025-04-08 13:24:17,663.68,User_392,Merchant_394,UPI,Travel,Device_1881,"12.9716, 77.5946",0,Success,None,0.0024
-Txn_08215,2025-04-09 23:52:37,818.07,User_84,Merchant_195,UPI,Travel,Device_249,"12.9716, 77.5946",0,Success,None,0.1851
-Txn_02222,2025-04-09 17:09:51,219.29,User_464,Merchant_40,UPI,Food,Device_908,"12.9716, 77.5946",0,Success,None,0.1873
-Txn_09436,2025-04-08 13:00:47,1078.79,User_36,Merchant_378,Card,Online_Retail,Device_1265,"12.9716, 77.5946",0,Success,None,0.054
-Txn_05529,2025-04-08 01:08:05,1856.01,User_816,Merchant_267,Card,Entertainment,Device_206,"12.9716, 77.5946",0,Success,None,0.143
-Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8875
-Txn_03252,2025-04-08 06:05:52,384.71,User_474,Merchant_453,UPI,Entertainment,Device_966,"12.9716, 77.5946",0,Success,None,0.057
-Txn_03216,2025-04-08 03:14:30,1156.04,User_414,Merchant_454,Card,Entertainment,Device_1875,"12.9716, 77.5946",0,Success,None,0.1773
-Txn_06255,2025-04-06 10:01:16,3952.075820170263,User_91,Merchant_225,UPI,Unknown,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9243
-Txn_08348,2025-04-10 23:04:05,306.62,User_239,Merchant_272,Card,Utilities,Device_525,"12.9716, 77.5946",0,Success,None,0.1962
-Txn_09651,2025-04-10 04:46:58,407.97,User_227,Merchant_64,UPI,Utilities,Device_1172,"12.9716, 77.5946",0,Success,None,0.1711
-Txn_03149,2025-03-16 18:43:41,3256.688372423024,User_325,Merchant_190,UPI,Food,New_Device_10,"-34.6037, -58.3816",1,Fraud,Merchant Fraud,0.9339
-Txn_01942,2025-04-10 18:34:32,1626.06,User_627,Merchant_188,UPI,Utilities,Device_1300,"12.9716, 77.5946",0,Success,None,0.0983
-Txn_00277,2025-04-09 09:13:54,419.44,User_106,Merchant_241,Card,Food,Device_1807,"12.9716, 77.5946",0,Success,None,0.1932
-Txn_01852,2025-04-09 17:59:27,400.53,User_987,Merchant_471,UPI,Travel,Device_198,"12.9716, 77.5946",0,Success,None,0.0188
-Txn_05511,2025-04-09 13:52:25,991.39,User_735,Merchant_198,Card,Utilities,Device_531,"12.9716, 77.5946",0,Success,None,0.0198
-Txn_08598,2025-04-10 18:07:00,1276.53,User_183,Merchant_179,Card,Food,Device_1921,"12.9716, 77.5946",0,Success,None,0.1176
-Txn_00692,2025-04-08 10:20:10,508.64,User_737,Merchant_331,UPI,Travel,Device_1844,"12.9716, 77.5946",0,Success,None,0.1325
-Txn_08850,2025-04-04 06:34:01,5689.662945010733,User_270,Merchant_19,Card,Retail_Physical,Unknown_Device_16,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7911
-Txn_00123,2025-03-28 06:15:44,6.653095110510801,User_808,Merchant_267,UPI,Unknown,Device_1166,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7339
-Txn_08511,2025-04-08 07:10:34,941.83,User_234,Merchant_73,Card,Food,Device_1282,"12.9716, 77.5946",0,Success,None,0.1001
-Txn_00971,2025-04-08 08:32:12,539.48,User_269,Merchant_444,Card,Utilities,Device_696,"12.9716, 77.5946",0,Success,None,0.02
-Txn_03326,2025-04-08 14:17:50,670.19,User_591,Merchant_203,Card,Travel,Device_1663,"12.9716, 77.5946",0,Success,None,0.1601
-Txn_05089,2025-04-09 11:34:19,1514.68,User_160,Merchant_31,Card,Food,Device_512,"12.9716, 77.5946",0,Success,None,0.1831
-Txn_00409,2025-04-10 22:23:01,1886.55,User_550,Merchant_363,UPI,Online_Retail,Device_1639,"12.9716, 77.5946",0,Success,None,0.1841
-Txn_08443,2025-04-10 14:02:35,758.22,User_425,Merchant_446,UPI,Travel,Device_818,"12.9716, 77.5946",0,Success,None,0.1186
-Txn_07683,2025-04-11 01:59:08,1569.69,User_522,Merchant_400,UPI,Utilities,Device_677,"12.9716, 77.5946",0,Success,None,0.0715
-Txn_02788,2025-04-11 00:09:56,1612.15,User_248,Merchant_485,UPI,Food,Device_240,"12.9716, 77.5946",0,Success,None,0.1314
-Txn_04709,2025-04-08 10:18:50,1067.67,User_575,Merchant_122,Card,Travel,Device_232,"12.9716, 77.5946",0,Success,None,0.054
-Txn_06666,2025-04-11 01:43:07,1171.49,User_583,Merchant_60,UPI,Utilities,Device_499,"12.9716, 77.5946",0,Success,None,0.0958
-Txn_01832,2025-04-07 21:53:19,203.18,User_329,Merchant_70,Card,Utilities,Device_460,"12.9716, 77.5946",0,Success,None,0.1093
-Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",0,Success,None,0.153
-Txn_06172,2025-04-11 10:10:30,770.05,User_91,Merchant_419,Card,Entertainment,Device_40,"12.9716, 77.5946",0,Success,None,0.1256
-Txn_06609,2025-04-10 13:24:53,1539.54,User_880,Merchant_474,Card,Travel,Device_19,"12.9716, 77.5946",0,Success,None,0.0701
-Txn_00408,2025-04-09 16:41:30,1503.86,User_297,Merchant_168,UPI,Travel,Device_370,"12.9716, 77.5946",0,Success,None,0.0622
-Txn_02934,2025-03-21 16:30:00,9555.976408740487,User_365,Merchant_83,Card,Retail_Physical,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9258
-Txn_04575,2025-04-09 18:07:53,1076.55,User_366,Merchant_338,UPI,Online_Retail,Device_530,"12.9716, 77.5946",0,Success,None,0.015
-Txn_09231,2025-04-09 13:26:38,480.04,User_718,Merchant_80,Card,Online_Retail,Device_91,"12.9716, 77.5946",0,Success,None,0.0636
-Txn_09566,2025-04-09 12:13:56,363.02,User_711,Merchant_466,Card,Travel,Device_116,"12.9716, 77.5946",0,Success,None,0.1434
-Txn_00264,2025-04-08 12:29:08,921.11,User_179,Merchant_390,Card,Food,Device_1567,"12.9716, 77.5946",0,Success,None,0.0444
-Txn_07676,2025-04-08 21:11:51,1256.0,User_174,Merchant_255,UPI,Online_Retail,Device_349,"12.9716, 77.5946",0,Success,None,0.1141
-Txn_07271,2025-04-09 04:26:10,7698.083718887154,User_683,Merchant_466,Card,Food,Device_1256,"35.6762, 139.6503",1,Fraud,Identity Theft,0.9861
-Txn_02884,2025-04-10 19:38:46,1546.68,User_767,Merchant_184,Card,Entertainment,Device_662,"12.9716, 77.5946",0,Success,None,0.1251
-Txn_03403,2025-04-09 23:00:06,1239.02,User_534,Merchant_225,UPI,Entertainment,Device_1040,"12.9716, 77.5946",0,Success,None,0.1466
-Txn_01217,2025-04-11 04:49:26,1480.96,User_409,Merchant_148,UPI,Travel,Device_1838,"12.9716, 77.5946",0,Success,None,0.0258
-Txn_02131,2025-04-08 20:25:40,1710.72,User_920,Merchant_422,UPI,Online_Retail,Device_1988,"12.9716, 77.5946",0,Success,None,0.1806
-Txn_09384,2025-04-09 03:04:38,1736.27,User_530,Merchant_164,UPI,Food,Device_21,"12.9716, 77.5946",0,Success,None,0.1178
-Txn_06714,2025-03-19 15:02:19,2465.5097683911845,User_922,Merchant_53,UPI,Unknown,Device_1545,"12.9716, 77.5946",1,Fraud,Identity Theft,0.957
-Txn_07258,2025-03-26 01:11:21,5906.246779118105,User_463,Merchant_112,Card,Online_Retail,Unknown_Device_30,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8935
-Txn_03021,2025-04-10 08:30:08,476.0,User_220,Merchant_6,Card,Online_Retail,Device_526,"12.9716, 77.5946",0,Success,None,0.1787
-Txn_09244,2025-04-07 22:42:26,548.49,User_593,Merchant_382,UPI,Entertainment,Device_1742,"12.9716, 77.5946",0,Success,None,0.0851
-Txn_09671,2025-04-10 21:15:34,591.35,User_681,Merchant_199,Card,Entertainment,Device_340,"12.9716, 77.5946",0,Success,None,0.0994
-Txn_03384,2025-04-09 11:09:27,1353.56,User_622,Merchant_64,Card,Utilities,Device_226,"12.9716, 77.5946",0,Success,None,0.1304
-Txn_08048,2025-04-08 14:18:37,1015.41,User_417,Merchant_448,Card,Travel,Device_805,"12.9716, 77.5946",0,Success,None,0.1874
-Txn_03719,2025-04-10 04:16:55,1701.82,User_210,Merchant_16,Card,Utilities,Device_1265,"12.9716, 77.5946",0,Success,None,0.1781
-Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",0,Success,None,0.021
-Txn_08004,2025-04-09 09:53:17,1376.88,User_468,Merchant_280,Card,Online_Retail,Device_1055,"12.9716, 77.5946",0,Success,None,0.1439
-Txn_05885,2025-04-09 17:52:17,1755.76,User_142,Merchant_7,Card,Food,Device_810,"12.9716, 77.5946",0,Success,None,0.102
-Txn_01977,2025-04-10 03:55:26,1437.37,User_48,Merchant_194,Card,Utilities,Device_1778,"12.9716, 77.5946",0,Success,None,0.096
-Txn_05686,2025-04-09 23:12:34,141.69,User_240,Merchant_148,Card,Travel,Device_470,"12.9716, 77.5946",0,Success,None,0.1552
-Txn_09840,2025-04-10 13:46:22,1220.05,User_909,Merchant_148,UPI,Food,Device_902,"12.9716, 77.5946",0,Success,None,0.1769
-Txn_04660,2025-04-10 12:01:10,709.31,User_393,Merchant_416,UPI,Travel,Device_1401,"12.9716, 77.5946",0,Success,None,0.1061
-Txn_01094,2025-04-10 05:50:49,1822.89,User_291,Merchant_177,UPI,Food,Device_172,"12.9716, 77.5946",0,Success,None,0.1902
-Txn_01038,2025-04-03 16:58:44,3074.7903274561013,User_657,Merchant_249,UPI,Utilities,New_Device_24,"-34.6037, -58.3816",1,Fraud,Phishing,0.8427
-Txn_07132,2025-04-11 15:15:33,1768.6,User_831,Merchant_394,UPI,Utilities,Device_950,"12.9716, 77.5946",0,Success,None,0.1107
-Txn_01191,2025-04-10 21:26:46,1761.14,User_989,Merchant_183,Card,Online_Retail,Device_1461,"12.9716, 77.5946",0,Success,None,0.1863
-Txn_05620,2025-04-10 11:56:25,596.11,User_81,Merchant_148,UPI,Utilities,Device_1221,"12.9716, 77.5946",0,Success,None,0.0957
-Txn_04935,2025-04-10 16:22:32,261.76,User_787,Merchant_217,Card,Online_Retail,Device_1315,"12.9716, 77.5946",0,Success,None,0.132
-Txn_07598,2025-04-10 20:14:55,1202.01,User_517,Merchant_311,UPI,Online_Retail,Device_1193,"12.9716, 77.5946",0,Success,None,0.1289
-Txn_00455,2025-04-07 21:48:32,690.41,User_491,Merchant_384,UPI,Utilities,Device_21,"12.9716, 77.5946",0,Success,None,0.0988
-Txn_08066,2025-04-09 15:19:48,2284.778142378833,User_698,Merchant_436,UPI,Unknown,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9498
-Txn_02720,2025-04-11 00:26:28,487.71,User_717,Merchant_310,Card,Online_Retail,Device_1795,"12.9716, 77.5946",0,Success,None,0.0995
-Txn_01752,2025-04-11 11:28:16,450.28,User_55,Merchant_335,UPI,Utilities,Device_1857,"12.9716, 77.5946",0,Success,None,0.0892
-Txn_07668,2025-04-08 11:22:52,1121.94,User_750,Merchant_319,Card,Online_Retail,Device_941,"12.9716, 77.5946",0,Success,None,0.0473
-Txn_02084,2025-04-09 09:28:39,763.23,User_616,Merchant_235,UPI,Entertainment,Device_962,"12.9716, 77.5946",0,Success,None,0.1581
-Txn_09416,2025-04-08 10:41:47,1728.15,User_796,Merchant_67,UPI,Utilities,Device_1616,"12.9716, 77.5946",0,Success,None,0.0012
-Txn_03660,2025-04-09 02:37:44,576.66,User_649,Merchant_418,UPI,Online_Retail,Device_1301,"12.9716, 77.5946",0,Success,None,0.0596
-Txn_03644,2025-04-10 03:16:18,868.55,User_223,Merchant_430,UPI,Entertainment,Device_1206,"12.9716, 77.5946",0,Success,None,0.1342
-Txn_00170,2025-04-11 09:19:01,604.72,User_546,Merchant_330,UPI,Travel,Device_220,"12.9716, 77.5946",0,Success,None,0.066
-Txn_08023,2025-04-01 19:11:51,6.127344857204188,User_142,Merchant_365,UPI,Unknown,Device_962,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7153
-Txn_09304,2025-04-09 23:57:02,155.38,User_420,Merchant_358,Card,Travel,Device_1743,"12.9716, 77.5946",0,Success,None,0.1797
-Txn_06756,2025-04-08 03:08:57,487.47,User_660,Merchant_332,UPI,Online_Retail,Device_169,"12.9716, 77.5946",0,Success,None,0.1039
-Txn_09362,2025-04-06 23:50:00,3832.024619597813,User_606,Merchant_274,UPI,Online_Retail,New_Device_30,"-34.6037, -58.3816",1,Fraud,Phishing,0.8903
-Txn_07888,2025-04-08 14:53:04,1881.76,User_440,Merchant_124,UPI,Utilities,Device_1701,"12.9716, 77.5946",0,Success,None,0.0918
-Txn_09282,2025-04-07 22:23:27,1988.2,User_171,Merchant_256,Card,Food,Device_1671,"12.9716, 77.5946",0,Success,None,0.1454
-Txn_08660,2025-03-11 23:07:42,4852.6708270954105,User_768,Merchant_2,UPI,Food,New_Device_8,"-34.6037, -58.3816",1,Fraud,Phishing,0.7163
-Txn_04925,2025-03-25 23:29:44,8711.104833167796,User_39,Merchant_479,Card,Retail_Physical,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Phishing,0.7159
-Txn_04814,2025-04-10 08:17:48,1574.5,User_223,Merchant_471,Card,Food,Device_904,"12.9716, 77.5946",0,Success,None,0.1259
-Txn_03793,2025-04-10 03:12:30,648.41,User_404,Merchant_116,Card,Online_Retail,Device_1155,"12.9716, 77.5946",0,Success,None,0.1704
-Txn_09631,2025-04-10 20:33:56,474.91,User_401,Merchant_163,Card,Utilities,Device_1505,"12.9716, 77.5946",0,Success,None,0.0466
-Txn_02265,2025-04-11 05:18:34,1130.0,User_605,Merchant_456,UPI,Entertainment,Device_937,"12.9716, 77.5946",0,Success,None,0.0758
-Txn_00513,2025-04-10 11:49:55,217.61,User_696,Merchant_233,UPI,Food,Device_1196,"12.9716, 77.5946",0,Success,None,0.1822
-Txn_04118,2025-04-10 02:30:02,476.99,User_901,Merchant_259,Card,Travel,Device_1458,"12.9716, 77.5946",0,Success,None,0.1812
-Txn_09364,2025-04-09 08:21:40,1174.68,User_255,Merchant_127,Card,Utilities,Device_142,"12.9716, 77.5946",0,Success,None,0.0107
-Txn_06738,2025-04-10 14:49:58,1205.57,User_331,Merchant_131,UPI,Online_Retail,Device_325,"12.9716, 77.5946",0,Success,None,0.198
-Txn_02354,2025-04-09 11:47:39,1292.16,User_936,Merchant_348,Card,Entertainment,Device_119,"12.9716, 77.5946",0,Success,None,0.1045
-Txn_05762,2025-04-09 14:27:10,1506.93,User_894,Merchant_124,Card,Utilities,Device_994,"12.9716, 77.5946",0,Success,None,0.1929
-Txn_01192,2025-04-10 04:34:45,1583.42,User_118,Merchant_131,Card,Travel,Device_1225,"12.9716, 77.5946",0,Success,None,0.1509
-Txn_02053,2025-04-10 01:33:33,1300.88,User_757,Merchant_92,Card,Entertainment,Device_624,"12.9716, 77.5946",0,Success,None,0.1443
-Txn_00191,2025-04-09 14:40:12,577.18,User_323,Merchant_452,Card,Travel,Device_1435,"12.9716, 77.5946",0,Success,None,0.0182
-Txn_04150,2025-04-10 02:39:54,455.19,User_186,Merchant_225,UPI,Food,Device_1466,"12.9716, 77.5946",0,Success,None,0.0871
-Txn_03700,2025-03-18 14:23:53,10975.582161017286,User_655,Merchant_6,Card,Online_Retail,Unknown_Device_3,"12.9716, 77.5946",1,Fraud,Phishing,0.8647
-Txn_07486,2025-04-08 00:18:35,496.69,User_997,Merchant_415,UPI,Food,Device_1444,"12.9716, 77.5946",0,Success,None,0.1415
-Txn_01888,2025-04-11 13:42:27,449.01,User_294,Merchant_217,UPI,Entertainment,Device_897,"12.9716, 77.5946",0,Success,None,0.1524
-Txn_01015,2025-03-10 22:06:14,2370.572664127377,User_486,Merchant_464,UPI,Unknown,Unknown_Device_2,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7936
-Txn_07532,2025-04-09 17:58:01,994.13,User_525,Merchant_419,UPI,Utilities,Device_960,"12.9716, 77.5946",0,Success,None,0.1104
-Txn_04903,2025-04-09 17:13:54,1032.95,User_974,Merchant_383,Card,Entertainment,Device_244,"12.9716, 77.5946",0,Success,None,0.0857
-Txn_07898,2025-04-08 12:05:55,1082.82,User_711,Merchant_197,Card,Utilities,Device_761,"12.9716, 77.5946",0,Success,None,0.1091
-Txn_04762,2025-04-06 06:24:24,3230.331928091367,User_748,Merchant_195,UPI,Food,New_Device_17,"-34.6037, -58.3816",1,Fraud,Phishing,0.994
-Txn_01701,2025-04-08 06:37:08,242.29,User_741,Merchant_426,Card,Online_Retail,Device_3,"12.9716, 77.5946",0,Success,None,0.0178
-Txn_05802,2025-04-08 05:33:28,1676.97,User_939,Merchant_138,Card,Utilities,Device_1683,"12.9716, 77.5946",0,Success,None,0.0801
-Txn_09860,2025-04-10 21:06:29,1356.85,User_423,Merchant_192,Card,Travel,Device_1930,"12.9716, 77.5946",0,Success,None,0.1739
-Txn_05738,2025-04-08 11:54:53,482.1,User_775,Merchant_265,UPI,Entertainment,Device_270,"12.9716, 77.5946",0,Success,None,0.0989
-Txn_05622,2025-04-10 15:09:33,1650.77,User_25,Merchant_151,Card,Food,Device_1011,"12.9716, 77.5946",0,Success,None,0.1265
-Txn_03979,2025-04-10 22:46:08,1092.88,User_391,Merchant_53,Card,Food,Device_66,"12.9716, 77.5946",0,Success,None,0.0008
-Txn_03159,2025-04-09 08:45:48,1446.33,User_697,Merchant_130,Card,Entertainment,Device_1509,"12.9716, 77.5946",0,Success,None,0.1114
-Txn_01201,2025-04-09 15:16:05,1879.96,User_653,Merchant_499,Card,Entertainment,Device_1470,"12.9716, 77.5946",0,Success,None,0.1544
-Txn_05606,2025-03-14 12:38:05,2.5402477154172853,User_514,Merchant_336,UPI,Unknown,Device_1750,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.868
-Txn_04319,2025-04-10 10:05:06,147.87,User_751,Merchant_254,Card,Food,Device_1518,"12.9716, 77.5946",0,Success,None,0.1852
-Txn_06634,2025-04-09 14:25:35,7217.469049284973,User_576,Suspicious_15,UPI,Unknown,Device_1732,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8344
-Txn_09499,2025-03-21 23:56:25,3304.396976911189,User_822,Merchant_294,UPI,Unknown,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8915
-Txn_04661,2025-04-09 20:57:42,710.52,User_224,Merchant_233,Card,Entertainment,Device_1262,"12.9716, 77.5946",0,Success,None,0.0492
-Txn_00508,2025-04-09 06:04:50,968.59,User_946,Merchant_410,Card,Online_Retail,Device_960,"12.9716, 77.5946",0,Success,None,0.035
-Txn_00558,2025-04-11 04:14:03,1213.84,User_378,Merchant_31,Card,Utilities,Device_1218,"12.9716, 77.5946",0,Success,None,0.0015
-Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,Device_167,"12.9716, 77.5946",0,Success,None,0.182
-Txn_06460,2025-04-11 05:58:04,377.93,User_322,Merchant_363,Card,Entertainment,Device_1925,"12.9716, 77.5946",0,Success,None,0.0635
-Txn_07603,2025-04-11 08:01:35,1223.92,User_854,Merchant_413,UPI,Utilities,Device_1817,"12.9716, 77.5946",0,Success,None,0.0212
-Txn_01468,2025-04-09 10:29:45,1664.67,User_453,Merchant_280,UPI,Online_Retail,Device_552,"12.9716, 77.5946",0,Success,None,0.1662
-Txn_05155,2025-04-11 07:16:26,1782.49,User_968,Merchant_23,UPI,Online_Retail,Device_1394,"12.9716, 77.5946",0,Success,None,0.0666
-Txn_00249,2025-04-10 23:49:57,745.19,User_467,Merchant_352,UPI,Food,Device_1172,"12.9716, 77.5946",0,Success,None,0.1671
-Txn_05619,2025-04-09 03:26:37,1561.85,User_538,Merchant_408,UPI,Food,Device_525,"12.9716, 77.5946",0,Success,None,0.1712
-Txn_04160,2025-04-11 01:13:59,151.14,User_390,Merchant_237,Card,Food,Device_173,"12.9716, 77.5946",0,Success,None,0.1612
-Txn_02709,2025-04-11 12:08:58,1515.37,User_18,Merchant_217,Card,Online_Retail,Device_1126,"12.9716, 77.5946",0,Success,None,0.0421
-Txn_03394,2025-04-09 04:09:27,1347.34,User_170,Merchant_442,UPI,Food,Device_1657,"12.9716, 77.5946",0,Success,None,0.0384
-Txn_02900,2025-04-11 11:47:46,1687.5,User_283,Merchant_317,Card,Travel,Device_875,"12.9716, 77.5946",0,Success,None,0.184
-Txn_09766,2025-04-10 11:14:12,325.57,User_484,Merchant_49,Card,Food,Device_996,"12.9716, 77.5946",0,Success,None,0.0383
-Txn_09507,2025-04-10 01:28:41,876.1,User_626,Merchant_368,UPI,Food,Device_11,"12.9716, 77.5946",0,Success,None,0.1523
-Txn_04288,2025-03-15 10:18:33,3655.033005036774,User_78,Merchant_53,UPI,Travel,New_Device_25,"-34.6037, -58.3816",1,Fraud,Merchant Fraud,0.9007
-Txn_01974,2025-04-08 00:14:58,972.32,User_729,Merchant_202,UPI,Food,Device_836,"12.9716, 77.5946",0,Success,None,0.0038
-Txn_06146,2025-04-08 07:05:05,125.23,User_953,Merchant_386,Card,Online_Retail,Device_1596,"12.9716, 77.5946",0,Success,None,0.0762
-Txn_08071,2025-04-10 21:15:48,1977.45,User_726,Merchant_174,Card,Food,Device_1648,"12.9716, 77.5946",0,Success,None,0.1993
-Txn_04580,2025-04-08 23:48:27,945.95,User_627,Merchant_87,UPI,Travel,Device_757,"12.9716, 77.5946",0,Success,None,0.0762
-Txn_03832,2025-03-23 09:49:43,1615.4385281400528,User_408,Merchant_461,UPI,Unknown,Device_1898,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7586
-Txn_03570,2025-04-11 09:42:29,867.04,User_70,Merchant_200,Card,Online_Retail,Device_354,"12.9716, 77.5946",0,Success,None,0.0485
-Txn_09367,2025-03-22 03:21:11,4969.630935275996,User_26,Merchant_265,Card,Online_Retail,Unknown_Device_18,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7956
-Txn_09337,2025-04-11 06:27:49,1836.46,User_529,Merchant_154,Card,Food,Device_1300,"12.9716, 77.5946",0,Success,None,0.1228
-Txn_04941,2025-04-10 22:41:28,1261.4933975791014,User_440,Merchant_231,UPI,Unknown,Device_1216,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8376
-Txn_02341,2025-04-10 13:57:20,1966.69,User_73,Merchant_41,UPI,Travel,Device_858,"12.9716, 77.5946",0,Success,None,0.1785
-Txn_01316,2025-04-11 14:46:39,1809.9,User_153,Merchant_480,Card,Food,Device_1535,"12.9716, 77.5946",0,Success,None,0.1235
-Txn_02988,2025-04-08 19:48:55,763.28,User_285,Merchant_232,UPI,Online_Retail,Device_1108,"12.9716, 77.5946",0,Success,None,0.1656
-Txn_00204,2025-04-09 01:19:29,421.74,User_979,Merchant_120,Card,Utilities,Device_786,"12.9716, 77.5946",0,Success,None,0.1851
-Txn_07325,2025-04-08 03:18:12,663.06,User_712,Merchant_216,Card,Utilities,Device_940,"12.9716, 77.5946",0,Success,None,0.0441
-Txn_06455,2025-04-10 09:57:52,1273.89,User_161,Merchant_334,Card,Online_Retail,Device_1128,"12.9716, 77.5946",0,Success,None,0.0853
-Txn_04852,2025-04-11 03:28:52,1786.29,User_230,Merchant_437,UPI,Food,Device_1894,"12.9716, 77.5946",0,Success,None,0.0319
-Txn_03747,2025-04-09 19:00:30,1219.32,User_899,Merchant_24,Card,Food,Device_248,"12.9716, 77.5946",0,Success,None,0.0697
-Txn_06216,2025-04-09 15:13:47,115.05,User_700,Merchant_409,UPI,Travel,Device_807,"12.9716, 77.5946",0,Success,None,0.1772
-Txn_06765,2025-04-10 05:01:17,785.19,User_190,Merchant_200,UPI,Travel,Device_72,"12.9716, 77.5946",0,Success,None,0.1257
-Txn_00344,2025-04-07 20:36:28,1931.16,User_721,Merchant_78,UPI,Utilities,Device_1168,"12.9716, 77.5946",0,Success,None,0.1577
-Txn_04365,2025-04-09 06:15:17,775.43,User_738,Merchant_244,Card,Utilities,Device_1993,"12.9716, 77.5946",0,Success,None,0.0616
-Txn_09413,2025-04-09 02:04:06,316.71,User_900,Merchant_421,Card,Utilities,Device_1835,"12.9716, 77.5946",0,Success,None,0.0239
-Txn_00357,2025-04-08 16:58:42,1978.63,User_661,Merchant_148,Card,Online_Retail,Device_493,"12.9716, 77.5946",0,Success,None,0.1918
-Txn_08297,2025-04-08 21:40:08,1028.36,User_643,Merchant_365,UPI,Food,Device_246,"12.9716, 77.5946",0,Success,None,0.1033
-Txn_01460,2025-04-09 12:15:06,1293.77,User_194,Merchant_346,UPI,Food,Device_1344,"12.9716, 77.5946",0,Success,None,0.0186
-Txn_01896,2025-04-08 14:05:49,190.08,User_685,Merchant_480,Card,Travel,Device_921,"12.9716, 77.5946",0,Success,None,0.0285
-Txn_09549,2025-04-06 10:09:30,3969.536218092062,User_148,Merchant_20,UPI,Unknown,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Phishing,0.7187
-Txn_02655,2025-04-08 21:16:46,272.36,User_909,Merchant_29,UPI,Travel,Device_645,"12.9716, 77.5946",0,Success,None,0.1572
-Txn_03768,2025-04-11 04:27:49,1012.88,User_439,Merchant_330,Card,Entertainment,Device_1520,"12.9716, 77.5946",0,Success,None,0.0577
-Txn_09253,2025-04-08 23:39:28,122.79,User_616,Merchant_116,UPI,Travel,Device_226,"12.9716, 77.5946",0,Success,None,0.0289
-Txn_04833,2025-04-08 16:25:35,327.53,User_678,Merchant_255,UPI,Utilities,Device_1354,"12.9716, 77.5946",0,Success,None,0.1486
-Txn_06657,2025-04-10 08:09:16,1261.47,User_339,Merchant_172,UPI,Entertainment,Device_1241,"12.9716, 77.5946",0,Success,None,0.1368
-Txn_03017,2025-04-08 03:53:13,1125.09,User_613,Merchant_407,UPI,Online_Retail,Device_368,"12.9716, 77.5946",0,Success,None,0.1934
-Txn_00741,2025-03-29 06:51:52,11500.665176318807,User_958,Merchant_263,Card,Online_Retail,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Phishing,0.7908
-Txn_01542,2025-04-08 10:36:01,295.63,User_812,Merchant_202,Card,Utilities,Device_1365,"12.9716, 77.5946",0,Success,None,0.1965
-Txn_04692,2025-03-11 05:23:55,3777.944393883567,User_210,Merchant_426,Card,Online_Retail,Unknown_Device_11,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8421
-Txn_01273,2025-04-10 06:26:23,786.09,User_531,Merchant_168,Card,Entertainment,Device_671,"12.9716, 77.5946",0,Success,None,0.054
-Txn_03393,2025-04-08 10:27:01,1022.57,User_670,Merchant_29,Card,Entertainment,Device_728,"12.9716, 77.5946",0,Success,None,0.0155
-Txn_00831,2025-04-09 02:40:53,314.73,User_327,Merchant_117,UPI,Online_Retail,Device_139,"12.9716, 77.5946",0,Success,None,0.1805
-Txn_08765,2025-04-08 21:00:59,777.17,User_306,Merchant_481,Card,Food,Device_851,"12.9716, 77.5946",0,Success,None,0.1791
-Txn_05329,2025-04-08 19:31:33,1856.11,User_561,Merchant_162,UPI,Online_Retail,Device_1286,"12.9716, 77.5946",0,Success,None,0.0093
-Txn_07636,2025-04-11 15:05:11,698.54,User_56,Merchant_22,UPI,Travel,Device_18,"12.9716, 77.5946",0,Success,None,0.0786
-Txn_04031,2025-04-08 09:03:30,1827.24,User_897,Merchant_128,UPI,Entertainment,Device_257,"12.9716, 77.5946",0,Success,None,0.0594
-Txn_01836,2025-03-18 19:42:07,4.374574575301711,User_434,Merchant_211,UPI,Unknown,Device_1748,"12.9716, 77.5946",1,Fraud,Phishing,0.7232
-Txn_05586,2025-04-09 19:42:35,1687.76,User_700,Merchant_195,UPI,Entertainment,Device_139,"12.9716, 77.5946",0,Success,None,0.1513
-Txn_05113,2025-04-09 02:31:50,1153.42,User_810,Merchant_8,UPI,Online_Retail,Device_161,"12.9716, 77.5946",0,Success,None,0.1275
-Txn_07612,2025-04-09 20:37:41,1567.08,User_974,Merchant_203,Card,Entertainment,Device_588,"12.9716, 77.5946",0,Success,None,0.0241
-Txn_09108,2025-04-10 11:47:40,1440.99,User_536,Merchant_152,Card,Entertainment,Device_711,"12.9716, 77.5946",0,Success,None,0.0578
-Txn_02297,2025-04-09 06:52:48,479.57,User_164,Merchant_336,UPI,Utilities,Device_26,"12.9716, 77.5946",0,Success,None,0.1882
-Txn_06473,2025-04-10 13:39:58,338.58,User_524,Merchant_328,UPI,Entertainment,Device_695,"12.9716, 77.5946",0,Success,None,0.0081
-Txn_03624,2025-04-08 22:41:41,1658.72,User_325,Merchant_303,UPI,Entertainment,Device_73,"12.9716, 77.5946",0,Success,None,0.0039
-Txn_04196,2025-04-09 22:55:18,625.68,User_107,Merchant_294,Card,Travel,Device_1596,"12.9716, 77.5946",0,Success,None,0.0754
-Txn_04100,2025-04-09 09:54:17,1168.89,User_635,Merchant_309,Card,Utilities,Device_1460,"12.9716, 77.5946",0,Success,None,0.0274
-Txn_09851,2025-04-08 05:38:26,1604.02,User_401,Merchant_441,UPI,Travel,Device_1062,"12.9716, 77.5946",0,Success,None,0.1051
-Txn_06773,2025-04-09 11:46:05,335.76,User_649,Merchant_61,Card,Utilities,Device_1281,"12.9716, 77.5946",0,Success,None,0.0406
-Txn_04829,2025-04-10 19:49:20,153.76,User_345,Merchant_299,UPI,Online_Retail,Device_1224,"12.9716, 77.5946",0,Success,None,0.0965
-Txn_07390,2025-04-10 17:48:48,1887.25,User_815,Merchant_226,Card,Food,Device_1915,"12.9716, 77.5946",0,Success,None,0.089
-Txn_00926,2025-04-08 04:01:17,1166.48,User_107,Merchant_250,Card,Online_Retail,Device_182,"12.9716, 77.5946",0,Success,None,0.0031
-Txn_05951,2025-04-07 21:45:10,1183.99,User_24,Merchant_65,Card,Entertainment,Device_21,"12.9716, 77.5946",0,Success,None,0.047
-Txn_02313,2025-04-09 08:26:41,1004.5,User_572,Merchant_187,UPI,Entertainment,Device_1795,"12.9716, 77.5946",0,Success,None,0.0219
-Txn_06306,2025-04-10 12:22:09,1250.05,User_564,Merchant_270,Card,Utilities,Device_1489,"12.9716, 77.5946",0,Success,None,0.0333
-Txn_04301,2025-04-08 14:56:20,1464.64,User_625,Merchant_1,Card,Travel,Device_1623,"12.9716, 77.5946",0,Success,None,0.0906
-Txn_08628,2025-04-09 14:58:44,207.63,User_83,Merchant_45,UPI,Food,Device_1921,"12.9716, 77.5946",0,Success,None,0.1633
-Txn_09523,2025-04-11 01:49:37,1927.14,User_992,Merchant_275,Card,Utilities,Device_84,"12.9716, 77.5946",0,Success,None,0.0855
-Txn_02352,2025-04-10 07:20:53,1675.64,User_515,Merchant_335,UPI,Entertainment,Device_1707,"12.9716, 77.5946",0,Success,None,0.0192
-Txn_05238,2025-03-11 13:40:21,2003.568593482212,User_643,Merchant_437,UPI,Unknown,Unknown_Device_6,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9087
-Txn_01228,2025-04-08 02:15:29,660.02,User_860,Merchant_106,Card,Utilities,Device_242,"12.9716, 77.5946",0,Success,None,0.0943
-Txn_07639,2025-04-09 16:15:46,925.76,User_119,Merchant_498,UPI,Online_Retail,Device_15,"12.9716, 77.5946",0,Success,None,0.1018
-Txn_02743,2025-04-08 07:28:09,1164.09,User_988,Merchant_188,Card,Utilities,Device_1292,"12.9716, 77.5946",0,Success,None,0.0282
-Txn_06937,2025-04-08 09:01:56,118.76,User_265,Merchant_472,UPI,Food,Device_406,"12.9716, 77.5946",0,Success,None,0.0606
-Txn_03396,2025-04-11 02:49:21,1762.46,User_726,Merchant_14,Card,Entertainment,Device_1290,"12.9716, 77.5946",0,Success,None,0.052
-Txn_03436,2025-04-07 23:27:31,1087.41,User_140,Merchant_165,Card,Entertainment,Device_1197,"12.9716, 77.5946",0,Success,None,0.1282
-Txn_04384,2025-04-10 18:34:53,263.83,User_191,Merchant_383,UPI,Food,Device_270,"12.9716, 77.5946",0,Success,None,0.014
-Txn_06718,2025-04-08 17:14:12,1893.16,User_224,Merchant_392,UPI,Travel,Device_124,"12.9716, 77.5946",0,Success,None,0.0007
-Txn_09369,2025-04-08 06:55:26,1182.24,User_872,Merchant_216,Card,Travel,Device_1879,"12.9716, 77.5946",0,Success,None,0.0297
-Txn_02938,2025-04-11 03:55:30,1206.04,User_709,Merchant_274,Card,Travel,Device_630,"12.9716, 77.5946",0,Success,None,0.1302
-Txn_07832,2025-04-10 12:01:18,1868.6,User_522,Merchant_232,UPI,Food,Device_571,"12.9716, 77.5946",0,Success,None,0.1255
-Txn_06076,2025-04-11 09:27:10,1606.97,User_983,Merchant_342,Card,Travel,Device_738,"12.9716, 77.5946",0,Success,None,0.1506
-Txn_07113,2025-04-08 02:57:48,1599.49,User_574,Merchant_485,Card,Food,Device_553,"12.9716, 77.5946",0,Success,None,0.0403
-Txn_05829,2025-04-10 10:20:41,1454.49,User_20,Merchant_283,Card,Online_Retail,Device_481,"12.9716, 77.5946",0,Success,None,0.1121
-Txn_00176,2025-04-08 00:46:11,412.12,User_65,Merchant_312,Card,Entertainment,Device_1358,"12.9716, 77.5946",0,Success,None,0.1492
-Txn_09701,2025-03-19 09:51:58,2331.251016248642,User_504,Merchant_9,UPI,Unknown,Unknown_Device_32,"12.9716, 77.5946",1,Fraud,Phishing,0.7761
-Txn_04104,2025-04-10 08:14:38,1439.06,User_349,Merchant_404,Card,Travel,Device_751,"12.9716, 77.5946",0,Success,None,0.03
-Txn_05028,2025-04-08 05:18:46,1740.75,User_139,Merchant_464,UPI,Utilities,Device_345,"12.9716, 77.5946",0,Success,None,0.1557
-Txn_03474,2025-04-09 13:50:31,980.44,User_113,Merchant_242,Card,Travel,Device_1755,"12.9716, 77.5946",0,Success,None,0.1399
-Txn_01538,2025-04-08 12:45:16,1881.45,User_771,Merchant_322,Card,Food,Device_323,"12.9716, 77.5946",0,Success,None,0.0259
-Txn_03487,2025-04-09 14:18:32,1284.02,User_376,Merchant_251,UPI,Entertainment,Device_1230,"12.9716, 77.5946",0,Success,None,0.1706
-Txn_00444,2025-04-09 10:22:04,1073.31,User_3,Merchant_346,UPI,Entertainment,Device_311,"12.9716, 77.5946",0,Success,None,0.0285
-Txn_02903,2025-04-08 16:00:07,645.28,User_108,Merchant_249,Card,Online_Retail,Device_1562,"12.9716, 77.5946",0,Success,None,0.0687
-Txn_05897,2025-04-09 01:52:59,391.83,User_139,Merchant_40,Card,Utilities,Device_1770,"12.9716, 77.5946",0,Success,None,0.0372
-Txn_01511,2025-04-08 19:54:25,1199.11,User_658,Merchant_7,Card,Entertainment,Device_210,"12.9716, 77.5946",0,Success,None,0.0768
-Txn_04214,2025-04-09 21:04:26,443.08,User_175,Merchant_92,Card,Entertainment,Device_1397,"12.9716, 77.5946",0,Success,None,0.0489
-Txn_09032,2025-04-09 10:31:05,1744.67,User_152,Merchant_13,UPI,Utilities,Device_1457,"12.9716, 77.5946",0,Success,None,0.0236
-Txn_07952,2025-04-11 04:08:31,1977.09,User_102,Merchant_378,Card,Entertainment,Device_1521,"12.9716, 77.5946",0,Success,None,0.0243
-Txn_08512,2025-03-13 12:14:56,1418.3596446929976,User_916,Merchant_394,UPI,Unknown,Device_456,"12.9716, 77.5946",1,Fraud,Phishing,0.7457
-Txn_07979,2025-04-09 13:16:41,1057.38,User_314,Merchant_17,UPI,Food,Device_1772,"12.9716, 77.5946",0,Success,None,0.1635
-Txn_00506,2025-04-08 05:41:12,1459.76,User_280,Merchant_309,UPI,Travel,Device_1794,"12.9716, 77.5946",0,Success,None,0.1917
-Txn_08568,2025-04-10 04:27:59,1567.45,User_430,Merchant_422,UPI,Online_Retail,Device_346,"12.9716, 77.5946",0,Success,None,0.1004
-Txn_08239,2025-04-09 10:41:36,847.18,User_658,Merchant_410,UPI,Entertainment,Device_1529,"12.9716, 77.5946",0,Success,None,0.0487
-Txn_06329,2025-04-07 22:20:19,201.99,User_250,Merchant_285,UPI,Travel,Device_1772,"12.9716, 77.5946",0,Success,None,0.163
-Txn_01816,2025-04-09 05:14:04,856.42,User_743,Merchant_283,UPI,Travel,Device_1921,"12.9716, 77.5946",0,Success,None,0.1514
-Txn_08108,2025-04-04 10:36:22,4160.447087128415,User_810,Suspicious_5,UPI,Unknown,Device_361,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8111
-Txn_00352,2025-04-08 10:30:27,915.91,User_925,Merchant_8,Card,Utilities,Device_524,"12.9716, 77.5946",0,Success,None,0.0335
-Txn_02865,2025-04-10 22:47:44,1262.62,User_311,Merchant_247,Card,Entertainment,Device_1812,"12.9716, 77.5946",0,Success,None,0.0826
-Txn_04914,2025-04-07 20:53:45,4985.979491530093,User_785,Merchant_298,Card,Entertainment,Device_677,"35.6762, 139.6503",1,Fraud,Phishing,0.8076
-Txn_03041,2025-04-09 16:19:29,693.71,User_397,Merchant_136,Card,Online_Retail,Device_265,"12.9716, 77.5946",0,Success,None,0.0617
-Txn_03880,2025-04-08 18:55:19,1349.23,User_392,Merchant_445,Card,Online_Retail,Device_278,"12.9716, 77.5946",0,Success,None,0.1667
-Txn_09645,2025-04-09 17:46:39,490.96,User_97,Merchant_48,UPI,Travel,Device_1760,"12.9716, 77.5946",0,Success,None,0.1496
-Txn_07593,2025-04-09 11:39:53,1770.9,User_251,Merchant_333,Card,Food,Device_840,"12.9716, 77.5946",0,Success,None,0.1693
-Txn_08563,2025-03-23 03:47:04,3079.0519330643187,User_288,Merchant_277,UPI,Unknown,Unknown_Device_11,"12.9716, 77.5946",1,Fraud,Phishing,0.9852
-Txn_06562,2025-04-09 21:53:17,1647.41,User_891,Merchant_91,UPI,Travel,Device_1999,"12.9716, 77.5946",0,Success,None,0.0103
-Txn_03238,2025-04-09 02:30:55,945.73,User_968,Merchant_121,UPI,Food,Device_402,"12.9716, 77.5946",0,Success,None,0.1676
-Txn_00196,2025-03-21 05:40:50,8460.35166279229,User_450,Merchant_404,Card,Retail_Physical,Unknown_Device_30,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8767
-Txn_01708,2025-04-08 04:34:58,670.29,User_333,Merchant_94,Card,Utilities,Device_607,"12.9716, 77.5946",0,Success,None,0.1616
-Txn_07455,2025-04-10 00:55:45,1582.56,User_920,Merchant_426,UPI,Online_Retail,Device_1978,"12.9716, 77.5946",0,Success,None,0.0413
-Txn_01884,2025-04-02 13:00:47,7176.275708123883,User_6,Suspicious_33,UPI,Unknown,Device_1550,"12.9716, 77.5946",1,Fraud,Phishing,0.9016
-Txn_04837,2025-04-03 10:31:47,3454.192809303221,User_673,Merchant_334,UPI,Online_Retail,New_Device_2,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.8558
-Txn_00182,2025-04-10 02:33:07,1731.81,User_974,Merchant_55,UPI,Online_Retail,Device_1753,"12.9716, 77.5946",0,Success,None,0.1542
-Txn_09913,2025-03-26 05:02:43,5349.351779692259,User_120,Suspicious_7,UPI,Unknown,Device_128,"12.9716, 77.5946",1,Fraud,Phishing,0.8643
-Txn_00662,2025-04-08 23:52:33,1485.94,User_232,Merchant_425,UPI,Online_Retail,Device_1434,"12.9716, 77.5946",0,Success,None,0.1362
-Txn_08799,2025-03-18 23:00:51,3233.38423480048,User_587,Merchant_290,UPI,Travel,New_Device_28,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.9642
-Txn_06701,2025-04-08 16:38:00,1937.06,User_752,Merchant_485,Card,Entertainment,Device_490,"12.9716, 77.5946",0,Success,None,0.0113
-Txn_01822,2025-04-08 14:40:05,1805.27,User_27,Merchant_254,Card,Entertainment,Device_217,"12.9716, 77.5946",0,Success,None,0.1739
-Txn_00433,2025-04-10 06:20:37,1627.23,User_178,Merchant_58,UPI,Entertainment,Device_629,"12.9716, 77.5946",0,Success,None,0.02
-Txn_06003,2025-04-10 19:38:18,1274.46,User_589,Merchant_448,Card,Online_Retail,Device_1145,"12.9716, 77.5946",0,Success,None,0.1456
-Txn_06251,2025-04-06 01:45:05,5673.224810021124,User_880,Merchant_305,Card,Online_Retail,Device_499,"35.6762, 139.6503",1,Fraud,Phishing,0.8801
-Txn_03653,2025-04-10 07:39:06,939.32,User_625,Merchant_384,UPI,Food,Device_1350,"12.9716, 77.5946",0,Success,None,0.0197
-Txn_09011,2025-04-10 04:20:32,1196.3,User_222,Merchant_40,Card,Entertainment,Device_1915,"12.9716, 77.5946",0,Success,None,0.137
-Txn_05369,2025-04-09 07:47:26,494.02,User_575,Merchant_235,Card,Food,Device_1465,"12.9716, 77.5946",0,Success,None,0.1928
-Txn_08982,2025-04-11 12:37:00,1400.31,User_942,Merchant_416,Card,Entertainment,Device_562,"12.9716, 77.5946",0,Success,None,0.0762
-Txn_01866,2025-04-10 04:46:56,987.21,User_191,Merchant_117,UPI,Food,Device_53,"12.9716, 77.5946",0,Success,None,0.0465
-Txn_03103,2025-04-09 07:52:50,1942.62,User_343,Merchant_86,Card,Entertainment,Device_775,"12.9716, 77.5946",0,Success,None,0.0335
-Txn_00518,2025-04-11 12:43:06,593.94,User_724,Merchant_50,Card,Entertainment,Device_504,"12.9716, 77.5946",0,Success,None,0.0068
-Txn_05360,2025-04-11 10:45:23,1317.95,User_222,Merchant_366,Card,Entertainment,Device_934,"12.9716, 77.5946",0,Success,None,0.0137
-Txn_00673,2025-04-11 14:07:35,220.52,User_609,Merchant_304,UPI,Food,Device_1120,"12.9716, 77.5946",0,Success,None,0.1099
-Txn_02007,2025-04-10 04:38:54,1861.87,User_574,Merchant_47,UPI,Utilities,Device_614,"12.9716, 77.5946",0,Success,None,0.0233
-Txn_04445,2025-04-08 06:30:24,1894.15,User_537,Merchant_366,UPI,Utilities,Device_1046,"12.9716, 77.5946",0,Success,None,0.0784
-Txn_03569,2025-04-10 01:34:45,1537.59,User_339,Merchant_389,Card,Travel,Device_446,"12.9716, 77.5946",0,Success,None,0.1372
-Txn_09681,2025-04-11 05:30:09,699.63,User_581,Merchant_188,Card,Travel,Device_1277,"12.9716, 77.5946",0,Success,None,0.0036
-Txn_08952,2025-04-08 03:50:01,464.08,User_793,Merchant_262,Card,Online_Retail,Device_468,"12.9716, 77.5946",0,Success,None,0.0135
-Txn_08740,2025-04-09 00:52:28,1667.74,User_207,Merchant_28,UPI,Entertainment,Device_650,"12.9716, 77.5946",0,Success,None,0.0653
-Txn_01183,2025-04-08 03:57:26,1045.11,User_859,Merchant_412,UPI,Entertainment,Device_1917,"12.9716, 77.5946",0,Success,None,0.0707
-Txn_09473,2025-04-08 08:00:43,488.92,User_42,Merchant_416,Card,Entertainment,Device_1510,"12.9716, 77.5946",0,Success,None,0.0204
-Txn_07473,2025-04-11 09:12:37,1383.06,User_634,Merchant_353,Card,Online_Retail,Device_1103,"12.9716, 77.5946",0,Success,None,0.1073
-Txn_06478,2025-04-11 13:12:25,1739.33,User_68,Merchant_3,UPI,Utilities,Device_1489,"12.9716, 77.5946",0,Success,None,0.1124
-Txn_08037,2025-04-09 07:15:04,326.17,User_115,Merchant_478,Card,Utilities,Device_1243,"12.9716, 77.5946",0,Success,None,0.1214
-Txn_05330,2025-04-08 04:15:38,260.61,User_749,Merchant_315,Card,Food,Device_292,"12.9716, 77.5946",0,Success,None,0.1522
-Txn_03269,2025-04-08 17:41:00,1631.35,User_793,Merchant_482,UPI,Entertainment,Device_1792,"12.9716, 77.5946",0,Success,None,0.065
-Txn_08465,2025-03-24 20:56:48,7415.037712429985,User_940,Suspicious_9,UPI,Unknown,Device_1702,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9075
-Txn_07220,2025-04-11 05:53:41,1118.55,User_31,Merchant_398,UPI,Travel,Device_733,"12.9716, 77.5946",0,Success,None,0.0236
-Txn_09649,2025-04-08 06:00:15,203.46,User_854,Merchant_333,Card,Travel,Device_345,"12.9716, 77.5946",0,Success,None,0.0987
-Txn_05316,2025-04-08 22:26:43,3556.0148853281207,User_419,Merchant_197,Card,Online_Retail,Unknown_Device_10,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7414
-Txn_04933,2025-03-19 20:48:46,6.677637294046258,User_686,Merchant_89,UPI,Unknown,Device_867,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8606
-Txn_08358,2025-04-10 22:42:32,1232.97,User_687,Merchant_243,UPI,Travel,Device_237,"12.9716, 77.5946",0,Success,None,0.1424
-Txn_05202,2025-04-09 15:13:04,696.03,User_912,Merchant_6,UPI,Online_Retail,Device_856,"12.9716, 77.5946",0,Success,None,0.0284
-Txn_05222,2025-03-29 17:09:40,4175.658301671529,User_653,Suspicious_32,UPI,Unknown,Device_106,"12.9716, 77.5946",1,Fraud,Phishing,0.9909
-Txn_01184,2025-04-10 10:12:17,1386.82,User_179,Merchant_237,UPI,Online_Retail,Device_966,"12.9716, 77.5946",0,Success,None,0.1574
-Txn_05097,2025-04-08 04:58:42,1384.35,User_760,Merchant_409,Card,Online_Retail,Device_750,"12.9716, 77.5946",0,Success,None,0.0636
-Txn_09157,2025-04-10 17:32:54,982.21,User_998,Merchant_473,Card,Online_Retail,Device_331,"12.9716, 77.5946",0,Success,None,0.128
-Txn_06132,2025-04-10 05:49:40,1976.28,User_499,Merchant_386,Card,Food,Device_627,"12.9716, 77.5946",0,Success,None,0.1911
-Txn_07696,2025-04-07 23:47:33,11447.582981352778,User_221,Merchant_374,Card,Online_Retail,Unknown_Device_32,"12.9716, 77.5946",1,Fraud,Phishing,0.8157
-Txn_02207,2025-04-04 05:29:12,8661.125089440171,User_891,Merchant_340,Card,Retail_Physical,Unknown_Device_5,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7156
-Txn_09120,2025-04-10 22:23:33,1187.86,User_210,Merchant_289,UPI,Entertainment,Device_836,"12.9716, 77.5946",0,Success,None,0.1024
-Txn_07744,2025-04-10 15:43:57,984.35,User_799,Merchant_443,Card,Food,Device_1962,"12.9716, 77.5946",0,Success,None,0.1789
-Txn_00593,2025-04-10 09:32:08,5.939321194034992,User_666,Merchant_137,UPI,Unknown,Device_1168,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8223
-Txn_09053,2025-04-10 03:59:21,111.91,User_960,Merchant_171,Card,Travel,Device_595,"12.9716, 77.5946",0,Success,None,0.1237
-Txn_03022,2025-04-11 07:53:43,485.16,User_625,Merchant_324,Card,Online_Retail,Device_1628,"12.9716, 77.5946",0,Success,None,0.1654
-Txn_01322,2025-04-08 11:13:09,905.9,User_303,Merchant_189,UPI,Travel,Device_64,"12.9716, 77.5946",0,Success,None,0.0629
-Txn_00733,2025-03-24 14:17:04,5822.478260501544,User_582,Merchant_416,Card,Online_Retail,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9811
-Txn_08752,2025-04-09 22:29:25,229.79,User_342,Merchant_32,UPI,Food,Device_736,"12.9716, 77.5946",0,Success,None,0.1998
-Txn_00260,2025-04-11 02:59:25,1863.36,User_533,Merchant_79,Card,Food,Device_939,"12.9716, 77.5946",0,Success,None,0.0577
-Txn_03878,2025-04-10 02:34:27,377.76,User_814,Merchant_388,UPI,Utilities,Device_773,"12.9716, 77.5946",0,Success,None,0.1271
-Txn_05198,2025-04-04 20:19:08,3079.5246837577088,User_530,Merchant_432,Card,Online_Retail,Unknown_Device_24,"12.9716, 77.5946",1,Fraud,Phishing,0.8033
-Txn_00328,2025-04-10 02:46:54,1666.2,User_160,Merchant_234,Card,Travel,Device_859,"12.9716, 77.5946",0,Success,None,0.1016
-Txn_09902,2025-04-10 00:39:41,1138.05,User_904,Merchant_184,UPI,Entertainment,Device_790,"12.9716, 77.5946",0,Success,None,0.0361
-Txn_08562,2025-04-09 04:17:06,528.78,User_416,Merchant_378,UPI,Travel,Device_1299,"12.9716, 77.5946",0,Success,None,0.0189
-Txn_09163,2025-04-10 15:30:10,1322.85,User_224,Merchant_416,UPI,Food,Device_682,"12.9716, 77.5946",0,Success,None,0.0266
-Txn_01289,2025-04-10 15:27:17,719.5,User_192,Merchant_296,Card,Entertainment,Device_326,"12.9716, 77.5946",0,Success,None,0.147
-Txn_04585,2025-04-10 18:32:25,1797.72,User_119,Merchant_219,UPI,Food,Device_472,"12.9716, 77.5946",0,Success,None,0.1857
-Txn_03114,2025-04-09 16:33:37,1395.52,User_943,Merchant_17,UPI,Utilities,Device_1061,"12.9716, 77.5946",0,Success,None,0.1648
-Txn_03837,2025-04-09 14:52:07,1321.89,User_117,Merchant_149,Card,Entertainment,Device_233,"12.9716, 77.5946",0,Success,None,0.016
-Txn_05779,2025-04-10 17:11:31,1684.28,User_954,Merchant_448,Card,Online_Retail,Device_313,"12.9716, 77.5946",0,Success,None,0.1336
-Txn_05393,2025-03-23 04:11:03,5.103610949929277,User_211,Merchant_5,UPI,Unknown,Device_1589,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7289
-Txn_07073,2025-03-17 07:35:51,2755.7707755919137,User_61,Merchant_9,UPI,Unknown,Device_1464,"12.9716, 77.5946",1,Fraud,Phishing,0.987
-Txn_08991,2025-04-10 07:36:26,1903.44,User_295,Merchant_491,UPI,Entertainment,Device_1925,"12.9716, 77.5946",0,Success,None,0.0428
-Txn_03212,2025-04-11 04:27:25,620.56,User_941,Merchant_126,UPI,Food,Device_1698,"12.9716, 77.5946",0,Success,None,0.1761
-Txn_02023,2025-04-08 05:33:56,1103.88,User_336,Merchant_496,UPI,Utilities,Device_93,"12.9716, 77.5946",0,Success,None,0.1904
-Txn_00283,2025-04-09 15:40:04,195.84,User_582,Merchant_375,UPI,Travel,Device_1874,"12.9716, 77.5946",0,Success,None,0.0097
-Txn_04012,2025-03-30 02:59:57,3536.563179603051,User_424,Merchant_395,UPI,Unknown,Unknown_Device_12,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7269
-Txn_03830,2025-04-11 11:01:38,1107.46,User_6,Merchant_478,UPI,Utilities,Device_289,"12.9716, 77.5946",0,Success,None,0.0274
-Txn_07002,2025-04-08 19:54:55,224.82,User_264,Merchant_258,UPI,Travel,Device_1230,"12.9716, 77.5946",0,Success,None,0.1751
-Txn_07566,2025-03-11 12:16:44,2829.5011121956786,User_364,Merchant_74,UPI,Unknown,Device_1707,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.839
-Txn_06082,2025-04-10 11:29:43,1072.31,User_52,Merchant_286,UPI,Entertainment,Device_1683,"12.9716, 77.5946",0,Success,None,0.1664
-Txn_07830,2025-04-09 21:13:30,2052.393983724402,User_710,Merchant_149,UPI,Unknown,Unknown_Device_26,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9871
-Txn_00694,2025-04-10 05:18:15,396.11,User_122,Merchant_88,Card,Utilities,Device_1049,"12.9716, 77.5946",0,Success,None,0.0049
-Txn_02953,2025-04-07 20:25:20,1016.5,User_436,Merchant_86,UPI,Travel,Device_245,"12.9716, 77.5946",0,Success,None,0.1192
-Txn_03943,2025-04-07 22:27:43,1756.53,User_947,Merchant_372,Card,Utilities,Device_299,"12.9716, 77.5946",0,Success,None,0.1894
-Txn_03192,2025-04-09 07:15:53,159.53,User_179,Merchant_271,Card,Food,Device_1743,"12.9716, 77.5946",0,Success,None,0.1185
-Txn_07334,2025-04-10 09:01:26,1770.66,User_804,Merchant_130,Card,Entertainment,Device_315,"12.9716, 77.5946",0,Success,None,0.1346
-Txn_09287,2025-04-02 23:11:44,3906.069278737456,User_496,Merchant_68,UPI,Unknown,Unknown_Device_10,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9744
-Txn_01607,2025-04-09 19:20:03,1298.82,User_831,Merchant_7,UPI,Utilities,Device_468,"12.9716, 77.5946",0,Success,None,0.1848
-Txn_04608,2025-04-11 08:58:37,950.86,User_709,Merchant_71,UPI,Online_Retail,Device_671,"12.9716, 77.5946",0,Success,None,0.0147
-Txn_08141,2025-04-10 10:20:32,475.66,User_484,Merchant_464,Card,Travel,Device_1839,"12.9716, 77.5946",0,Success,None,0.098
-Txn_01466,2025-04-09 18:48:03,954.93,User_799,Merchant_439,UPI,Entertainment,Device_1485,"12.9716, 77.5946",0,Success,None,0.1341
-Txn_05444,2025-04-09 08:54:18,361.04,User_628,Merchant_116,UPI,Utilities,Device_278,"12.9716, 77.5946",0,Success,None,0.0508
-Txn_00399,2025-04-10 07:26:33,1956.71,User_887,Merchant_70,UPI,Food,Device_787,"12.9716, 77.5946",0,Success,None,0.0414
-Txn_02578,2025-03-30 14:06:09,5.524215968270546,User_463,Merchant_251,UPI,Unknown,Device_1290,"12.9716, 77.5946",1,Fraud,Phishing,0.8476
-Txn_05331,2025-04-08 17:02:27,1732.87,User_713,Merchant_133,Card,Utilities,Device_826,"12.9716, 77.5946",0,Success,None,0.0589
-Txn_03916,2025-03-12 22:38:31,2282.389689526186,User_908,Merchant_126,UPI,Unknown,Device_345,"12.9716, 77.5946",1,Fraud,Phishing,0.7804
-Txn_07589,2025-04-08 04:24:01,1303.84,User_990,Merchant_105,Card,Travel,Device_1044,"12.9716, 77.5946",0,Success,None,0.1665
-Txn_05862,2025-04-10 03:58:13,618.05,User_409,Merchant_375,Card,Food,Device_1007,"12.9716, 77.5946",0,Success,None,0.099
-Txn_00617,2025-04-09 18:56:51,11064.195040067169,User_491,Merchant_45,Card,Online_Retail,Unknown_Device_20,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8107
-Txn_03081,2025-04-08 14:37:37,1458.95,User_916,Merchant_467,Card,Online_Retail,Device_1636,"12.9716, 77.5946",0,Success,None,0.0176
-Txn_07616,2025-04-10 20:14:34,746.56,User_175,Merchant_285,Card,Utilities,Device_1041,"12.9716, 77.5946",0,Success,None,0.0029
-Txn_05453,2025-04-10 04:16:16,1277.88,User_598,Merchant_209,Card,Entertainment,Device_577,"12.9716, 77.5946",0,Success,None,0.1385
-Txn_03226,2025-04-09 03:44:53,1950.79,User_109,Merchant_182,UPI,Online_Retail,Device_1713,"12.9716, 77.5946",0,Success,None,0.1266
-Txn_09888,2025-03-25 20:20:31,7242.311408925219,User_888,Suspicious_25,UPI,Unknown,Device_1619,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9853
-Txn_04048,2025-04-10 08:57:32,1178.56,User_237,Merchant_148,UPI,Travel,Device_1216,"12.9716, 77.5946",0,Success,None,0.1458
-Txn_07070,2025-04-09 16:18:40,976.9,User_645,Merchant_48,UPI,Travel,Device_800,"12.9716, 77.5946",0,Success,None,0.1716
-Txn_02540,2025-04-09 20:23:03,1157.79,User_844,Merchant_127,Card,Online_Retail,Device_585,"12.9716, 77.5946",0,Success,None,0.1272
-Txn_01231,2025-04-10 03:34:10,626.86,User_87,Merchant_158,UPI,Utilities,Device_416,"12.9716, 77.5946",0,Success,None,0.0596
-Txn_00820,2025-04-07 22:39:15,998.61,User_644,Merchant_249,UPI,Online_Retail,Device_1111,"12.9716, 77.5946",0,Success,None,0.0632
-Txn_00930,2025-04-07 23:55:49,202.09,User_268,Merchant_127,Card,Entertainment,Device_1241,"12.9716, 77.5946",0,Success,None,0.0903
-Txn_09445,2025-04-08 12:54:55,1045.74,User_781,Merchant_407,Card,Travel,Device_128,"12.9716, 77.5946",0,Success,None,0.0829
-Txn_01124,2025-03-25 09:42:35,8842.146118061819,User_537,Merchant_257,Card,Online_Retail,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9314
-Txn_07072,2025-04-09 07:36:35,1122.03,User_931,Merchant_296,Card,Entertainment,Device_1595,"12.9716, 77.5946",0,Success,None,0.0685
-Txn_09752,2025-03-30 13:35:35,7320.832687266953,User_962,Merchant_78,Card,Online_Retail,Device_466,"35.6762, 139.6503",1,Fraud,Identity Theft,0.9291
-Txn_02152,2025-04-10 17:30:43,503.1,User_633,Merchant_106,UPI,Online_Retail,Device_1652,"12.9716, 77.5946",0,Success,None,0.1008
-Txn_07758,2025-03-22 14:32:16,3010.811154891398,User_199,Merchant_454,UPI,Unknown,Unknown_Device_0,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8809
-Txn_08205,2025-03-24 05:25:27,7360.244306194666,User_198,Merchant_67,Card,Online_Retail,Unknown_Device_24,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7778
-Txn_03108,2025-04-09 16:20:09,1952.19,User_62,Merchant_347,UPI,Utilities,Device_566,"12.9716, 77.5946",0,Success,None,0.1725
-Txn_01449,2025-04-08 13:28:31,696.72,User_686,Merchant_112,Card,Entertainment,Device_982,"12.9716, 77.5946",0,Success,None,0.1852
-Txn_06505,2025-04-09 07:29:43,684.14,User_653,Merchant_19,UPI,Travel,Device_248,"12.9716, 77.5946",0,Success,None,0.0454
-Txn_06245,2025-04-08 18:18:18,1465.39,User_967,Merchant_473,UPI,Online_Retail,Device_603,"12.9716, 77.5946",0,Success,None,0.0746
-Txn_02736,2025-04-09 06:26:10,8991.230813988106,User_468,Merchant_90,Card,Retail_Physical,Unknown_Device_20,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7801
-Txn_04310,2025-04-11 11:26:53,166.31,User_101,Merchant_314,Card,Online_Retail,Device_1593,"12.9716, 77.5946",0,Success,None,0.0977
-Txn_02013,2025-04-01 23:50:06,7751.735017398508,User_473,Merchant_87,Card,Online_Retail,Unknown_Device_14,"12.9716, 77.5946",1,Fraud,Phishing,0.7776
-Txn_05408,2025-03-22 01:29:53,4071.733368467272,User_423,Suspicious_6,UPI,Unknown,Device_1756,"12.9716, 77.5946",1,Fraud,Phishing,0.8491
-Txn_03297,2025-04-10 18:03:05,378.95,User_948,Merchant_248,Card,Online_Retail,Device_44,"12.9716, 77.5946",0,Success,None,0.1891
-Txn_04097,2025-04-08 09:48:31,1243.73,User_33,Merchant_289,Card,Online_Retail,Device_1020,"12.9716, 77.5946",0,Success,None,0.0623
+Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,Device_167,"12.9716, 77.5946",True,Success,None,0.062
+Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7007
+Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",0,Success,None,0.0382
+Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",0,Success,None,0.0354
+Txn_02131,2025-04-08 20:25:40,1710.72,User_920,Merchant_422,UPI,Online_Retail,Device_1988,"12.9716, 77.5946",0,Success,None,0.0282
+Txn_07486,2025-04-08 00:18:35,496.69,User_997,Merchant_415,UPI,Food,Device_1444,"12.9716, 77.5946",0,Success,None,0.0176
+Txn_04384,2025-04-10 18:34:53,263.83,User_191,Merchant_383,UPI,Food,Device_270,"12.9716, 77.5946",0,Success,None,0.0879
+Txn_07636,2025-04-11 15:05:11,698.54,User_56,Merchant_22,UPI,Travel,Device_18,"12.9716, 77.5946",0,Success,None,0.1355
+Txn_06916,2025-03-29 22:50:24,2040.748394712574,User_321,Merchant_142,UPI,Unknown,Unknown_Device_1,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9212
+Txn_06562,2025-04-09 21:53:17,1647.41,User_891,Merchant_91,UPI,Travel,Device_1999,"12.9716, 77.5946",0,Success,None,0.055
+Txn_03832,2025-03-23 09:49:43,1615.4385281400528,User_408,Merchant_461,UPI,Unknown,Device_1898,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9023
+Txn_05586,2025-04-09 19:42:35,1687.76,User_700,Merchant_195,UPI,Entertainment,Device_139,"12.9716, 77.5946",0,Success,None,0.0445
+Txn_02249,2025-04-10 02:54:45,1345.32,User_690,Merchant_404,UPI,Online_Retail,Device_1965,"12.9716, 77.5946",0,Success,None,0.1998
+Txn_08562,2025-04-09 04:17:06,528.78,User_416,Merchant_378,UPI,Travel,Device_1299,"12.9716, 77.5946",0,Success,None,0.1848
+Txn_07807,2025-03-18 21:33:02,4086.194476610214,User_270,Merchant_171,Card,Online_Retail,Unknown_Device_22,"12.9716, 77.5946",1,Fraud,Account Takeover,0.802
+Txn_06473,2025-04-10 13:39:58,338.58,User_524,Merchant_328,UPI,Entertainment,Device_695,"12.9716, 77.5946",0,Success,None,0.1772
+Txn_03979,2025-04-10 22:46:08,1092.88,User_391,Merchant_53,Card,Food,Device_66,"12.9716, 77.5946",0,Success,None,0.0438
+Txn_07843,2025-04-11 11:57:49,1897.79,User_814,Merchant_107,Card,Utilities,Device_1261,"12.9716, 77.5946",0,Success,None,0.0763
+Txn_05132,2025-04-09 17:13:54,1123.15,User_974,Merchant_172,UPI,Online_Retail,Device_1207,"12.9716, 77.5946",0,Success,None,0.1064
+Txn_08850,2025-04-04 06:34:01,5689.662945010733,User_270,Merchant_19,Card,Retail_Physical,Unknown_Device_16,"12.9716, 77.5946",1,Fraud,Phishing,0.782
+Txn_00399,2025-04-10 07:26:33,1956.71,User_887,Merchant_70,UPI,Food,Device_787,"12.9716, 77.5946",0,Success,None,0.1309
+Txn_00098,2025-04-08 05:19:47,1553.91,User_212,Merchant_110,UPI,Entertainment,Device_1506,"12.9716, 77.5946",0,Success,None,0.0884
+Txn_02936,2025-04-09 22:13:48,1057.39,User_561,Merchant_156,Card,Travel,Device_1766,"12.9716, 77.5946",0,Success,None,0.0959
+Txn_00506,2025-04-08 05:41:12,1459.76,User_280,Merchant_309,UPI,Travel,Device_1794,"12.9716, 77.5946",0,Success,None,0.1574
+Txn_07566,2025-03-11 12:16:44,2829.5011121956786,User_364,Merchant_74,UPI,Unknown,Device_1707,"12.9716, 77.5946",1,Fraud,Phishing,0.777
+Txn_09120,2025-04-10 22:23:33,1187.86,User_210,Merchant_289,UPI,Entertainment,Device_836,"12.9716, 77.5946",0,Success,None,0.0647
+Txn_01273,2025-04-10 06:26:23,786.09,User_531,Merchant_168,Card,Entertainment,Device_671,"12.9716, 77.5946",0,Success,None,0.0876
+Txn_09452,2025-03-28 02:06:41,5570.807824353424,User_515,Suspicious_10,UPI,Unknown,Device_1868,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7564
+Txn_03910,2025-04-11 06:11:32,653.19,User_217,Merchant_196,UPI,Utilities,Device_972,"12.9716, 77.5946",0,Success,None,0.1356
+Txn_07603,2025-04-11 08:01:35,1223.92,User_854,Merchant_413,UPI,Utilities,Device_1817,"12.9716, 77.5946",0,Success,None,0.0867
+Txn_00741,2025-03-29 06:51:52,11500.665176318807,User_958,Merchant_263,Card,Online_Retail,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8863
+Txn_04762,2025-04-06 06:24:24,3230.331928091367,User_748,Merchant_195,UPI,Food,New_Device_17,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.739
+Txn_05408,2025-03-22 01:29:53,4071.733368467272,User_423,Suspicious_6,UPI,Unknown,Device_1756,"12.9716, 77.5946",1,Fraud,Phishing,0.7096
+Txn_09369,2025-04-08 06:55:26,1182.24,User_872,Merchant_216,Card,Travel,Device_1879,"12.9716, 77.5946",0,Success,None,0.1311
+Txn_08205,2025-03-24 05:25:27,7360.244306194666,User_198,Merchant_67,Card,Online_Retail,Unknown_Device_24,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9554
+Txn_07744,2025-04-10 15:43:57,984.35,User_799,Merchant_443,Card,Food,Device_1962,"12.9716, 77.5946",0,Success,None,0.1075
+Txn_01245,2025-04-10 21:09:05,1607.14,User_403,Merchant_63,Card,Entertainment,Device_544,"12.9716, 77.5946",0,Success,None,0.1325
+Txn_03212,2025-04-11 04:27:25,620.56,User_941,Merchant_126,UPI,Food,Device_1698,"12.9716, 77.5946",0,Success,None,0.1688
+Txn_06172,2025-04-11 10:10:30,770.05,User_91,Merchant_419,Card,Entertainment,Device_40,"12.9716, 77.5946",0,Success,None,0.0783
+Txn_00014,2025-04-08 18:58:56,1409.38,User_574,Merchant_292,Card,Utilities,Device_1080,"12.9716, 77.5946",0,Success,None,0.064
+Txn_09304,2025-04-09 23:57:02,155.38,User_420,Merchant_358,Card,Travel,Device_1743,"12.9716, 77.5946",0,Success,None,0.145
+Txn_02352,2025-04-10 07:20:53,1675.64,User_515,Merchant_335,UPI,Entertainment,Device_1707,"12.9716, 77.5946",0,Success,None,0.0994
+Txn_06701,2025-04-08 16:38:00,1937.06,User_752,Merchant_485,Card,Entertainment,Device_490,"12.9716, 77.5946",0,Success,None,0.0592
+Txn_05802,2025-04-08 05:33:28,1676.97,User_939,Merchant_138,Card,Utilities,Device_1683,"12.9716, 77.5946",0,Success,None,0.0315
+Txn_05571,2025-04-09 21:14:48,573.1,User_44,Merchant_209,Card,Entertainment,Device_1374,"12.9716, 77.5946",0,Success,None,0.0172
+Txn_04663,2025-04-11 00:09:33,161.63,User_803,Merchant_455,Card,Utilities,Device_1307,"12.9716, 77.5946",0,Success,None,0.1795
+Txn_04365,2025-04-09 06:15:17,775.43,User_738,Merchant_244,Card,Utilities,Device_1993,"12.9716, 77.5946",0,Success,None,0.1512
+Txn_05202,2025-04-09 15:13:04,696.03,User_912,Merchant_6,UPI,Online_Retail,Device_856,"12.9716, 77.5946",0,Success,None,0.1993
+Txn_02306,2025-04-10 23:50:29,1615.73,User_189,Merchant_385,UPI,Utilities,Device_1004,"12.9716, 77.5946",0,Success,None,0.1795
+Txn_04150,2025-04-10 02:39:54,455.19,User_186,Merchant_225,UPI,Food,Device_1466,"12.9716, 77.5946",0,Success,None,0.1688
+Txn_03474,2025-04-09 13:50:31,980.44,User_113,Merchant_242,Card,Travel,Device_1755,"12.9716, 77.5946",0,Success,None,0.1839
+Txn_07325,2025-04-08 03:18:12,663.06,User_712,Merchant_216,Card,Utilities,Device_940,"12.9716, 77.5946",0,Success,None,0.1904
+Txn_09244,2025-04-07 22:42:26,548.49,User_593,Merchant_382,UPI,Entertainment,Device_1742,"12.9716, 77.5946",0,Success,None,0.158
+Txn_05393,2025-03-23 04:11:03,5.103610949929277,User_211,Merchant_5,UPI,Unknown,Device_1589,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7183
+Txn_02938,2025-04-11 03:55:30,1206.04,User_709,Merchant_274,Card,Travel,Device_630,"12.9716, 77.5946",0,Success,None,0.0822
+Txn_00733,2025-03-24 14:17:04,5822.478260501544,User_582,Merchant_416,Card,Online_Retail,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8845
+Txn_05399,2025-04-10 00:41:16,1634.22,User_568,Merchant_342,Card,Online_Retail,Device_1905,"12.9716, 77.5946",0,Success,None,0.1348
+Txn_03644,2025-04-10 03:16:18,868.55,User_223,Merchant_430,UPI,Entertainment,Device_1206,"12.9716, 77.5946",0,Success,None,0.036
+Txn_02578,2025-03-30 14:06:09,5.524215968270546,User_463,Merchant_251,UPI,Unknown,Device_1290,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8855
+Txn_08563,2025-03-23 03:47:04,3079.0519330643187,User_288,Merchant_277,UPI,Unknown,Unknown_Device_11,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9715
+Txn_09701,2025-03-19 09:51:58,2331.251016248642,User_504,Merchant_9,UPI,Unknown,Unknown_Device_32,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7208
+Txn_00692,2025-04-08 10:20:10,508.64,User_737,Merchant_331,UPI,Travel,Device_1844,"12.9716, 77.5946",0,Success,None,0.173
+Txn_02284,2025-03-31 07:53:00,3379.968667943298,User_819,Merchant_453,UPI,Unknown,Unknown_Device_25,"12.9716, 77.5946",1,Fraud,Phishing,0.9132
+Txn_06923,2025-03-16 12:23:12,4597.659886564874,User_479,Merchant_113,Card,Travel,Device_1999,"35.6762, 139.6503",1,Fraud,Identity Theft,0.9654
+Txn_02656,2025-04-10 11:58:43,1390.22,User_906,Merchant_300,UPI,Entertainment,Device_383,"12.9716, 77.5946",0,Success,None,0.0077
+Txn_02884,2025-04-10 19:38:46,1546.68,User_767,Merchant_184,Card,Entertainment,Device_662,"12.9716, 77.5946",0,Success,None,0.1374
+Txn_06657,2025-04-10 08:09:16,1261.47,User_339,Merchant_172,UPI,Entertainment,Device_1241,"12.9716, 77.5946",0,Success,None,0.1897
+Txn_07914,2025-03-12 18:47:37,9852.909827062234,User_575,Merchant_424,Card,Retail_Physical,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9026
+Txn_00518,2025-04-11 12:43:06,593.94,User_724,Merchant_50,Card,Entertainment,Device_504,"12.9716, 77.5946",0,Success,None,0.1523
+Txn_05779,2025-04-10 17:11:31,1684.28,User_954,Merchant_448,Card,Online_Retail,Device_313,"12.9716, 77.5946",0,Success,None,0.0213
+Txn_09223,2025-04-09 22:29:20,761.47,User_444,Merchant_275,UPI,Entertainment,Device_1020,"12.9716, 77.5946",0,Success,None,0.0881
+Txn_03403,2025-04-09 23:00:06,1239.02,User_534,Merchant_225,UPI,Entertainment,Device_1040,"12.9716, 77.5946",0,Success,None,0.0696
+Txn_06714,2025-03-19 15:02:19,2465.5097683911845,User_922,Merchant_53,UPI,Unknown,Device_1545,"12.9716, 77.5946",1,Fraud,Phishing,0.9977
+Txn_08297,2025-04-08 21:40:08,1028.36,User_643,Merchant_365,UPI,Food,Device_246,"12.9716, 77.5946",0,Success,None,0.0655
+Txn_00821,2025-04-09 09:46:24,1384.22,User_407,Merchant_421,UPI,Travel,Device_1592,"12.9716, 77.5946",0,Success,None,0.0403
+Txn_09647,2025-04-08 18:36:30,704.9,User_679,Merchant_225,UPI,Utilities,Device_1318,"12.9716, 77.5946",0,Success,None,0.1493
+Txn_09157,2025-04-10 17:32:54,982.21,User_998,Merchant_473,Card,Online_Retail,Device_331,"12.9716, 77.5946",0,Success,None,0.1161
+Txn_04903,2025-04-09 17:13:54,1032.95,User_974,Merchant_383,Card,Entertainment,Device_244,"12.9716, 77.5946",0,Success,None,0.076
+Txn_09752,2025-03-30 13:35:35,7320.832687266953,User_962,Merchant_78,Card,Online_Retail,Device_466,"35.6762, 139.6503",1,Fraud,Phishing,0.9058
+Txn_00409,2025-04-10 22:23:01,1886.55,User_550,Merchant_363,UPI,Online_Retail,Device_1639,"12.9716, 77.5946",0,Success,None,0.1856
+Txn_03252,2025-04-08 06:05:52,384.71,User_474,Merchant_453,UPI,Entertainment,Device_966,"12.9716, 77.5946",0,Success,None,0.0369
+Txn_07676,2025-04-08 21:11:51,1256.0,User_174,Merchant_255,UPI,Online_Retail,Device_349,"12.9716, 77.5946",0,Success,None,0.0544
+Txn_04097,2025-04-08 09:48:31,1243.73,User_33,Merchant_289,Card,Online_Retail,Device_1020,"12.9716, 77.5946",0,Success,None,0.1919
+Txn_09549,2025-04-06 10:09:30,3969.536218092062,User_148,Merchant_20,UPI,Unknown,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Phishing,0.7538
+Txn_03487,2025-04-09 14:18:32,1284.02,User_376,Merchant_251,UPI,Entertainment,Device_1230,"12.9716, 77.5946",0,Success,None,0.1672
+Txn_08144,2025-04-09 23:32:26,226.88,User_798,Merchant_124,Card,Online_Retail,Device_850,"12.9716, 77.5946",0,Success,None,0.1867
+Txn_03114,2025-04-09 16:33:37,1395.52,User_943,Merchant_17,UPI,Utilities,Device_1061,"12.9716, 77.5946",0,Success,None,0.0625
+Txn_05885,2025-04-09 17:52:17,1755.76,User_142,Merchant_7,Card,Food,Device_810,"12.9716, 77.5946",0,Success,None,0.0136
+Txn_09507,2025-04-10 01:28:41,876.1,User_626,Merchant_368,UPI,Food,Device_11,"12.9716, 77.5946",0,Success,None,0.1735
+Txn_00949,2025-04-08 14:08:00,904.86,User_196,Merchant_114,UPI,Online_Retail,Device_438,"12.9716, 77.5946",0,Success,None,0.0538
+Txn_08443,2025-04-10 14:02:35,758.22,User_425,Merchant_446,UPI,Travel,Device_818,"12.9716, 77.5946",0,Success,None,0.1442
+Txn_00352,2025-04-08 10:30:27,915.91,User_925,Merchant_8,Card,Utilities,Device_524,"12.9716, 77.5946",0,Success,None,0.1066
+Txn_00204,2025-04-09 01:19:29,421.74,User_979,Merchant_120,Card,Utilities,Device_786,"12.9716, 77.5946",0,Success,None,0.0664
+Txn_01078,2025-04-08 19:48:52,322.36,User_137,Merchant_93,UPI,Utilities,Device_1808,"12.9716, 77.5946",0,Success,None,0.0065
+Txn_03108,2025-04-09 16:20:09,1952.19,User_62,Merchant_347,UPI,Utilities,Device_566,"12.9716, 77.5946",0,Success,None,0.0237
+Txn_06003,2025-04-10 19:38:18,1274.46,User_589,Merchant_448,Card,Online_Retail,Device_1145,"12.9716, 77.5946",0,Success,None,0.1258
+Txn_06082,2025-04-10 11:29:43,1072.31,User_52,Merchant_286,UPI,Entertainment,Device_1683,"12.9716, 77.5946",0,Success,None,0.13
+Txn_04580,2025-04-08 23:48:27,945.95,User_627,Merchant_87,UPI,Travel,Device_757,"12.9716, 77.5946",0,Success,None,0.1931
+Txn_06329,2025-04-07 22:20:19,201.99,User_250,Merchant_285,UPI,Travel,Device_1772,"12.9716, 77.5946",0,Success,None,0.0645
+Txn_06937,2025-04-08 09:01:56,118.76,User_265,Merchant_472,UPI,Food,Device_406,"12.9716, 77.5946",0,Success,None,0.0434
+Txn_04709,2025-04-08 10:18:50,1067.67,User_575,Merchant_122,Card,Travel,Device_232,"12.9716, 77.5946",0,Success,None,0.1417
+Txn_04382,2025-04-09 14:04:58,1038.51,User_32,Merchant_373,Card,Travel,Device_1417,"12.9716, 77.5946",0,Success,None,0.1439
+Txn_02789,2025-03-17 08:43:44,5643.250898033637,User_990,Merchant_61,Card,Entertainment,Device_1778,"35.6762, 139.6503",1,Fraud,Merchant Fraud,0.7939
+Txn_00140,2025-04-09 03:03:03,1792.13,User_113,Merchant_382,UPI,Travel,Device_1109,"12.9716, 77.5946",0,Success,None,0.1631
+Txn_07810,2025-04-11 14:48:58,694.73,User_986,Merchant_53,Card,Online_Retail,Device_783,"12.9716, 77.5946",0,Success,None,0.077
+Txn_01409,2025-04-09 23:20:03,1801.57,User_553,Merchant_370,UPI,Food,Device_736,"12.9716, 77.5946",0,Success,None,0.1977
+Txn_03081,2025-04-08 14:37:37,1458.95,User_916,Merchant_467,Card,Online_Retail,Device_1636,"12.9716, 77.5946",0,Success,None,0.0171
+Txn_01977,2025-04-10 03:55:26,1437.37,User_48,Merchant_194,Card,Utilities,Device_1778,"12.9716, 77.5946",0,Success,None,0.1358
+Txn_06718,2025-04-08 17:14:12,1893.16,User_224,Merchant_392,UPI,Travel,Device_124,"12.9716, 77.5946",0,Success,None,0.0309
+Txn_09889,2025-04-10 03:31:55,1626.22,User_750,Merchant_101,Card,Online_Retail,Device_394,"12.9716, 77.5946",0,Success,None,0.0715
+Txn_09253,2025-04-08 23:39:28,122.79,User_616,Merchant_116,UPI,Travel,Device_226,"12.9716, 77.5946",0,Success,None,0.1856
+Txn_05511,2025-04-09 13:52:25,991.39,User_735,Merchant_198,Card,Utilities,Device_531,"12.9716, 77.5946",0,Success,None,0.0487
+Txn_02354,2025-04-09 11:47:39,1292.16,User_936,Merchant_348,Card,Entertainment,Device_119,"12.9716, 77.5946",0,Success,None,0.0619
+Txn_02900,2025-04-11 11:47:46,1687.5,User_283,Merchant_317,Card,Travel,Device_875,"12.9716, 77.5946",0,Success,None,0.1305
+Txn_09913,2025-03-26 05:02:43,5349.351779692259,User_120,Suspicious_7,UPI,Unknown,Device_128,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7945
+Txn_02222,2025-04-09 17:09:51,219.29,User_464,Merchant_40,UPI,Food,Device_908,"12.9716, 77.5946",0,Success,None,0.144
+Txn_09671,2025-04-10 21:15:34,591.35,User_681,Merchant_199,Card,Entertainment,Device_340,"12.9716, 77.5946",0,Success,None,0.0467
+Txn_08799,2025-03-18 23:00:51,3233.38423480048,User_587,Merchant_290,UPI,Travel,New_Device_28,"-34.6037, -58.3816",1,Fraud,Account Takeover,0.7444
+Txn_03473,2025-04-10 05:29:26,187.16,User_732,Merchant_278,Card,Utilities,Device_1624,"12.9716, 77.5946",0,Success,None,0.1735
+Txn_05155,2025-04-11 07:16:26,1782.49,User_968,Merchant_23,UPI,Online_Retail,Device_1394,"12.9716, 77.5946",0,Success,None,0.0411
+Txn_07334,2025-04-10 09:01:26,1770.66,User_804,Merchant_130,Card,Entertainment,Device_315,"12.9716, 77.5946",0,Success,None,0.1554
+Txn_06216,2025-04-09 15:13:47,115.05,User_700,Merchant_409,UPI,Travel,Device_807,"12.9716, 77.5946",0,Success,None,0.1762
+Txn_05028,2025-04-08 05:18:46,1740.75,User_139,Merchant_464,UPI,Utilities,Device_345,"12.9716, 77.5946",0,Success,None,0.0611
+Txn_09681,2025-04-11 05:30:09,699.63,User_581,Merchant_188,Card,Travel,Device_1277,"12.9716, 77.5946",0,Success,None,0.1618
+Txn_03893,2025-03-24 02:58:19,5717.633849746876,User_530,Merchant_90,Card,Utilities,Device_1147,"35.6762, 139.6503",1,Fraud,Account Takeover,0.7869
+Txn_05686,2025-04-09 23:12:34,141.69,User_240,Merchant_148,Card,Travel,Device_470,"12.9716, 77.5946",0,Success,None,0.0067
+Txn_09766,2025-04-10 11:14:12,325.57,User_484,Merchant_49,Card,Food,Device_996,"12.9716, 77.5946",0,Success,None,0.0326
+Txn_06251,2025-04-06 01:45:05,5673.224810021124,User_880,Merchant_305,Card,Online_Retail,Device_499,"35.6762, 139.6503",1,Fraud,Merchant Fraud,0.8056
+Txn_05473,2025-04-10 10:01:40,1037.83,User_692,Merchant_441,UPI,Online_Retail,Device_700,"12.9716, 77.5946",0,Success,None,0.001
+Txn_09163,2025-04-10 15:30:10,1322.85,User_224,Merchant_416,UPI,Food,Device_682,"12.9716, 77.5946",0,Success,None,0.0992
+Txn_03326,2025-04-08 14:17:50,670.19,User_591,Merchant_203,Card,Travel,Device_1663,"12.9716, 77.5946",0,Success,None,0.1418
+Txn_06410,2025-04-11 02:41:38,766.39,User_961,Merchant_132,Card,Entertainment,Device_754,"12.9716, 77.5946",0,Success,None,0.1578
+Txn_09108,2025-04-10 11:47:40,1440.99,User_536,Merchant_152,Card,Entertainment,Device_711,"12.9716, 77.5946",0,Success,None,0.161
+Txn_09062,2025-04-04 02:00:51,10108.27423640588,User_89,Merchant_352,Card,Online_Retail,Unknown_Device_26,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.736
+Txn_08071,2025-04-10 21:15:48,1977.45,User_726,Merchant_174,Card,Food,Device_1648,"12.9716, 77.5946",0,Success,None,0.1322
+Txn_03481,2025-04-09 01:50:55,1581.87,User_684,Merchant_93,Card,Travel,Device_186,"12.9716, 77.5946",0,Success,None,0.1079
+Txn_03495,2025-04-03 12:42:26,2311.075498828526,User_600,Merchant_374,UPI,Unknown,Unknown_Device_16,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7383
+Txn_05113,2025-04-09 02:31:50,1153.42,User_810,Merchant_8,UPI,Online_Retail,Device_161,"12.9716, 77.5946",0,Success,None,0.1725
+Txn_00264,2025-04-08 12:29:08,921.11,User_179,Merchant_390,Card,Food,Device_1567,"12.9716, 77.5946",0,Success,None,0.133
+Txn_02160,2025-04-08 01:33:47,781.88,User_329,Merchant_120,UPI,Online_Retail,Device_1158,"12.9716, 77.5946",0,Success,None,0.011
+Txn_04243,2025-04-06 07:21:21,2764.398661116956,User_809,Merchant_265,UPI,Unknown,Unknown_Device_31,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8325
+Txn_00872,2025-04-08 08:49:36,1432.97,User_328,Merchant_16,Card,Travel,Device_1450,"12.9716, 77.5946",0,Success,None,0.0104
+Txn_08170,2025-04-07 19:44:30,461.11,User_101,Merchant_357,Card,Utilities,Device_1285,"12.9716, 77.5946",0,Success,None,0.0403
+Txn_09231,2025-04-09 13:26:38,480.04,User_718,Merchant_80,Card,Online_Retail,Device_91,"12.9716, 77.5946",0,Success,None,0.0234
+Txn_05823,2025-04-10 17:01:27,1637.43,User_277,Merchant_260,Card,Food,Device_800,"12.9716, 77.5946",0,Success,None,0.192
+Txn_09416,2025-04-08 10:41:47,1728.15,User_796,Merchant_67,UPI,Utilities,Device_1616,"12.9716, 77.5946",0,Success,None,0.154
+Txn_09032,2025-04-09 10:31:05,1744.67,User_152,Merchant_13,UPI,Utilities,Device_1457,"12.9716, 77.5946",0,Success,None,0.0632
+Txn_02903,2025-04-08 16:00:07,645.28,User_108,Merchant_249,Card,Online_Retail,Device_1562,"12.9716, 77.5946",0,Success,None,0.059
+Txn_00191,2025-04-09 14:40:12,577.18,User_323,Merchant_452,Card,Travel,Device_1435,"12.9716, 77.5946",0,Success,None,0.1247
+Txn_01357,2025-04-07 23:49:27,165.97,User_318,Merchant_210,UPI,Online_Retail,Device_38,"12.9716, 77.5946",0,Success,None,0.0212
+Txn_00249,2025-04-10 23:49:57,745.19,User_467,Merchant_352,UPI,Food,Device_1172,"12.9716, 77.5946",0,Success,None,0.082
+Txn_09949,2025-04-08 01:32:24,478.99,User_412,Merchant_317,UPI,Entertainment,Device_1822,"12.9716, 77.5946",0,Success,None,0.1304
+Txn_00260,2025-04-11 02:59:25,1863.36,User_533,Merchant_79,Card,Food,Device_939,"12.9716, 77.5946",0,Success,None,0.1214
+Txn_08598,2025-04-10 18:07:00,1276.53,User_183,Merchant_179,Card,Food,Device_1921,"12.9716, 77.5946",0,Success,None,0.0413
+Txn_03448,2025-04-10 02:47:28,843.21,User_62,Merchant_73,Card,Food,Device_1269,"12.9716, 77.5946",0,Success,None,0.0545
+Txn_03297,2025-04-10 18:03:05,378.95,User_948,Merchant_248,Card,Online_Retail,Device_44,"12.9716, 77.5946",0,Success,None,0.1817
+Txn_08066,2025-04-09 15:19:48,2284.778142378833,User_698,Merchant_436,UPI,Unknown,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8219
+Txn_09631,2025-04-10 20:33:56,474.91,User_401,Merchant_163,Card,Utilities,Device_1505,"12.9716, 77.5946",0,Success,None,0.0509
+Txn_00624,2025-04-10 22:20:44,1391.42,User_739,Merchant_426,UPI,Entertainment,Device_819,"12.9716, 77.5946",0,Success,None,0.1836
+Txn_00104,2025-03-16 19:27:58,2.176434067087372,User_637,Merchant_44,UPI,Unknown,Device_1293,"12.9716, 77.5946",1,Fraud,Phishing,0.9157
+Txn_06343,2025-04-07 22:41:58,1315.91,User_730,Merchant_305,Card,Food,Device_318,"12.9716, 77.5946",0,Success,None,0.1106
+Txn_07132,2025-04-11 15:15:33,1768.6,User_831,Merchant_394,UPI,Utilities,Device_950,"12.9716, 77.5946",0,Success,None,0.1986
+Txn_06245,2025-04-08 18:18:18,1465.39,User_967,Merchant_473,UPI,Online_Retail,Device_603,"12.9716, 77.5946",0,Success,None,0.0913
+Txn_04925,2025-03-25 23:29:44,8711.104833167796,User_39,Merchant_479,Card,Retail_Physical,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Phishing,0.8724
+Txn_03396,2025-04-11 02:49:21,1762.46,User_726,Merchant_14,Card,Entertainment,Device_1290,"12.9716, 77.5946",0,Success,None,0.0107
+Txn_01431,2025-04-08 08:22:56,766.2,User_859,Merchant_314,Card,Online_Retail,Device_739,"12.9716, 77.5946",0,Success,None,0.0436
+Txn_01538,2025-04-08 12:45:16,1881.45,User_771,Merchant_322,Card,Food,Device_323,"12.9716, 77.5946",0,Success,None,0.0228
+Txn_09337,2025-04-11 06:27:49,1836.46,User_529,Merchant_154,Card,Food,Device_1300,"12.9716, 77.5946",0,Success,None,0.0595
+Txn_00065,2025-04-09 04:28:08,1809.86,User_542,Merchant_421,UPI,Travel,Device_234,"12.9716, 77.5946",0,Success,None,0.1291
+Txn_04160,2025-04-11 01:13:59,151.14,User_390,Merchant_237,Card,Food,Device_173,"12.9716, 77.5946",0,Success,None,0.0166
+Txn_04941,2025-04-10 22:41:28,1261.4933975791014,User_440,Merchant_231,UPI,Unknown,Device_1216,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7075
+Txn_02084,2025-04-09 09:28:39,763.23,User_616,Merchant_235,UPI,Entertainment,Device_962,"12.9716, 77.5946",0,Success,None,0.0053
+Txn_05529,2025-04-08 01:08:05,1856.01,User_816,Merchant_267,Card,Entertainment,Device_206,"12.9716, 77.5946",0,Success,None,0.1453
+Txn_07271,2025-04-09 04:26:10,7698.083718887154,User_683,Merchant_466,Card,Food,Device_1256,"35.6762, 139.6503",1,Fraud,Account Takeover,0.774
+Txn_08986,2025-04-11 05:56:34,433.25,User_976,Merchant_487,Card,Food,Device_1260,"12.9716, 77.5946",0,Success,None,0.0784
+Txn_03660,2025-04-09 02:37:44,576.66,User_649,Merchant_418,UPI,Online_Retail,Device_1301,"12.9716, 77.5946",0,Success,None,0.13
+Txn_08800,2025-04-08 09:57:12,5337.214219400012,User_879,Merchant_284,Card,Entertainment,Device_1472,"35.6762, 139.6503",1,Fraud,Phishing,0.76
+Txn_08132,2025-04-08 15:24:55,1611.84,User_973,Merchant_187,Card,Online_Retail,Device_1384,"12.9716, 77.5946",0,Success,None,0.1431
+Txn_08348,2025-04-10 23:04:05,306.62,User_239,Merchant_272,Card,Utilities,Device_525,"12.9716, 77.5946",0,Success,None,0.0698
+Txn_08568,2025-04-10 04:27:59,1567.45,User_430,Merchant_422,UPI,Online_Retail,Device_346,"12.9716, 77.5946",0,Success,None,0.0191
+Txn_05829,2025-04-10 10:20:41,1454.49,User_20,Merchant_283,Card,Online_Retail,Device_481,"12.9716, 77.5946",0,Success,None,0.0055
+Txn_01192,2025-04-10 04:34:45,1583.42,User_118,Merchant_131,Card,Travel,Device_1225,"12.9716, 77.5946",0,Success,None,0.1831
+Txn_04156,2025-03-24 10:58:26,7558.584697648796,User_763,Merchant_33,Card,Retail_Physical,Unknown_Device_12,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9341
+Txn_07113,2025-04-08 02:57:48,1599.49,User_574,Merchant_485,Card,Food,Device_553,"12.9716, 77.5946",0,Success,None,0.0404
+Txn_06096,2025-03-31 18:44:01,4367.868991546416,User_655,Merchant_99,Card,Travel,Device_826,"35.6762, 139.6503",1,Fraud,Account Takeover,0.7936
+Txn_09840,2025-04-10 13:46:22,1220.05,User_909,Merchant_148,UPI,Food,Device_902,"12.9716, 77.5946",0,Success,None,0.0779
+Txn_01231,2025-04-10 03:34:10,626.86,User_87,Merchant_158,UPI,Utilities,Device_416,"12.9716, 77.5946",0,Success,None,0.1706
+Txn_00673,2025-04-11 14:07:35,220.52,User_609,Merchant_304,UPI,Food,Device_1120,"12.9716, 77.5946",0,Success,None,0.1163
+Txn_01289,2025-04-10 15:27:17,719.5,User_192,Merchant_296,Card,Entertainment,Device_326,"12.9716, 77.5946",0,Success,None,0.1925
+Txn_03393,2025-04-08 10:27:01,1022.57,User_670,Merchant_29,Card,Entertainment,Device_728,"12.9716, 77.5946",0,Success,None,0.0595
+Txn_05862,2025-04-10 03:58:13,618.05,User_409,Merchant_375,Card,Food,Device_1007,"12.9716, 77.5946",0,Success,None,0.0759
+Txn_03624,2025-04-08 22:41:41,1658.72,User_325,Merchant_303,UPI,Entertainment,Device_73,"12.9716, 77.5946",0,Success,None,0.052
+Txn_06076,2025-04-11 09:27:10,1606.97,User_983,Merchant_342,Card,Travel,Device_738,"12.9716, 77.5946",0,Success,None,0.0293
+Txn_01752,2025-04-11 11:28:16,450.28,User_55,Merchant_335,UPI,Utilities,Device_1857,"12.9716, 77.5946",0,Success,None,0.0621
+Txn_02526,2025-03-27 22:50:52,3181.799219455532,User_830,Merchant_247,UPI,Entertainment,New_Device_13,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.7304
+Txn_07447,2025-04-08 00:28:59,225.15,User_276,Merchant_345,UPI,Travel,Device_513,"12.9716, 77.5946",0,Success,None,0.0372
+Txn_06741,2025-04-10 05:59:26,1252.2,User_667,Merchant_33,Card,Online_Retail,Device_1259,"12.9716, 77.5946",0,Success,None,0.1896
+Txn_03216,2025-04-08 03:14:30,1156.04,User_414,Merchant_454,Card,Entertainment,Device_1875,"12.9716, 77.5946",0,Success,None,0.0484
+Txn_01201,2025-04-09 15:16:05,1879.96,User_653,Merchant_499,Card,Entertainment,Device_1470,"12.9716, 77.5946",0,Success,None,0.0432
+Txn_08628,2025-04-09 14:58:44,207.63,User_83,Merchant_45,UPI,Food,Device_1921,"12.9716, 77.5946",0,Success,None,0.1837
+Txn_05000,2025-04-10 22:48:17,143.98,User_317,Merchant_60,UPI,Online_Retail,Device_1767,"12.9716, 77.5946",0,Success,None,0.1649
+Txn_06666,2025-04-11 01:43:07,1171.49,User_583,Merchant_60,UPI,Utilities,Device_499,"12.9716, 77.5946",0,Success,None,0.0942
+Txn_03878,2025-04-10 02:34:27,377.76,User_814,Merchant_388,UPI,Utilities,Device_773,"12.9716, 77.5946",0,Success,None,0.1568
+Txn_05089,2025-04-09 11:34:19,1514.68,User_160,Merchant_31,Card,Food,Device_512,"12.9716, 77.5946",0,Success,None,0.0998
+Txn_05923,2025-04-08 06:52:03,1431.25,User_444,Merchant_185,Card,Entertainment,Device_825,"12.9716, 77.5946",0,Success,None,0.095
+Txn_04104,2025-04-10 08:14:38,1439.06,User_349,Merchant_404,Card,Travel,Device_751,"12.9716, 77.5946",0,Success,None,0.0521
+Txn_05316,2025-04-08 22:26:43,3556.0148853281207,User_419,Merchant_197,Card,Online_Retail,Unknown_Device_10,"12.9716, 77.5946",1,Fraud,Identity Theft,0.883
+Txn_01094,2025-04-10 05:50:49,1822.89,User_291,Merchant_177,UPI,Food,Device_172,"12.9716, 77.5946",0,Success,None,0.0896
+Txn_09492,2025-04-08 06:50:12,737.39,User_592,Merchant_60,UPI,Travel,Device_316,"12.9716, 77.5946",0,Success,None,0.0256
+Txn_09888,2025-03-25 20:20:31,7242.311408925219,User_888,Suspicious_25,UPI,Unknown,Device_1619,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9345
+Txn_01942,2025-04-10 18:34:32,1626.06,User_627,Merchant_188,UPI,Utilities,Device_1300,"12.9716, 77.5946",0,Success,None,0.1456
+Txn_01217,2025-04-11 04:49:26,1480.96,User_409,Merchant_148,UPI,Travel,Device_1838,"12.9716, 77.5946",0,Success,None,0.1877
+Txn_01468,2025-04-09 10:29:45,1664.67,User_453,Merchant_280,UPI,Online_Retail,Device_552,"12.9716, 77.5946",0,Success,None,0.159
+Txn_00455,2025-04-07 21:48:32,690.41,User_491,Merchant_384,UPI,Utilities,Device_21,"12.9716, 77.5946",0,Success,None,0.0353
+Txn_03943,2025-04-07 22:27:43,1756.53,User_947,Merchant_372,Card,Utilities,Device_299,"12.9716, 77.5946",0,Success,None,0.0173
+Txn_02865,2025-04-10 22:47:44,1262.62,User_311,Merchant_247,Card,Entertainment,Device_1812,"12.9716, 77.5946",0,Success,None,0.0743
+Txn_09651,2025-04-10 04:46:58,407.97,User_227,Merchant_64,UPI,Utilities,Device_1172,"12.9716, 77.5946",0,Success,None,0.1793
+Txn_05453,2025-04-10 04:16:16,1277.88,User_598,Merchant_209,Card,Entertainment,Device_577,"12.9716, 77.5946",0,Success,None,0.0614
+Txn_09364,2025-04-09 08:21:40,1174.68,User_255,Merchant_127,Card,Utilities,Device_142,"12.9716, 77.5946",0,Success,None,0.1245
+Txn_06146,2025-04-08 07:05:05,125.23,User_953,Merchant_386,Card,Online_Retail,Device_1596,"12.9716, 77.5946",0,Success,None,0.0176
+Txn_00444,2025-04-09 10:22:04,1073.31,User_3,Merchant_346,UPI,Entertainment,Device_311,"12.9716, 77.5946",0,Success,None,0.0551
+Txn_08952,2025-04-08 03:50:01,464.08,User_793,Merchant_262,Card,Online_Retail,Device_468,"12.9716, 77.5946",0,Success,None,0.0923
+Txn_06455,2025-04-10 09:57:52,1273.89,User_161,Merchant_334,Card,Online_Retail,Device_1128,"12.9716, 77.5946",0,Success,None,0.1632
+Txn_03436,2025-04-07 23:27:31,1087.41,User_140,Merchant_165,Card,Entertainment,Device_1197,"12.9716, 77.5946",0,Success,None,0.1636
+Txn_00558,2025-04-11 04:14:03,1213.84,User_378,Merchant_31,Card,Utilities,Device_1218,"12.9716, 77.5946",0,Success,None,0.0483
+Txn_06756,2025-04-08 03:08:57,487.47,User_660,Merchant_332,UPI,Online_Retail,Device_169,"12.9716, 77.5946",0,Success,None,0.1572
+Txn_07832,2025-04-10 12:01:18,1868.6,User_522,Merchant_232,UPI,Food,Device_571,"12.9716, 77.5946",0,Success,None,0.0273
+Txn_02953,2025-04-07 20:25:20,1016.5,User_436,Merchant_86,UPI,Travel,Device_245,"12.9716, 77.5946",0,Success,None,0.0873
+Txn_03103,2025-04-09 07:52:50,1942.62,User_343,Merchant_86,Card,Entertainment,Device_775,"12.9716, 77.5946",0,Success,None,0.1467
+Txn_05222,2025-03-29 17:09:40,4175.658301671529,User_653,Suspicious_32,UPI,Unknown,Device_106,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7614
+Txn_07979,2025-04-09 13:16:41,1057.38,User_314,Merchant_17,UPI,Food,Device_1772,"12.9716, 77.5946",0,Success,None,0.165
+Txn_04858,2025-04-10 20:31:27,1737.59,User_837,Merchant_163,UPI,Travel,Device_1320,"12.9716, 77.5946",0,Success,None,0.1562
+Txn_07390,2025-04-10 17:48:48,1887.25,User_815,Merchant_226,Card,Food,Device_1915,"12.9716, 77.5946",0,Success,None,0.1095
+Txn_05897,2025-04-09 01:52:59,391.83,User_139,Merchant_40,Card,Utilities,Device_1770,"12.9716, 77.5946",0,Success,None,0.0275
+Txn_01314,2025-04-11 10:31:41,8092.713572596289,User_719,Merchant_345,Card,Retail_Physical,Unknown_Device_27,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9897
+Txn_03793,2025-04-10 03:12:30,648.41,User_404,Merchant_116,Card,Online_Retail,Device_1155,"12.9716, 77.5946",0,Success,None,0.1797
+Txn_02928,2025-04-05 07:22:24,3073.2172254723505,User_474,Merchant_122,UPI,Food,New_Device_11,"-34.6037, -58.3816",1,Fraud,Phishing,0.8892
+Txn_04833,2025-04-08 16:25:35,327.53,User_678,Merchant_255,UPI,Utilities,Device_1354,"12.9716, 77.5946",0,Success,None,0.1201
+Txn_08660,2025-03-11 23:07:42,4852.6708270954105,User_768,Merchant_2,UPI,Food,New_Device_8,"-34.6037, -58.3816",1,Fraud,Merchant Fraud,0.7403
+Txn_02821,2025-04-08 01:07:25,1724.83,User_425,Merchant_221,UPI,Online_Retail,Device_743,"12.9716, 77.5946",0,Success,None,0.0728
+Txn_02511,2025-04-08 02:37:30,692.87,User_994,Merchant_476,Card,Utilities,Device_1303,"12.9716, 77.5946",0,Success,None,0.1462
+Txn_09367,2025-03-22 03:21:11,4969.630935275996,User_26,Merchant_265,Card,Online_Retail,Unknown_Device_18,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8787
+Txn_06773,2025-04-09 11:46:05,335.76,User_649,Merchant_61,Card,Utilities,Device_1281,"12.9716, 77.5946",0,Success,None,0.1353
+Txn_01184,2025-04-10 10:12:17,1386.82,User_179,Merchant_237,UPI,Online_Retail,Device_966,"12.9716, 77.5946",0,Success,None,0.1159
+Txn_08048,2025-04-08 14:18:37,1015.41,User_417,Merchant_448,Card,Travel,Device_805,"12.9716, 77.5946",0,Success,None,0.0399
+Txn_07705,2025-04-09 02:14:16,481.17,User_135,Merchant_191,UPI,Food,Device_1328,"12.9716, 77.5946",0,Success,None,0.1481
+Txn_04608,2025-04-11 08:58:37,950.86,User_709,Merchant_71,UPI,Online_Retail,Device_671,"12.9716, 77.5946",0,Success,None,0.0677
+Txn_08023,2025-04-01 19:11:51,6.127344857204188,User_142,Merchant_365,UPI,Unknown,Device_962,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9937
+Txn_03022,2025-04-11 07:53:43,485.16,User_625,Merchant_324,Card,Online_Retail,Device_1628,"12.9716, 77.5946",0,Success,None,0.1493
+Txn_02313,2025-04-09 08:26:41,1004.5,User_572,Merchant_187,UPI,Entertainment,Device_1795,"12.9716, 77.5946",0,Success,None,0.064
+Txn_01816,2025-04-09 05:14:04,856.42,User_743,Merchant_283,UPI,Travel,Device_1921,"12.9716, 77.5946",0,Success,None,0.1734
+Txn_04585,2025-04-10 18:32:25,1797.72,User_119,Merchant_219,UPI,Food,Device_472,"12.9716, 77.5946",0,Success,None,0.0514
+Txn_00971,2025-04-08 08:32:12,539.48,User_269,Merchant_444,Card,Utilities,Device_696,"12.9716, 77.5946",0,Success,None,0.144
+Txn_01322,2025-04-08 11:13:09,905.9,User_303,Merchant_189,UPI,Travel,Device_64,"12.9716, 77.5946",0,Success,None,0.1498
+Txn_07598,2025-04-10 20:14:55,1202.01,User_517,Merchant_311,UPI,Online_Retail,Device_1193,"12.9716, 77.5946",0,Success,None,0.08
+Txn_02500,2025-04-10 08:31:24,856.19,User_931,Merchant_425,Card,Food,Device_99,"12.9716, 77.5946",0,Success,None,0.0909
+Txn_07683,2025-04-11 01:59:08,1569.69,User_522,Merchant_400,UPI,Utilities,Device_677,"12.9716, 77.5946",0,Success,None,0.0433
+Txn_09140,2025-04-07 01:44:57,5282.044473975892,User_833,Merchant_27,Card,Online_Retail,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7693
+Txn_09422,2025-04-11 09:31:57,1975.68,User_244,Merchant_280,UPI,Food,Device_1316,"12.9716, 77.5946",0,Success,None,0.116
+Txn_01228,2025-04-08 02:15:29,660.02,User_860,Merchant_106,Card,Utilities,Device_242,"12.9716, 77.5946",0,Success,None,0.0672
+Txn_01852,2025-04-09 17:59:27,400.53,User_987,Merchant_471,UPI,Travel,Device_198,"12.9716, 77.5946",0,Success,None,0.1726
+Txn_09445,2025-04-08 12:54:55,1045.74,User_781,Merchant_407,Card,Travel,Device_128,"12.9716, 77.5946",0,Success,None,0.0013
+Txn_04031,2025-04-08 09:03:30,1827.24,User_897,Merchant_128,UPI,Entertainment,Device_257,"12.9716, 77.5946",0,Success,None,0.0302
+Txn_01183,2025-04-08 03:57:26,1045.11,User_859,Merchant_412,UPI,Entertainment,Device_1917,"12.9716, 77.5946",0,Success,None,0.1215
+Txn_00930,2025-04-07 23:55:49,202.09,User_268,Merchant_127,Card,Entertainment,Device_1241,"12.9716, 77.5946",0,Success,None,0.1449
+Txn_04661,2025-04-09 20:57:42,710.52,User_224,Merchant_233,Card,Entertainment,Device_1262,"12.9716, 77.5946",0,Success,None,0.1982
+Txn_01983,2025-04-10 18:49:24,1173.2,User_732,Merchant_234,UPI,Online_Retail,Device_340,"12.9716, 77.5946",0,Success,None,0.0754
+Txn_08037,2025-04-09 07:15:04,326.17,User_115,Merchant_478,Card,Utilities,Device_1243,"12.9716, 77.5946",0,Success,None,0.0048
+Txn_03394,2025-04-09 04:09:27,1347.34,User_170,Merchant_442,UPI,Food,Device_1657,"12.9716, 77.5946",0,Success,None,0.115
+Txn_02013,2025-04-01 23:50:06,7751.735017398508,User_473,Merchant_87,Card,Online_Retail,Unknown_Device_14,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7779
+Txn_03449,2025-04-10 09:14:25,1787.93,User_137,Merchant_234,UPI,Food,Device_1936,"12.9716, 77.5946",0,Success,None,0.1832
+Txn_07558,2025-03-23 18:43:13,1273.2120411227684,User_749,Merchant_315,UPI,Unknown,Device_1656,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8153
+Txn_02209,2025-03-24 22:28:00,4.51176715392135,User_155,Merchant_248,UPI,Unknown,Device_1680,"12.9716, 77.5946",1,Fraud,Phishing,0.7812
+Txn_00170,2025-04-11 09:19:01,604.72,User_546,Merchant_330,UPI,Travel,Device_220,"12.9716, 77.5946",0,Success,None,0.0182
+Txn_01884,2025-04-02 13:00:47,7176.275708123883,User_6,Suspicious_33,UPI,Unknown,Device_1550,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9717
+Txn_09523,2025-04-11 01:49:37,1927.14,User_992,Merchant_275,Card,Utilities,Device_84,"12.9716, 77.5946",0,Success,None,0.1459
+Txn_07532,2025-04-09 17:58:01,994.13,User_525,Merchant_419,UPI,Utilities,Device_960,"12.9716, 77.5946",0,Success,None,0.1782
+Txn_09384,2025-04-09 03:04:38,1736.27,User_530,Merchant_164,UPI,Food,Device_21,"12.9716, 77.5946",0,Success,None,0.0659
+Txn_03880,2025-04-08 18:55:19,1349.23,User_392,Merchant_445,Card,Online_Retail,Device_278,"12.9716, 77.5946",0,Success,None,0.0925
+Txn_03269,2025-04-08 17:41:00,1631.35,User_793,Merchant_482,UPI,Entertainment,Device_1792,"12.9716, 77.5946",0,Success,None,0.0049
+Txn_04301,2025-04-08 14:56:20,1464.64,User_625,Merchant_1,Card,Travel,Device_1623,"12.9716, 77.5946",0,Success,None,0.0751
+Txn_09282,2025-04-07 22:23:27,1988.2,User_171,Merchant_256,Card,Food,Device_1671,"12.9716, 77.5946",0,Success,None,0.0916
+Txn_07616,2025-04-10 20:14:34,746.56,User_175,Merchant_285,Card,Utilities,Device_1041,"12.9716, 77.5946",0,Success,None,0.1457
+Txn_03768,2025-04-11 04:27:49,1012.88,User_439,Merchant_330,Card,Entertainment,Device_1520,"12.9716, 77.5946",0,Success,None,0.1124
+Txn_00123,2025-03-28 06:15:44,6.653095110510801,User_808,Merchant_267,UPI,Unknown,Device_1166,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8645
+Txn_00820,2025-04-07 22:39:15,998.61,User_644,Merchant_249,UPI,Online_Retail,Device_1111,"12.9716, 77.5946",0,Success,None,0.0606
+Txn_09436,2025-04-08 13:00:47,1078.79,User_36,Merchant_378,Card,Online_Retail,Device_1265,"12.9716, 77.5946",0,Success,None,0.0237
+Txn_00277,2025-04-09 09:13:54,419.44,User_106,Merchant_241,Card,Food,Device_1807,"12.9716, 77.5946",0,Success,None,0.1424
+Txn_04852,2025-04-11 03:28:52,1786.29,User_230,Merchant_437,UPI,Food,Device_1894,"12.9716, 77.5946",0,Success,None,0.1908
+Txn_03318,2025-04-08 18:06:17,1095.27,User_420,Merchant_120,UPI,Entertainment,Device_465,"12.9716, 77.5946",0,Success,None,0.1527
+Txn_02192,2025-04-10 05:37:45,471.06,User_771,Merchant_100,UPI,Travel,Device_1879,"12.9716, 77.5946",0,Success,None,0.1449
+Txn_00057,2025-04-09 01:59:58,1141.61,User_462,Merchant_283,UPI,Entertainment,Device_1378,"12.9716, 77.5946",0,Success,None,0.0349
+Txn_06334,2025-04-10 12:27:18,1505.13,User_699,Merchant_427,Card,Utilities,Device_1963,"12.9716, 77.5946",0,Success,None,0.0307
+Txn_02673,2025-04-09 12:34:34,8187.526757580851,User_687,Merchant_71,Card,Online_Retail,Unknown_Device_9,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9576
+Txn_05444,2025-04-09 08:54:18,361.04,User_628,Merchant_116,UPI,Utilities,Device_278,"12.9716, 77.5946",0,Success,None,0.1235
+Txn_08108,2025-04-04 10:36:22,4160.447087128415,User_810,Suspicious_5,UPI,Unknown,Device_361,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9683
+Txn_08358,2025-04-10 22:42:32,1232.97,User_687,Merchant_243,UPI,Travel,Device_237,"12.9716, 77.5946",0,Success,None,0.0132
+Txn_07589,2025-04-08 04:24:01,1303.84,User_990,Merchant_105,Card,Travel,Device_1044,"12.9716, 77.5946",0,Success,None,0.0846
+Txn_05622,2025-04-10 15:09:33,1650.77,User_25,Merchant_151,Card,Food,Device_1011,"12.9716, 77.5946",0,Success,None,0.1125
+Txn_00401,2025-04-09 17:08:42,1479.74,User_995,Merchant_115,UPI,Utilities,Device_363,"12.9716, 77.5946",0,Success,None,0.0539
+Txn_00357,2025-04-08 16:58:42,1978.63,User_661,Merchant_148,Card,Online_Retail,Device_493,"12.9716, 77.5946",0,Success,None,0.0146
+Txn_00593,2025-04-10 09:32:08,5.939321194034992,User_666,Merchant_137,UPI,Unknown,Device_1168,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9214
+Txn_09263,2025-04-09 05:07:27,738.03,User_897,Merchant_49,Card,Food,Device_1787,"12.9716, 77.5946",0,Success,None,0.0481
+Txn_01466,2025-04-09 18:48:03,954.93,User_799,Merchant_439,UPI,Entertainment,Device_1485,"12.9716, 77.5946",0,Success,None,0.1643
+Txn_05097,2025-04-08 04:58:42,1384.35,User_760,Merchant_409,Card,Online_Retail,Device_750,"12.9716, 77.5946",0,Success,None,0.1733
+Txn_05619,2025-04-09 03:26:37,1561.85,User_538,Merchant_408,UPI,Food,Device_525,"12.9716, 77.5946",0,Success,None,0.1705
+Txn_06505,2025-04-09 07:29:43,684.14,User_653,Merchant_19,UPI,Travel,Device_248,"12.9716, 77.5946",0,Success,None,0.1578
+Txn_02412,2025-04-11 10:11:03,171.72,User_154,Merchant_357,Card,Utilities,Device_1342,"12.9716, 77.5946",0,Success,None,0.1325
+Txn_05762,2025-04-09 14:27:10,1506.93,User_894,Merchant_124,Card,Utilities,Device_994,"12.9716, 77.5946",0,Success,None,0.0888
+Txn_00328,2025-04-10 02:46:54,1666.2,User_160,Merchant_234,Card,Travel,Device_859,"12.9716, 77.5946",0,Success,None,0.1954
+Txn_03700,2025-03-18 14:23:53,10975.582161017286,User_655,Merchant_6,Card,Online_Retail,Unknown_Device_3,"12.9716, 77.5946",1,Fraud,Phishing,0.7067
+Txn_06609,2025-04-10 13:24:53,1539.54,User_880,Merchant_474,Card,Travel,Device_19,"12.9716, 77.5946",0,Success,None,0.0268
+Txn_05360,2025-04-11 10:45:23,1317.95,User_222,Merchant_366,Card,Entertainment,Device_934,"12.9716, 77.5946",0,Success,None,0.0597
+Txn_04095,2025-04-11 08:52:19,1207.97,User_6,Merchant_310,UPI,Travel,Device_411,"12.9716, 77.5946",0,Success,None,0.104
+Txn_03860,2025-04-11 14:38:11,1229.95,User_725,Merchant_430,Card,Utilities,Device_1998,"12.9716, 77.5946",0,Success,None,0.1541
+Txn_09615,2025-04-10 22:40:37,1690.03,User_552,Merchant_487,UPI,Travel,Device_806,"12.9716, 77.5946",0,Success,None,0.0373
+Txn_07473,2025-04-11 09:12:37,1383.06,User_634,Merchant_353,Card,Online_Retail,Device_1103,"12.9716, 77.5946",0,Success,None,0.0455
+Txn_00926,2025-04-08 04:01:17,1166.48,User_107,Merchant_250,Card,Online_Retail,Device_182,"12.9716, 77.5946",0,Success,None,0.1824
+Txn_07593,2025-04-09 11:39:53,1770.9,User_251,Merchant_333,Card,Food,Device_840,"12.9716, 77.5946",0,Success,None,0.1512
+Txn_03653,2025-04-10 07:39:06,939.32,User_625,Merchant_384,UPI,Food,Device_1350,"12.9716, 77.5946",0,Success,None,0.0379
+Txn_03384,2025-04-09 11:09:27,1353.56,User_622,Merchant_64,Card,Utilities,Device_226,"12.9716, 77.5946",0,Success,None,0.1175
+Txn_07952,2025-04-11 04:08:31,1977.09,User_102,Merchant_378,Card,Entertainment,Device_1521,"12.9716, 77.5946",0,Success,None,0.0671
+Txn_02736,2025-04-09 06:26:10,8991.230813988106,User_468,Merchant_90,Card,Retail_Physical,Unknown_Device_20,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9335
+Txn_05369,2025-04-09 07:47:26,494.02,User_575,Merchant_235,Card,Food,Device_1465,"12.9716, 77.5946",0,Success,None,0.1718
+Txn_03747,2025-04-09 19:00:30,1219.32,User_899,Merchant_24,Card,Food,Device_248,"12.9716, 77.5946",0,Success,None,0.1138
+Txn_08215,2025-04-09 23:52:37,818.07,User_84,Merchant_195,UPI,Travel,Device_249,"12.9716, 77.5946",0,Success,None,0.0679
+Txn_06149,2025-04-09 03:01:33,4345.040262179643,User_858,Suspicious_22,UPI,Unknown,Device_1962,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9676
+Txn_05198,2025-04-04 20:19:08,3079.5246837577088,User_530,Merchant_432,Card,Online_Retail,Unknown_Device_24,"12.9716, 77.5946",1,Fraud,Account Takeover,0.931
+Txn_01896,2025-04-08 14:05:49,190.08,User_685,Merchant_480,Card,Travel,Device_921,"12.9716, 77.5946",0,Success,None,0.0406
+Txn_07070,2025-04-09 16:18:40,976.9,User_645,Merchant_48,UPI,Travel,Device_800,"12.9716, 77.5946",0,Success,None,0.1646
+Txn_09860,2025-04-10 21:06:29,1356.85,User_423,Merchant_192,Card,Travel,Device_1930,"12.9716, 77.5946",0,Success,None,0.0167
+Txn_09165,2025-03-13 00:13:05,2.648372896528516,User_781,Merchant_420,UPI,Unknown,Device_1054,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7028
+Txn_01701,2025-04-08 06:37:08,242.29,User_741,Merchant_426,Card,Online_Retail,Device_3,"12.9716, 77.5946",0,Success,None,0.1627
+Txn_05238,2025-03-11 13:40:21,2003.568593482212,User_643,Merchant_437,UPI,Unknown,Unknown_Device_6,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7547
+Txn_05845,2025-04-08 04:08:16,582.0,User_250,Merchant_354,UPI,Entertainment,Device_1424,"12.9716, 77.5946",0,Success,None,0.09
+Txn_07639,2025-04-09 16:15:46,925.76,User_119,Merchant_498,UPI,Online_Retail,Device_15,"12.9716, 77.5946",0,Success,None,0.0028
+Txn_07072,2025-04-09 07:36:35,1122.03,User_931,Merchant_296,Card,Entertainment,Device_1595,"12.9716, 77.5946",0,Success,None,0.1897
+Txn_03158,2025-03-09 15:06:15,2596.319590706608,User_463,Merchant_143,UPI,Online_Retail,New_Device_31,"-34.6037, -58.3816",1,Fraud,Phishing,0.8716
+Txn_06530,2025-04-08 07:03:48,555.27,User_948,Merchant_233,UPI,Utilities,Device_632,"12.9716, 77.5946",0,Success,None,0.179
+Txn_05800,2025-03-13 17:51:19,1754.442270738316,User_28,Merchant_161,UPI,Unknown,Device_306,"12.9716, 77.5946",1,Fraud,Identity Theft,0.7479
+Txn_05329,2025-04-08 19:31:33,1856.11,User_561,Merchant_162,UPI,Online_Retail,Device_1286,"12.9716, 77.5946",0,Success,None,0.0737
+Txn_03387,2025-04-08 15:45:22,767.51,User_493,Merchant_396,UPI,Utilities,Device_70,"12.9716, 77.5946",0,Success,None,0.1708
+Txn_01708,2025-04-08 04:34:58,670.29,User_333,Merchant_94,Card,Utilities,Device_607,"12.9716, 77.5946",0,Success,None,0.0209
+Txn_04577,2025-04-10 00:05:32,1742.72,User_469,Merchant_428,UPI,Travel,Device_426,"12.9716, 77.5946",0,Success,None,0.1378
+Txn_08035,2025-04-11 04:44:48,304.66,User_380,Merchant_227,UPI,Online_Retail,Device_1308,"12.9716, 77.5946",0,Success,None,0.147
+Txn_07660,2025-04-08 21:03:12,1738.27,User_369,Merchant_420,Card,Food,Device_1241,"12.9716, 77.5946",0,Success,None,0.0719
+Txn_04814,2025-04-10 08:17:48,1574.5,User_223,Merchant_471,Card,Food,Device_904,"12.9716, 77.5946",0,Success,None,0.1144
+Txn_09851,2025-04-08 05:38:26,1604.02,User_401,Merchant_441,UPI,Travel,Device_1062,"12.9716, 77.5946",0,Success,None,0.1466
+Txn_06132,2025-04-10 05:49:40,1976.28,User_499,Merchant_386,Card,Food,Device_627,"12.9716, 77.5946",0,Success,None,0.1341
+Txn_05738,2025-04-08 11:54:53,482.1,User_775,Merchant_265,UPI,Entertainment,Device_270,"12.9716, 77.5946",0,Success,None,0.1007
+Txn_09413,2025-04-09 02:04:06,316.71,User_900,Merchant_421,Card,Utilities,Device_1835,"12.9716, 77.5946",0,Success,None,0.1439
+Txn_07888,2025-04-08 14:53:04,1881.76,User_440,Merchant_124,UPI,Utilities,Device_1701,"12.9716, 77.5946",0,Success,None,0.0765
+Txn_04214,2025-04-09 21:04:26,443.08,User_175,Merchant_92,Card,Entertainment,Device_1397,"12.9716, 77.5946",0,Success,None,0.0143
+Txn_04196,2025-04-09 22:55:18,625.68,User_107,Merchant_294,Card,Travel,Device_1596,"12.9716, 77.5946",0,Success,None,0.0105
+Txn_01038,2025-04-03 16:58:44,3074.7903274561013,User_657,Merchant_249,UPI,Utilities,New_Device_24,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.7908
+Txn_00433,2025-04-10 06:20:37,1627.23,User_178,Merchant_58,UPI,Entertainment,Device_629,"12.9716, 77.5946",0,Success,None,0.1111
+Txn_03527,2025-03-26 13:22:42,1641.2429198637135,User_408,Merchant_218,UPI,Unknown,Device_451,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8057
+Txn_04934,2025-04-09 02:23:41,1444.78,User_603,Merchant_152,Card,Entertainment,Device_812,"12.9716, 77.5946",0,Success,None,0.1388
+Txn_00508,2025-04-09 06:04:50,968.59,User_946,Merchant_410,Card,Online_Retail,Device_960,"12.9716, 77.5946",0,Success,None,0.0453
+Txn_02297,2025-04-09 06:52:48,479.57,User_164,Merchant_336,UPI,Utilities,Device_26,"12.9716, 77.5946",0,Success,None,0.15
+Txn_07730,2025-04-08 13:24:17,663.68,User_392,Merchant_394,UPI,Travel,Device_1881,"12.9716, 77.5946",0,Success,None,0.0171
+Txn_04118,2025-04-10 02:30:02,476.99,User_901,Merchant_259,Card,Travel,Device_1458,"12.9716, 77.5946",0,Success,None,0.0776
+Txn_09649,2025-04-08 06:00:15,203.46,User_854,Merchant_333,Card,Travel,Device_345,"12.9716, 77.5946",0,Success,None,0.0216
+Txn_02788,2025-04-11 00:09:56,1612.15,User_248,Merchant_485,UPI,Food,Device_240,"12.9716, 77.5946",0,Success,None,0.1884
+Txn_00617,2025-04-09 18:56:51,11064.195040067169,User_491,Merchant_45,Card,Online_Retail,Unknown_Device_20,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9252
+Txn_06478,2025-04-11 13:12:25,1739.33,User_68,Merchant_3,UPI,Utilities,Device_1489,"12.9716, 77.5946",0,Success,None,0.1213
+Txn_08818,2025-04-08 07:35:21,500.96,User_463,Merchant_483,Card,Food,Device_1917,"12.9716, 77.5946",0,Success,None,0.0839
+Txn_04660,2025-04-10 12:01:10,709.31,User_393,Merchant_416,UPI,Travel,Device_1401,"12.9716, 77.5946",0,Success,None,0.0467
+Txn_07898,2025-04-08 12:05:55,1082.82,User_711,Merchant_197,Card,Utilities,Device_761,"12.9716, 77.5946",0,Success,None,0.0657
+Txn_01013,2025-04-11 11:32:37,630.15,User_651,Merchant_117,Card,Utilities,Device_869,"12.9716, 77.5946",0,Success,None,0.1529
+Txn_02207,2025-04-04 05:29:12,8661.125089440171,User_891,Merchant_340,Card,Retail_Physical,Unknown_Device_5,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9636
+Txn_03149,2025-03-16 18:43:41,3256.688372423024,User_325,Merchant_190,UPI,Food,New_Device_10,"-34.6037, -58.3816",1,Fraud,Merchant Fraud,0.7507
+Txn_03719,2025-04-10 04:16:55,1701.82,User_210,Merchant_16,Card,Utilities,Device_1265,"12.9716, 77.5946",0,Success,None,0.1673
+Txn_09247,2025-04-10 06:20:25,916.08,User_738,Merchant_268,Card,Online_Retail,Device_148,"12.9716, 77.5946",0,Success,None,0.0812
+Txn_04012,2025-03-30 02:59:57,3536.563179603051,User_424,Merchant_395,UPI,Unknown,Unknown_Device_12,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8853
+Txn_08740,2025-04-09 00:52:28,1667.74,User_207,Merchant_28,UPI,Entertainment,Device_650,"12.9716, 77.5946",0,Success,None,0.0322
+Txn_08765,2025-04-08 21:00:59,777.17,User_306,Merchant_481,Card,Food,Device_851,"12.9716, 77.5946",0,Success,None,0.161
+Txn_05330,2025-04-08 04:15:38,260.61,User_749,Merchant_315,Card,Food,Device_292,"12.9716, 77.5946",0,Success,None,0.0953
+Txn_07002,2025-04-08 19:54:55,224.82,User_264,Merchant_258,UPI,Travel,Device_1230,"12.9716, 77.5946",0,Success,None,0.0873
+Txn_01316,2025-04-11 14:46:39,1809.9,User_153,Merchant_480,Card,Food,Device_1535,"12.9716, 77.5946",0,Success,None,0.0672
+Txn_08511,2025-04-08 07:10:34,941.83,User_234,Merchant_73,Card,Food,Device_1282,"12.9716, 77.5946",0,Success,None,0.1807
+Txn_03021,2025-04-10 08:30:08,476.0,User_220,Merchant_6,Card,Online_Retail,Device_526,"12.9716, 77.5946",0,Success,None,0.1589
+Txn_04235,2025-04-07 14:46:48,6.788182229750543,User_924,Merchant_247,UPI,Unknown,Device_1377,"12.9716, 77.5946",1,Fraud,Account Takeover,0.854
+Txn_00796,2025-04-09 23:58:35,899.65,User_482,Merchant_193,UPI,Food,Device_59,"12.9716, 77.5946",0,Success,None,0.1353
+Txn_06765,2025-04-10 05:01:17,785.19,User_190,Merchant_200,UPI,Travel,Device_72,"12.9716, 77.5946",0,Success,None,0.0884
+Txn_06634,2025-04-09 14:25:35,7217.469049284973,User_576,Suspicious_15,UPI,Unknown,Device_1732,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9429
+Txn_04575,2025-04-09 18:07:53,1076.55,User_366,Merchant_338,UPI,Online_Retail,Device_530,"12.9716, 77.5946",0,Success,None,0.1763
+Txn_01888,2025-04-11 13:42:27,449.01,User_294,Merchant_217,UPI,Entertainment,Device_897,"12.9716, 77.5946",0,Success,None,0.1777
+Txn_00283,2025-04-09 15:40:04,195.84,User_582,Merchant_375,UPI,Travel,Device_1874,"12.9716, 77.5946",0,Success,None,0.0874
+Txn_04837,2025-04-03 10:31:47,3454.192809303221,User_673,Merchant_334,UPI,Online_Retail,New_Device_2,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.7672
+Txn_04935,2025-04-10 16:22:32,261.76,User_787,Merchant_217,Card,Online_Retail,Device_1315,"12.9716, 77.5946",0,Success,None,0.1698
+Txn_07758,2025-03-22 14:32:16,3010.811154891398,User_199,Merchant_454,UPI,Unknown,Unknown_Device_0,"12.9716, 77.5946",1,Fraud,Phishing,0.9308
+Txn_02007,2025-04-10 04:38:54,1861.87,User_574,Merchant_47,UPI,Utilities,Device_614,"12.9716, 77.5946",0,Success,None,0.1977
+Txn_09902,2025-04-10 00:39:41,1138.05,User_904,Merchant_184,UPI,Entertainment,Device_790,"12.9716, 77.5946",0,Success,None,0.1462
+Txn_08004,2025-04-09 09:53:17,1376.88,User_468,Merchant_280,Card,Online_Retail,Device_1055,"12.9716, 77.5946",0,Success,None,0.1886
+Txn_01866,2025-04-10 04:46:56,987.21,User_191,Merchant_117,UPI,Food,Device_53,"12.9716, 77.5946",0,Success,None,0.0935
+Txn_02988,2025-04-08 19:48:55,763.28,User_285,Merchant_232,UPI,Online_Retail,Device_1108,"12.9716, 77.5946",0,Success,None,0.0717
+Txn_08991,2025-04-10 07:36:26,1903.44,User_295,Merchant_491,UPI,Entertainment,Device_1925,"12.9716, 77.5946",0,Success,None,0.1105
+Txn_07258,2025-03-26 01:11:21,5906.246779118105,User_463,Merchant_112,Card,Online_Retail,Unknown_Device_30,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9703
+Txn_03017,2025-04-08 03:53:13,1125.09,User_613,Merchant_407,UPI,Online_Retail,Device_368,"12.9716, 77.5946",0,Success,None,0.0429
+Txn_04445,2025-04-08 06:30:24,1894.15,User_537,Merchant_366,UPI,Utilities,Device_1046,"12.9716, 77.5946",0,Success,None,0.1453
+Txn_04692,2025-03-11 05:23:55,3777.944393883567,User_210,Merchant_426,Card,Online_Retail,Unknown_Device_11,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.8623
+Txn_00513,2025-04-10 11:49:55,217.61,User_696,Merchant_233,UPI,Food,Device_1196,"12.9716, 77.5946",0,Success,None,0.0574
+Txn_00662,2025-04-08 23:52:33,1485.94,User_232,Merchant_425,UPI,Online_Retail,Device_1434,"12.9716, 77.5946",0,Success,None,0.1809
+Txn_04319,2025-04-10 10:05:06,147.87,User_751,Merchant_254,Card,Food,Device_1518,"12.9716, 77.5946",0,Success,None,0.1202
+Txn_09566,2025-04-09 12:13:56,363.02,User_711,Merchant_466,Card,Travel,Device_116,"12.9716, 77.5946",0,Success,None,0.0559
+Txn_03431,2025-04-08 00:37:43,722.43,User_307,Merchant_371,UPI,Food,Device_1966,"12.9716, 77.5946",0,Success,None,0.1843
+Txn_02720,2025-04-11 00:26:28,487.71,User_717,Merchant_310,Card,Online_Retail,Device_1795,"12.9716, 77.5946",0,Success,None,0.1051
+Txn_09645,2025-04-09 17:46:39,490.96,User_97,Merchant_48,UPI,Travel,Device_1760,"12.9716, 77.5946",0,Success,None,0.1783
+Txn_04310,2025-04-11 11:26:53,166.31,User_101,Merchant_314,Card,Online_Retail,Device_1593,"12.9716, 77.5946",0,Success,None,0.0685
+Txn_06306,2025-04-10 12:22:09,1250.05,User_564,Merchant_270,Card,Utilities,Device_1489,"12.9716, 77.5946",0,Success,None,0.0403
+Txn_02053,2025-04-10 01:33:33,1300.88,User_757,Merchant_92,Card,Entertainment,Device_624,"12.9716, 77.5946",0,Success,None,0.0646
+Txn_07612,2025-04-09 20:37:41,1567.08,User_974,Merchant_203,Card,Entertainment,Device_588,"12.9716, 77.5946",0,Success,None,0.0568
+Txn_04933,2025-03-19 20:48:46,6.677637294046258,User_686,Merchant_89,UPI,Unknown,Device_867,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9764
+Txn_00344,2025-04-07 20:36:28,1931.16,User_721,Merchant_78,UPI,Utilities,Device_1168,"12.9716, 77.5946",0,Success,None,0.0855
+Txn_08465,2025-03-24 20:56:48,7415.037712429985,User_940,Suspicious_9,UPI,Unknown,Device_1702,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8612
+Txn_09473,2025-04-08 08:00:43,488.92,User_42,Merchant_416,Card,Entertainment,Device_1510,"12.9716, 77.5946",0,Success,None,0.066
+Txn_00534,2025-04-11 06:15:37,344.72,User_530,Merchant_165,Card,Food,Device_838,"12.9716, 77.5946",0,Success,None,0.0804
+Txn_01460,2025-04-09 12:15:06,1293.77,User_194,Merchant_346,UPI,Food,Device_1344,"12.9716, 77.5946",0,Success,None,0.1114
+Txn_01974,2025-04-08 00:14:58,972.32,User_729,Merchant_202,UPI,Food,Device_836,"12.9716, 77.5946",0,Success,None,0.0549
+Txn_05951,2025-04-07 21:45:10,1183.99,User_24,Merchant_65,Card,Entertainment,Device_21,"12.9716, 77.5946",0,Success,None,0.0551
+Txn_03569,2025-04-10 01:34:45,1537.59,User_339,Merchant_389,Card,Travel,Device_446,"12.9716, 77.5946",0,Success,None,0.1705
+Txn_02152,2025-04-10 17:30:43,503.1,User_633,Merchant_106,UPI,Online_Retail,Device_1652,"12.9716, 77.5946",0,Success,None,0.1593
+Txn_04914,2025-04-07 20:53:45,4985.979491530093,User_785,Merchant_298,Card,Entertainment,Device_677,"35.6762, 139.6503",1,Fraud,Identity Theft,0.7594
+Txn_02934,2025-03-21 16:30:00,9555.976408740487,User_365,Merchant_83,Card,Retail_Physical,Unknown_Device_19,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8755
+Txn_02023,2025-04-08 05:33:56,1103.88,User_336,Merchant_496,UPI,Utilities,Device_93,"12.9716, 77.5946",0,Success,None,0.1714
+Txn_03830,2025-04-11 11:01:38,1107.46,User_6,Merchant_478,UPI,Utilities,Device_289,"12.9716, 77.5946",0,Success,None,0.0449
+Txn_02709,2025-04-11 12:08:58,1515.37,User_18,Merchant_217,Card,Online_Retail,Device_1126,"12.9716, 77.5946",0,Success,None,0.0635
+Txn_09943,2025-04-06 04:17:54,7163.74757676857,User_935,Suspicious_20,UPI,Unknown,Device_1971,"12.9716, 77.5946",1,Fraud,Identity Theft,0.8333
+Txn_01124,2025-03-25 09:42:35,8842.146118061819,User_537,Merchant_257,Card,Online_Retail,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9473
+Txn_09287,2025-04-02 23:11:44,3906.069278737456,User_496,Merchant_68,UPI,Unknown,Unknown_Device_10,"12.9716, 77.5946",1,Fraud,Account Takeover,0.849
+Txn_01607,2025-04-09 19:20:03,1298.82,User_831,Merchant_7,UPI,Utilities,Device_468,"12.9716, 77.5946",0,Success,None,0.1257
+Txn_02540,2025-04-09 20:23:03,1157.79,User_844,Merchant_127,Card,Online_Retail,Device_585,"12.9716, 77.5946",0,Success,None,0.0495
+Txn_09499,2025-03-21 23:56:25,3304.396976911189,User_822,Merchant_294,UPI,Unknown,Unknown_Device_15,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.7099
+Txn_01511,2025-04-08 19:54:25,1199.11,User_658,Merchant_7,Card,Entertainment,Device_210,"12.9716, 77.5946",0,Success,None,0.0638
+Txn_03916,2025-03-12 22:38:31,2282.389689526186,User_908,Merchant_126,UPI,Unknown,Device_345,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9991
+Txn_06460,2025-04-11 05:58:04,377.93,User_322,Merchant_363,Card,Entertainment,Device_1925,"12.9716, 77.5946",0,Success,None,0.1203
+Txn_03238,2025-04-09 02:30:55,945.73,User_968,Merchant_121,UPI,Food,Device_402,"12.9716, 77.5946",0,Success,None,0.1302
+Txn_02341,2025-04-10 13:57:20,1966.69,User_73,Merchant_41,UPI,Travel,Device_858,"12.9716, 77.5946",0,Success,None,0.0489
+Txn_08982,2025-04-11 12:37:00,1400.31,User_942,Merchant_416,Card,Entertainment,Device_562,"12.9716, 77.5946",0,Success,None,0.1458
+Txn_05606,2025-03-14 12:38:05,2.5402477154172853,User_514,Merchant_336,UPI,Unknown,Device_1750,"12.9716, 77.5946",1,Fraud,Phishing,0.793
+Txn_03159,2025-04-09 08:45:48,1446.33,User_697,Merchant_130,Card,Entertainment,Device_1509,"12.9716, 77.5946",0,Success,None,0.1327
+Txn_02743,2025-04-08 07:28:09,1164.09,User_988,Merchant_188,Card,Utilities,Device_1292,"12.9716, 77.5946",0,Success,None,0.0689
+Txn_00176,2025-04-08 00:46:11,412.12,User_65,Merchant_312,Card,Entertainment,Device_1358,"12.9716, 77.5946",0,Success,None,0.0009
+Txn_06738,2025-04-10 14:49:58,1205.57,User_331,Merchant_131,UPI,Online_Retail,Device_325,"12.9716, 77.5946",0,Success,None,0.1515
+Txn_07668,2025-04-08 11:22:52,1121.94,User_750,Merchant_319,Card,Online_Retail,Device_941,"12.9716, 77.5946",0,Success,None,0.0597
+Txn_05331,2025-04-08 17:02:27,1732.87,User_713,Merchant_133,Card,Utilities,Device_826,"12.9716, 77.5946",0,Success,None,0.0741
+Txn_09362,2025-04-06 23:50:00,3832.024619597813,User_606,Merchant_274,UPI,Online_Retail,New_Device_30,"-34.6037, -58.3816",1,Fraud,Identity Theft,0.8086
+Txn_04815,2025-04-10 19:06:02,700.98,User_975,Merchant_475,UPI,Travel,Device_904,"12.9716, 77.5946",0,Success,None,0.0328
+Txn_00196,2025-03-21 05:40:50,8460.35166279229,User_450,Merchant_404,Card,Retail_Physical,Unknown_Device_30,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9188
+Txn_04829,2025-04-10 19:49:20,153.76,User_345,Merchant_299,UPI,Online_Retail,Device_1224,"12.9716, 77.5946",0,Success,None,0.0996
+Txn_07073,2025-03-17 07:35:51,2755.7707755919137,User_61,Merchant_9,UPI,Unknown,Device_1464,"12.9716, 77.5946",1,Fraud,Identity Theft,0.87
+Txn_05328,2025-03-11 01:23:58,7005.3067179666,User_374,Merchant_165,Card,Entertainment,Device_1227,"35.6762, 139.6503",1,Fraud,Phishing,0.8755
+Txn_02343,2025-04-08 22:21:41,1388.82,User_562,Merchant_485,Card,Utilities,Device_19,"12.9716, 77.5946",0,Success,None,0.0196
+Txn_07455,2025-04-10 00:55:45,1582.56,User_920,Merchant_426,UPI,Online_Retail,Device_1978,"12.9716, 77.5946",0,Success,None,0.1203
+Txn_06645,2025-04-10 20:15:17,1238.34,User_493,Merchant_42,Card,Food,Device_621,"12.9716, 77.5946",0,Success,None,0.0161
+Txn_08662,2025-04-08 22:48:32,552.75,User_627,Merchant_388,Card,Online_Retail,Device_386,"12.9716, 77.5946",0,Success,None,0.0146
+Txn_00694,2025-04-10 05:18:15,396.11,User_122,Merchant_88,Card,Utilities,Device_1049,"12.9716, 77.5946",0,Success,None,0.0794
+Txn_07820,2025-04-10 11:45:25,2368.9989741931954,User_64,Merchant_113,UPI,Unknown,Unknown_Device_28,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7234
+Txn_00408,2025-04-09 16:41:30,1503.86,User_297,Merchant_168,UPI,Travel,Device_370,"12.9716, 77.5946",0,Success,None,0.1985
+Txn_05620,2025-04-10 11:56:25,596.11,User_81,Merchant_148,UPI,Utilities,Device_1221,"12.9716, 77.5946",0,Success,None,0.1761
+Txn_07830,2025-04-09 21:13:30,2052.393983724402,User_710,Merchant_149,UPI,Unknown,Unknown_Device_26,"12.9716, 77.5946",1,Fraud,Account Takeover,0.717
+Txn_01015,2025-03-10 22:06:14,2370.572664127377,User_486,Merchant_464,UPI,Unknown,Unknown_Device_2,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8425
+Txn_03032,2025-04-08 02:10:34,1223.85,User_431,Merchant_330,UPI,Entertainment,Device_1671,"12.9716, 77.5946",0,Success,None,0.1789
+Txn_08752,2025-04-09 22:29:25,229.79,User_342,Merchant_32,UPI,Food,Device_736,"12.9716, 77.5946",0,Success,None,0.1117
+Txn_00831,2025-04-09 02:40:53,314.73,User_327,Merchant_117,UPI,Online_Retail,Device_139,"12.9716, 77.5946",0,Success,None,0.0683
+Txn_08143,2025-04-09 04:49:27,285.28,User_756,Merchant_70,UPI,Online_Retail,Device_1222,"12.9716, 77.5946",0,Success,None,0.1155
+Txn_04288,2025-03-15 10:18:33,3655.033005036774,User_78,Merchant_53,UPI,Travel,New_Device_25,"-34.6037, -58.3816",1,Fraud,Account Takeover,0.8504
+Txn_01191,2025-04-10 21:26:46,1761.14,User_989,Merchant_183,Card,Online_Retail,Device_1461,"12.9716, 77.5946",0,Success,None,0.1959
+Txn_09011,2025-04-10 04:20:32,1196.3,User_222,Merchant_40,Card,Entertainment,Device_1915,"12.9716, 77.5946",0,Success,None,0.1419
+Txn_01822,2025-04-08 14:40:05,1805.27,User_27,Merchant_254,Card,Entertainment,Device_217,"12.9716, 77.5946",0,Success,None,0.0131
+Txn_04652,2025-04-10 00:22:51,360.17,User_327,Merchant_284,UPI,Food,Device_333,"12.9716, 77.5946",0,Success,None,0.1913
+Txn_06255,2025-04-06 10:01:16,3952.075820170263,User_91,Merchant_225,UPI,Unknown,Unknown_Device_7,"12.9716, 77.5946",1,Fraud,Identity Theft,0.9312
+Txn_03192,2025-04-09 07:15:53,159.53,User_179,Merchant_271,Card,Food,Device_1743,"12.9716, 77.5946",0,Success,None,0.0764
+Txn_01542,2025-04-08 10:36:01,295.63,User_812,Merchant_202,Card,Utilities,Device_1365,"12.9716, 77.5946",0,Success,None,0.179
+Txn_00393,2025-04-08 23:12:57,777.22,User_102,Merchant_137,UPI,Utilities,Device_720,"12.9716, 77.5946",0,Success,None,0.0671
+Txn_07696,2025-04-07 23:47:33,11447.582981352778,User_221,Merchant_374,Card,Online_Retail,Unknown_Device_32,"12.9716, 77.5946",1,Fraud,Account Takeover,0.8515
+Txn_01836,2025-03-18 19:42:07,4.374574575301711,User_434,Merchant_211,UPI,Unknown,Device_1748,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9447
+Txn_03837,2025-04-09 14:52:07,1321.89,User_117,Merchant_149,Card,Entertainment,Device_233,"12.9716, 77.5946",0,Success,None,0.1557
+Txn_07220,2025-04-11 05:53:41,1118.55,User_31,Merchant_398,UPI,Travel,Device_733,"12.9716, 77.5946",0,Success,None,0.0451
+Txn_01449,2025-04-08 13:28:31,696.72,User_686,Merchant_112,Card,Entertainment,Device_982,"12.9716, 77.5946",0,Success,None,0.132
+Txn_03226,2025-04-09 03:44:53,1950.79,User_109,Merchant_182,UPI,Online_Retail,Device_1713,"12.9716, 77.5946",0,Success,None,0.1449
+Txn_03586,2025-03-26 20:15:10,8650.62402818582,User_951,Merchant_310,Card,Retail_Physical,Unknown_Device_31,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7204
+Txn_04048,2025-04-10 08:57:32,1178.56,User_237,Merchant_148,UPI,Travel,Device_1216,"12.9716, 77.5946",0,Success,None,0.0795
+Txn_08239,2025-04-09 10:41:36,847.18,User_658,Merchant_410,UPI,Entertainment,Device_1529,"12.9716, 77.5946",0,Success,None,0.0164
+Txn_02265,2025-04-11 05:18:34,1130.0,User_605,Merchant_456,UPI,Entertainment,Device_937,"12.9716, 77.5946",0,Success,None,0.0759
+Txn_00182,2025-04-10 02:33:07,1731.81,User_974,Merchant_55,UPI,Online_Retail,Device_1753,"12.9716, 77.5946",0,Success,None,0.1096
+Txn_04100,2025-04-09 09:54:17,1168.89,User_635,Merchant_309,Card,Utilities,Device_1460,"12.9716, 77.5946",0,Success,None,0.0333
+Txn_02655,2025-04-08 21:16:46,272.36,User_909,Merchant_29,UPI,Travel,Device_645,"12.9716, 77.5946",0,Success,None,0.0942
+Txn_06589,2025-03-29 21:11:01,1416.6641256590765,User_672,Merchant_132,UPI,Unknown,Device_1540,"12.9716, 77.5946",1,Fraud,Phishing,0.7314
+Txn_09053,2025-04-10 03:59:21,111.91,User_960,Merchant_171,Card,Travel,Device_595,"12.9716, 77.5946",0,Success,None,0.1017
+Txn_01747,2025-04-08 16:51:59,1598.78,User_373,Merchant_483,UPI,Entertainment,Device_1705,"12.9716, 77.5946",0,Success,None,0.1095
+Txn_08141,2025-04-10 10:20:32,475.66,User_484,Merchant_464,Card,Travel,Device_1839,"12.9716, 77.5946",0,Success,None,0.0914
+Txn_08282,2025-04-08 02:19:40,1332.51,User_69,Merchant_451,UPI,Online_Retail,Device_379,"12.9716, 77.5946",0,Success,None,0.186
+Txn_02937,2025-04-07 22:53:30,1195.01,User_875,Merchant_249,UPI,Travel,Device_1331,"12.9716, 77.5946",0,Success,None,0.0196
+Txn_05539,2025-04-08 06:44:44,589.38,User_786,Merchant_319,UPI,Entertainment,Device_969,"12.9716, 77.5946",0,Success,None,0.039
+Txn_03041,2025-04-09 16:19:29,693.71,User_397,Merchant_136,Card,Online_Retail,Device_265,"12.9716, 77.5946",0,Success,None,0.118
+Txn_08512,2025-03-13 12:14:56,1418.3596446929976,User_916,Merchant_394,UPI,Unknown,Device_456,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7935
+Txn_03570,2025-04-11 09:42:29,867.04,User_70,Merchant_200,Card,Online_Retail,Device_354,"12.9716, 77.5946",0,Success,None,0.1921
+Txn_01832,2025-04-07 21:53:19,203.18,User_329,Merchant_70,Card,Utilities,Device_460,"12.9716, 77.5946",0,Success,None,0.1023
