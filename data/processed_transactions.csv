@@ -501,3 +501,6 @@ Txn_03570,2025-04-11 09:42:29,867.04,User_70,Merchant_200,Card,Online_Retail,Dev
 Txn_01832,2025-04-07 21:53:19,203.18,User_329,Merchant_70,Card,Utilities,Device_460,"12.9716, 77.5946",0,Success,None,0.1023
 UPI_1744428122342,2025-04-12T03:22:02.342Z,5.0,nandan@oksbi,SynthHack@upi,UPI,Unknown,Unknown_Device_8975,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
 UPI_1744428198222,2025-04-12T03:23:18.222Z,2.22,rpr092004@okaxis,SynthHack@upi,UPI,Utilities,Device_1535,"12.9716, 77.5946",True,Small Testing Transaction,0.95,BLOCKED
+UPI_1744432688510,2025-04-12T04:38:08.510Z,2.0,rpr092004@okaxis,SynthHack@upi,UPI,Online_Retail,Device_6103,"12.9716, 77.5946",True,Small Testing Transaction,0.95,BLOCKED
+UPI_1744432704479,2025-04-12T04:38:24.479Z,2000000.0,rpr092004@okaxis,SynthHack@upi,UPI,Online_Retail,Device_8985,"12.9716, 77.5946",True,Unusually High Amount,0.95,BLOCKED
+CARD_1744432814947,2025-04-12T04:40:14.947Z,2000000.0,817394******1728,Merchant_SynthHack,Card,Online_Retail,Device_1835,"12.9716, 77.5946",True,Unusually High Amount,0.95,BLOCKED

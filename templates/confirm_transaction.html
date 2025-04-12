@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .confirmation-card {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .transaction-detail {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-weight: 500;
+            min-width: 150px;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .alert {
+            margin-bottom: 20px;
+        }
+        .small-transaction-warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .confidence-indicator {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .confidence-bar {
+            flex-grow: 1;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        .confidence-level {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #ffc107 50%, #dc3545 100%);
+            transition: width 0.3s ease;
+        }
+        .fraud-type {
+            padding: 8px 12px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-card">
+            <h2 class="text-center mb-4">Transaction Confirmation Required</h2>
+            
+            {% if is_small_transaction %}
+            <div class="small-transaction-warning">
+                <h5 class="text-warning mb-2"><i class="fas fa-exclamation-triangle"></i> Small Transaction Notice</h5>
+                <p class="mb-0">This is a small amount transaction (less than ₹10). Please confirm that you trust the receiver and wish to proceed with this payment.</p>
+            </div>
+            {% endif %}
+
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> Please review the transaction details carefully before proceeding.
+            </div>
+
+            <div class="transaction-details">
+                <div class="transaction-detail">
+                    <strong>Amount:</strong> ₹{{ "%.2f"|format(amount) }}
+                </div>
+                <div class="transaction-detail">
+                    <strong>Merchant:</strong> {{ merchant }}
+                </div>
+                <div class="transaction-detail">
+                    <strong>Transaction Type:</strong> {{ transaction_type }}
+                </div>
+                
+                <div class="confidence-indicator">
+                    <span>Trust Score:</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-level" style="width: {{ (1 - fraud_probability) * 100 }}%"></div>
+                    </div>
+                    <span>{{ "%.1f"|format((1 - fraud_probability) * 100) }}%</span>
+                </div>
+                
+                {% if fraud_type %}
+                <div class="fraud-type">
+                    <i class="fas fa-shield-alt"></i> Review Reason: {{ fraud_type }}
+                </div>
+                {% endif %}
+            </div>
+
+            <form id="confirmationForm" method="POST" class="text-center">
+                <div class="btn-group">
+                    <button type="button" id="confirmBtn" class="btn btn-success">
+                        <i class="fas fa-check"></i> Confirm Transaction
+                    </button>
+                    <button type="button" id="cancelBtn" class="btn btn-danger">
+                        <i class="fas fa-times"></i> Cancel Transaction
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('confirmationForm');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            
+            confirmBtn.addEventListener('click', function() {
+                submitAction('confirm');
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                submitAction('cancel');
+            });
+            
+            function submitAction(action) {
+                const formData = new FormData();
+                formData.append('action', action);
+                
+                fetch(window.location.href, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        if (data.redirect_url) {
+                            window.location.href = data.redirect_url;
+                        } else if (data.otp_required) {
+                            window.location.href = `/verify_otp/${data.transaction_id}`;
+                        } else {
+                            alert(data.message);
+                            window.location.href = '/';
+                        }
+                    } else {
+                        alert('Error: ' + (data.error || 'An unknown error occurred'));
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
