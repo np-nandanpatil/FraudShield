@@ -352,11 +352,12 @@ def api_fraud_stats():
             rows = list(reader)
             
             total = len(rows)
-            fraud = sum(1 for r in rows if r['Is_Fraud'] == 'True')
+            # Handle both string '1' and numeric 1 for Is_Fraud
+            fraud = sum(1 for r in rows if r['Is_Fraud'] in ['1', 1, 'true', 'True', True])
             fraud_types = {}
             
             for row in rows:
-                if row['Is_Fraud'] == 'True' and row['Fraud_Type']:
+                if row['Is_Fraud'] in ['1', 1, 'true', 'True', True] and row['Fraud_Type']:
                     fraud_types[row['Fraud_Type']] = fraud_types.get(row['Fraud_Type'], 0) + 1
             
             return jsonify({
