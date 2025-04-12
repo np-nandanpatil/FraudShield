@@ -47,8 +47,13 @@ def train_model(data_path, model_output_path, feature_engineer_output_path, outp
     print(f"Training data shape: {X_train.shape}, Fraud ratio: {y_train.mean():.2%}")
     print(f"Test data shape: {X_test.shape}, Fraud ratio: {y_test.mean():.2%}")
     
+    # Print feature names
+    print("\nFeatures used in training:")
+    for i, col in enumerate(X_train.columns, 1):
+        print(f"{i}. {col}")
+    
     # Train model
-    print(f"Training {model_type} model...")
+    print(f"\nTraining {model_type} model...")
     model = FraudDetectionModel(model_type=model_type, use_smote=use_smote)
     model.train(X_train, y_train)
     

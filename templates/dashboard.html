@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: rgba(40, 40, 40, 0.8);
+            --primary: #6C63FF;
+            --secondary: #32CCBC;
+            --success: #56E39F;
+            --danger: #FF5C5C;
+            --warning: #FFC857;
+            --text: #F8F9FA;
+            --text-muted: #ADB5BD;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background-color: var(--bg-dark);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(50, 204, 188, 0.08) 0%, transparent 35%);
+            min-height: 100vh;
+        }
+        
+        .container { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .header {
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            height: 100%;
+            border-left: 4px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .fraud {
+            color: var(--danger);
+            background: linear-gradient(to right, var(--danger), #ff8a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .legitimate {
+            color: var(--success);
+            background: linear-gradient(to right, var(--success), #a1ffc3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .chart-container {
+            height: 330px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .card-header {
+            background: rgba(30, 30, 30, 0.6);
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .card-body {
+            padding: 24px;
+        }
+        
+        .table {
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table td {
+            border-color: rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        .badge {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background-color: rgba(86, 227, 159, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(86, 227, 159, 0.3);
+        }
+        
+        .badge-danger {
+            background-color: rgba(255, 92, 92, 0.2);
+            color: var(--danger);
+            border: 1px solid rgba(255, 92, 92, 0.3);
+        }
+        
+        .badge-warning {
+            background-color: rgba(255, 200, 87, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(255, 200, 87, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #7A70FF);
+            border: none;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 24px;
+            border-radius: 10px;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7A70FF, var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .stat-card {
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header glass-card">
+            <h1>Payment Gateway Dashboard</h1>
+            <p class="mb-0">Fraud Detection Statistics and Transaction History</p>
+            
+            <!-- Add admin indicator and logout -->
+            <div class="mt-3">
+                <span class="badge bg-primary">
+                    <i class="fas fa-user-shield me-1"></i> Admin Access
+                </span>
+                <a href="/admin/logout" class="btn btn-sm btn-outline-light ms-2">
+                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="glass-card stat-card" style="border-color: var(--primary);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Total Transactions</h5>
+                        <div class="stat-value" id="total-transactions">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-exchange-alt fa-lg text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card" style="border-color: var(--danger);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Fraud Detected</h5>
+                        <div class="stat-value fraud" id="fraud-count">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-shield-alt fa-lg text-danger"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card" style="border-color: var(--success);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Legitimate</h5>
+                        <div class="stat-value legitimate" id="legitimate-count">0</div>
+                        <div class="mt-3">
+                            <i class="fas fa-check-circle fa-lg text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card" style="border-color: var(--warning);">
+                    <div class="card-body p-0">
+                        <h5 class="mb-0 text-white opacity-75">Fraud Rate</h5>
+                        <div class="stat-value" id="fraud-rate">0%</div>
+                        <div class="mt-3">
+                            <i class="fas fa-chart-pie fa-lg text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="glass-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-pie me-2"></i> Fraud Types Distribution
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="fraud-types-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="glass-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-2"></i> Transaction Volume
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="transaction-volume-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add Model Statistics Card -->
+        <div class="glass-card">
+            <div class="card-header">
+                <i class="fas fa-brain me-2"></i> Continuous Learning Status
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-opacity-10 rounded-3 mb-3" style="background: rgba(108, 99, 255, 0.1);">
+                            <h5 class="fw-bold mb-3"><i class="fas fa-clock me-2"></i> Model Training Status</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Last Retrained:</span>
+                                <span id="last-retrained">Loading...</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Next Retraining Due:</span>
+                                <span id="next-retrain">Loading...</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Training Data Size:</span>
+                                <span id="training-data-size">Loading...</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Min Samples Needed:</span>
+                                <span id="min-samples">Loading...</span>
+                            </div>
+                            <div class="progress mt-3" style="height: 10px;">
+                                <div id="training-progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <span class="badge bg-primary" id="learning-status">
+                                    <i class="fas fa-sync-alt me-1"></i> Continuous Learning
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-opacity-10 rounded-3 mb-3" style="background: rgba(50, 204, 188, 0.1);">
+                            <h5 class="fw-bold mb-3"><i class="fas fa-chart-line me-2"></i> Learning Performance</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Predictions Stored:</span>
+                                <span id="predictions-count">Loading...</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Auto-feedback Samples:</span>
+                                <span id="auto-feedback-count">-</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Admin Feedback Samples:</span>
+                                <span id="admin-feedback-count">-</span>
+                            </div>
+                            <div class="alert alert-info mt-3 mb-0 small">
+                                <i class="fas fa-info-circle me-2"></i> Provide feedback on transactions below to improve model accuracy over time.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass-card">
+            <div class="card-header">
+                <i class="fas fa-history me-2"></i> Recent Transactions
+                <div class="float-end">
+                    <span class="badge bg-secondary me-2">
+                        <i class="fas fa-info-circle me-1"></i> Provide Feedback
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Timestamp</th>
+                                <th>Amount</th>
+                                <th>Sender</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Fraud Score</th>
+                                <th>Fraud Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-table">
+                            <!-- Transactions will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home me-2"></i> Back to Payment Gateway
+            </a>
+        </div>
+    </div>
+    
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: var(--card-bg); color: var(--text); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="feedbackModalLabel">Provide Fraud Feedback</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="feedback-transaction-details" class="mb-4 p-3 rounded-3" style="background: rgba(40, 40, 40, 0.5);">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Transaction ID:</span>
+                            <span id="feedback-txn-id"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Amount:</span>
+                            <span id="feedback-amount"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Current Classification:</span>
+                            <span id="feedback-current"></span>
+                        </div>
+                    </div>
+                    
+                    <p>Was this transaction actually fraudulent?</p>
+                    
+                    <div class="d-flex gap-3 justify-content-center mt-4">
+                        <button type="button" class="btn btn-danger" id="btn-mark-fraud">
+                            <i class="fas fa-exclamation-triangle me-2"></i> Mark as Fraud
+                        </button>
+                        <button type="button" class="btn btn-success" id="btn-mark-legitimate">
+                            <i class="fas fa-check-circle me-2"></i> Mark as Legitimate
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="w-100 text-center small text-muted">
+                        Your feedback helps improve the fraud detection model through continuous learning.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Apply Chart.js dark mode globally
+        Chart.defaults.color = 'rgba(248, 249, 250, 0.7)';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+        Chart.defaults.font.family = "'Inter', 'Segoe UI', sans-serif";
+        
+        let currentTransactionFeedback = null;
+        const feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+        
+        $(document).ready(function() {
+            // Fetch transaction data with animation
+            setTimeout(() => {
+                $.getJSON('/api/transactions', function(data) {
+                    populateTransactionTable(data);
+                });
+            }, 300);
+            
+            // Fetch fraud statistics with animation
+            setTimeout(() => {
+                $.getJSON('/api/fraud_stats', function(data) {
+                    updateDashboardStats(data);
+                    createFraudTypesChart(data.fraud_types);
+                });
+            }, 600);
+            
+            // Fetch model statistics
+            setTimeout(() => {
+                $.getJSON('/api/model_stats', function(data) {
+                    updateModelStats(data);
+                });
+            }, 900);
+            
+            // Set up feedback buttons
+            $('#btn-mark-fraud').click(function() {
+                provideFeedback(true);
+            });
+            
+            $('#btn-mark-legitimate').click(function() {
+                provideFeedback(false);
+            });
+            
+            // Use delegate to handle dynamically created feedback buttons
+            $(document).on('click', '.feedback-btn', function() {
+                try {
+                    const txnId = $(this).attr('data-transaction-id');
+                    if (!txnId) {
+                        console.error('No transaction ID found on button');
+                        return;
+                    }
+                    
+                    console.log('Looking for transaction with ID:', txnId);
+                    
+                    // Find the transaction in our loaded data
+                    $.getJSON('/api/transactions', function(transactions) {
+                        const transaction = transactions.find(t => t.Transaction_ID === txnId);
+                        
+                        if (transaction) {
+                            console.log('Found transaction:', transaction);
+                            showFeedbackModal(transaction);
+                        } else {
+                            console.error('Transaction not found:', txnId);
+                            alert('Error: Transaction not found');
+                        }
+                    }).fail(function(err) {
+                        console.error('Error fetching transactions:', err);
+                        alert('Error fetching transaction data');
+                    });
+                } catch (e) {
+                    console.error('Error handling feedback button click:', e);
+                }
+            });
+        });
+        
+        function provideFeedback(isFraud) {
+            try {
+                if (!currentTransactionFeedback) {
+                    console.error('No transaction selected for feedback');
+                    alert('Error: No transaction selected');
+                    return;
+                }
+                
+                const txnId = currentTransactionFeedback.Transaction_ID;
+                if (!txnId) {
+                    console.error('Transaction has no ID');
+                    alert('Error: Transaction has no ID');
+                    return;
+                }
+                
+                console.log('Providing feedback for transaction:', txnId, 'is_fraud:', isFraud);
+                
+                // Show processing message
+                const messageHtml = `
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" id="feedback-processing">
+                        <i class="fas fa-spinner fa-spin me-2"></i> Processing feedback for transaction ${txnId}...
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                $('.container').prepend(messageHtml);
+                
+                // Prepare feedback data
+                const feedbackData = {
+                    transaction_id: txnId,
+                    is_fraud: isFraud,
+                    source: 'admin_dashboard'
+                };
+                
+                // Debug output
+                console.log('Sending feedback data:', feedbackData);
+                
+                $.ajax({
+                    url: '/api/feedback',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(feedbackData),
+                    success: function(response) {
+                        // Remove processing message
+                        $('#feedback-processing').remove();
+                        
+                        feedbackModal.hide();
+                        
+                        console.log('Feedback success response:', response);
+                        
+                        // Show success message
+                        const alertHtml = `
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="fas fa-check-circle me-2"></i> Feedback recorded successfully!
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        
+                        $('.container').prepend(alertHtml);
+                        
+                        // Refresh data after 1 second
+                        setTimeout(() => {
+                            console.log('Refreshing data after feedback');
+                            
+                            $.getJSON('/api/transactions', function(data) {
+                                console.log('Received updated transactions:', data);
+                                populateTransactionTable(data);
+                            }).fail(function(err) {
+                                console.error('Error fetching transactions:', err);
+                            });
+                            
+                            $.getJSON('/api/fraud_stats', function(data) {
+                                console.log('Received updated fraud stats:', data);
+                                updateDashboardStats(data);
+                                createFraudTypesChart(data.fraud_types);
+                            }).fail(function(err) {
+                                console.error('Error fetching fraud stats:', err);
+                            });
+                            
+                            $.getJSON('/api/model_stats', function(data) {
+                                console.log('Received updated model stats:', data);
+                                updateModelStats(data);
+                            }).fail(function(err) {
+                                console.error('Error fetching model stats:', err);
+                            });
+                        }, 1000);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // Remove processing message
+                        $('#feedback-processing').remove();
+                        
+                        console.error('Error providing feedback:', textStatus, errorThrown);
+                        console.error('Response status:', jqXHR.status);
+                        console.error('Response text:', jqXHR.responseText);
+                        
+                        let errorMessage = 'Error recording feedback. Please try again.';
+                        try {
+                            if (jqXHR.responseText) {
+                                const errorResponse = JSON.parse(jqXHR.responseText);
+                                if (errorResponse.message) {
+                                    errorMessage = errorResponse.message;
+                                }
+                            }
+                        } catch (e) {
+                            console.error('Error parsing error response:', e);
+                        }
+                        
+                        // Show error message
+                        const alertHtml = `
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fas fa-exclamation-circle me-2"></i> ${errorMessage}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        
+                        $('.container').prepend(alertHtml);
+                    }
+                });
+            } catch (e) {
+                console.error('Error in provideFeedback function:', e);
+                alert('An unexpected error occurred: ' + e.message);
+            }
+        }
+        
+        function showFeedbackModal(transaction) {
+            try {
+                console.log('Showing feedback modal for transaction:', transaction);
+                
+                // If transaction was passed as a string, try to parse it
+                if (typeof transaction === 'string') {
+                    try {
+                        transaction = JSON.parse(transaction);
+                    } catch (e) {
+                        console.error('Error parsing transaction JSON:', e);
+                        alert('Error: Could not parse transaction data');
+                        return;
+                    }
+                }
+                
+                // Validate transaction object
+                if (!transaction || !transaction.Transaction_ID) {
+                    console.error('Invalid transaction object:', transaction);
+                    alert('Error: Invalid transaction data');
+                    return;
+                }
+                
+                // Store reference to current transaction
+                currentTransactionFeedback = transaction;
+                
+                // Update modal with transaction details
+                $('#feedback-txn-id').text(transaction.Transaction_ID || 'Unknown');
+                
+                // Handle amount display with error checking
+                let amountDisplay = '₹0.00';
+                try {
+                    const amount = parseFloat(transaction.Amount || 0);
+                    if (!isNaN(amount)) {
+                        amountDisplay = '₹' + amount.toFixed(2);
+                    }
+                } catch (e) {
+                    console.warn('Error parsing amount:', e);
+                }
+                $('#feedback-amount').text(amountDisplay);
+                
+                // Handle Is_Fraud with multiple possible formats
+                let isFraud = false;
+                if (typeof transaction.Is_Fraud === 'boolean') {
+                    isFraud = transaction.Is_Fraud;
+                } else if (transaction.Is_Fraud === 'True' || transaction.Is_Fraud === 'true' || transaction.Is_Fraud === '1') {
+                    isFraud = true;
+                }
+                
+                $('#feedback-current').html(
+                    isFraud ? 
+                    '<span class="badge badge-danger">Fraud</span>' : 
+                    '<span class="badge badge-success">Legitimate</span>'
+                );
+                
+                // Show the modal
+                feedbackModal.show();
+            } catch (e) {
+                console.error('Error in showFeedbackModal:', e);
+                alert('Error showing feedback modal: ' + e.message);
+            }
+        }
+        
+        function updateModelStats(data) {
+            // Format dates for display
+            const lastRetrained = new Date(data.model_info.last_retrained);
+            const nextRetrain = new Date(data.model_info.next_retrain_due);
+            
+            $('#last-retrained').text(formatDate(lastRetrained));
+            $('#next-retrain').text(formatDate(nextRetrain));
+            $('#training-data-size').text(data.model_info.training_data_size);
+            $('#min-samples').text(data.model_info.min_samples_needed);
+            $('#predictions-count').text(data.predictions_count);
+            
+            // Update progress bar
+            const progress = Math.min(100, (data.model_info.training_data_size / data.model_info.min_samples_needed) * 100);
+            $('#training-progress').css('width', progress + '%');
+            
+            // Update learning status
+            if (data.model_info.continuous_learning_enabled) {
+                $('#learning-status').html('<i class="fas fa-sync-alt me-1"></i> Continuous Learning Active');
+            } else {
+                $('#learning-status').html('<i class="fas fa-pause me-1"></i> Learning Paused');
+                $('#learning-status').removeClass('bg-primary').addClass('bg-warning');
+            }
+        }
+        
+        function formatDate(date) {
+            return date.toLocaleString();
+        }
+        
+        function populateTransactionTable(transactions) {
+            const tableBody = $('#transactions-table');
+            tableBody.empty();
+            
+            if (!transactions || transactions.length === 0) {
+                tableBody.append(`
+                    <tr>
+                        <td colspan="9" class="text-center py-4">No transactions found</td>
+                    </tr>
+                `);
+                return;
+            }
+            
+            transactions.slice(0, 20).forEach(function(txn, index) {
+                const row = $('<tr>').addClass('fade-in').css('animation-delay', (index * 0.05) + 's');
+                const isFraud = txn.Is_Fraud === 'True';
+                
+                row.append($('<td>').text(txn.Transaction_ID));
+                row.append($('<td>').text(new Date(txn.Timestamp).toLocaleString()));
+                row.append($('<td>').text('₹' + parseFloat(txn.Amount).toFixed(2)));
+                row.append($('<td>').text(txn.Sender_ID));
+                row.append($('<td>').text(txn.Transaction_Type));
+                
+                const statusCell = $('<td>');
+                if (txn.Status === 'COMPLETED') {
+                    statusCell.html('<span class="badge badge-success">Completed</span>');
+                } else if (txn.Status === 'BLOCKED') {
+                    statusCell.html('<span class="badge badge-danger">Blocked</span>');
+                } else {
+                    statusCell.html('<span class="badge badge-warning">Pending</span>');
+                }
+                row.append(statusCell);
+                
+                const scoreCell = $('<td>');
+                const score = parseFloat(txn.Fraud_Probability);
+                if (score > 0.7) {
+                    scoreCell.html(`<span class="text-danger">${(score*100).toFixed(2)}%</span>`);
+                } else if (score > 0.3) {
+                    scoreCell.html(`<span class="text-warning">${(score*100).toFixed(2)}%</span>`);
+                } else {
+                    scoreCell.html(`<span class="text-success">${(score*100).toFixed(2)}%</span>`);
+                }
+                row.append(scoreCell);
+                
+                const fraudTypeCell = $('<td>').text(txn.Fraud_Type);
+                row.append(fraudTypeCell);
+                
+                const actionCell = $('<td>');
+                // Create the feedback button with proper JSON escaping
+                const feedbackBtn = $('<button>')
+                    .addClass('btn btn-primary btn-sm feedback-btn')
+                    .html('<i class="fas fa-thumbs-up me-1"></i> Feedback')
+                    .attr('data-transaction-id', txn.Transaction_ID);
+                
+                actionCell.append(feedbackBtn);
+                row.append(actionCell);
+                
+                // Add the row to the table body
+                tableBody.append(row);
+            });
+        }
+        
+        function updateDashboardStats(stats) {
+            // Animate counter increments
+            animateCounter('total-transactions', 0, stats.total_transactions, 1500);
+            animateCounter('fraud-count', 0, stats.fraud_count, 1500);
+            animateCounter('legitimate-count', 0, stats.total_transactions - stats.fraud_count, 1500);
+            animateCounter('fraud-rate', 0, stats.fraud_percentage, 1500, '%');
+        }
+        
+        function animateCounter(elementId, start, end, duration, suffix = '') {
+            const element = document.getElementById(elementId);
+            const range = end - start;
+            const stepTime = Math.abs(Math.floor(duration / range)) || 50; // Avoid division by zero
+            let current = start;
+            
+            // Clear any existing interval
+            if (window.counterTimers && window.counterTimers[elementId]) {
+                clearInterval(window.counterTimers[elementId]);
+            }
+            
+            // Initialize counter timers object if it doesn't exist
+            if (!window.counterTimers) {
+                window.counterTimers = {};
+            }
+            
+            if (range === 0) {
+                element.textContent = end + suffix;
+                return;
+            }
+            
+            const timer = setInterval(function() {
+                current += 1;
+                element.textContent = current + suffix;
+                
+                if (current >= end) {
+                    clearInterval(timer);
+                    element.textContent = end + suffix;
+                }
+            }, stepTime);
+            
+            // Store the timer reference
+            window.counterTimers[elementId] = timer;
+        }
+        
+        function createFraudTypesChart(fraudTypes) {
+            const labels = Object.keys(fraudTypes);
+            const data = Object.values(fraudTypes);
+            
+            // Custom colors with glassmorphism effect
+            const colors = [
+                '#FF5C5C', '#FFC857', '#56E39F', '#6C63FF', '#32CCBC',
+                '#FF85B3', '#A97FFF', '#60D7FF', '#FFD166', '#FF9057'
+            ];
+            
+            const ctx = document.getElementById('fraud-types-chart').getContext('2d');
+            // Destroy existing chart if it exists
+            if (window.fraudTypesChart) {
+                window.fraudTypesChart.destroy();
+            }
+            
+            window.fraudTypesChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        borderColor: 'rgba(40, 40, 40, 0.8)',
+                        borderWidth: 2,
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                padding: 20,
+                                boxWidth: 15,
+                                font: {
+                                    size: 13
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(40, 40, 40, 0.9)',
+                            titleFont: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            padding: 15,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
