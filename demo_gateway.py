@@ -44,17 +44,63 @@ def index():
 @admin_required
 def dashboard():
     """Payment gateway dashboard showing transaction history"""
-    # In a real implementation, this would fetch from a database
     txn_data = []
     try:
         with open('data/processed_transactions.csv', 'r') as file:
             reader = csv.DictReader(file)
-            for row in reader:
-                txn_data.append(row)
+            txn_data = list(reader)
+            
+            # Calculate statistics
+            total_transactions = len(txn_data)
+            fraud_transactions = [t for t in txn_data if t['Is_Fraud'].lower() == 'true']
+            fraud_count = len(fraud_transactions)
+            legitimate_count = total_transactions - fraud_count
+            fraud_rate = (fraud_count / total_transactions * 100) if total_transactions > 0 else 0
+            
+            # Calculate fraud types distribution
+            fraud_types = {}
+            for t in fraud_transactions:
+                fraud_type = t['Fraud_Type']
+                if fraud_type and fraud_type != '-':
+                    fraud_types[fraud_type] = fraud_types.get(fraud_type, 0) + 1
+            
+            # Calculate transaction volume over time
+            transactions_by_date = {}
+            for t in txn_data:
+                date = t['Timestamp'].split('T')[0]  # Get just the date part
+                amount = float(t['Amount'])
+                if date in transactions_by_date:
+                    transactions_by_date[date]['volume'] += amount
+                    transactions_by_date[date]['count'] += 1
+                else:
+                    transactions_by_date[date] = {'volume': amount, 'count': 1}
+            
+            # Convert to sorted lists for the chart
+            dates = sorted(transactions_by_date.keys())
+            volumes = [transactions_by_date[date]['volume'] for date in dates]
+            
     except FileNotFoundError:
-        pass
-    
-    return render_template('dashboard.html', transactions=txn_data)
+        total_transactions = 0
+        fraud_count = 0
+        legitimate_count = 0
+        fraud_rate = 0
+        fraud_types = {}
+        dates = []
+        volumes = []
+        
+    return render_template('dashboard.html',
+                         transactions=txn_data,
+                         stats={
+                             'total_transactions': total_transactions,
+                             'fraud_count': fraud_count,
+                             'legitimate_count': legitimate_count,
+                             'fraud_rate': round(fraud_rate, 1),
+                             'fraud_types': fraud_types,
+                             'transaction_volume': {
+                                 'dates': dates,
+                                 'volumes': volumes
+                             }
+                         })
 
 # Ensure the CSV file exists with headers
 def ensure_transaction_csv_exists():

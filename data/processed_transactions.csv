@@ -1,6 +1,6 @@
 Transaction_ID,Timestamp,Amount,Sender_ID,Receiver_ID,Transaction_Type,Merchant_Type,Device_ID,Location,Is_Fraud,Fraud_Type,Fraud_Probability
 UPI_1744384139917,2025-04-11T15:08:59.917Z,258000,nandan@oksbi,merchant123@cub,UPI,Unknown,Device_5433,"12.9716, 77.5946",True,Admin Flagged,0.861175670224699
-UPI_1744384151911,2025-04-11T15:09:11.911Z,258000,nandan@oksbi,merchant123@cub,UPI,Online,Device_5433,"12.9716, 77.5946",True,Small Testing,0.5111756702246989
+UPI_1744384151911,2025-04-11T15:09:11.911Z,258000,nandan@oksbi,merchant123@cub,UPI,Online,Device_5433,"12.9716, 77.5946",False,-,0.5111756702246989
 UPI_1744384159565,2025-04-11T15:09:19.565Z,25800,nandan@oksbi,merchant123@cub,UPI,Online,Device_5433,"12.9716, 77.5946",True,Small Testing,0.5111756702246989
 UPI_1744384163627,2025-04-11T15:09:23.627Z,25800,nandan@oksbi,merchant123@cub,UPI,Retail,Device_5433,"12.9716, 77.5946",True,Small Testing,0.5111756702246989
 UPI_1744384172735,2025-04-11T15:09:32.735Z,25800,nandan@oksbi,merchant123@upi,UPI,Retail,Device_5433,"12.9716, 77.5946",True,Small Testing,0.5111756702246989

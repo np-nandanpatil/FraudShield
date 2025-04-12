@@ -514,6 +514,10 @@
                     console.error('Error handling feedback button click:', e);
                 }
             });
+            
+            // Initialize transaction volume chart with server-side data
+            const volumeData = JSON.parse('{{ stats.transaction_volume|tojson|safe }}');
+            createTransactionVolumeChart(volumeData);
         });
         
         function provideFeedback(isFraud) {
@@ -894,6 +898,94 @@
                     animation: {
                         animateScale: true,
                         animateRotate: true,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+        
+        function createTransactionVolumeChart(volumeData) {
+            const ctx = document.getElementById('transaction-volume-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.transactionVolumeChart) {
+                window.transactionVolumeChart.destroy();
+            }
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(50, 204, 188, 0.5)');
+            gradient.addColorStop(1, 'rgba(50, 204, 188, 0.0)');
+            
+            window.transactionVolumeChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: volumeData.dates,
+                    datasets: [{
+                        label: 'Transaction Volume',
+                        data: volumeData.volumes,
+                        borderColor: '#32CCBC',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: gradient,
+                        pointBackgroundColor: '#32CCBC',
+                        pointBorderColor: '#32CCBC',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(40, 40, 40, 0.9)',
+                            titleFont: {
+                                size: 14
+                            },
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + context.raw.toLocaleString(undefined, {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    });
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '₹' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    animation: {
                         duration: 2000,
                         easing: 'easeOutQuart'
                     }
