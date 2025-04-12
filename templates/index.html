@@ -297,7 +297,7 @@
                     <div class="d-flex justify-content-between mb-3">
                         <span>Product:</span>
                         <span>Demo Product</span>
-            </div>
+                    </div>
                     <div class="d-flex justify-content-between mb-3">
                         <span>Merchant:</span>
                         <span>SynthHack Demo Store</span>
@@ -308,7 +308,7 @@
                     </div>
                     <div class="d-flex justify-content-between font-weight-bold">
                         <span class="fw-bold">Amount:</span>
-                        <span class="fw-bold">₹2,500.00</span>
+                        <span class="fw-bold amount-display">₹{{ amount }}.00</span>
                     </div>
                 </div>
                 
@@ -372,7 +372,7 @@
                                 </div>
                                 <p class="mt-3 mb-0 text-muted"><small>Our AI is constantly analyzing this transaction for fraud patterns.</small></p>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹2,500.00</button>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹{{ amount }}.00</button>
                         </form>
                     </div>
                     
@@ -395,8 +395,8 @@
                                     <small class="text-danger">High Risk</small>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹2,500.00</button>
-                </form>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹{{ amount }}.00</button>
+                        </form>
                     </div>
                     
                     <!-- Other forms would be defined here -->
@@ -560,7 +560,7 @@
             }
             
             // Amount is also a factor
-            if (2500 > 5000) riskScore += 20;
+            if ({{ amount }} > 5000) riskScore += 20;
             
             // Cap the risk score at 100
             riskScore = Math.min(riskScore, 100);
@@ -578,7 +578,7 @@
             }
             
             // Amount is also a factor
-            if (2500 > 5000) upiRiskScore += 20;
+            if ({{ amount }} > 5000) upiRiskScore += 20;
             
             // Cap the risk score
             upiRiskScore = Math.min(upiRiskScore, 100);
@@ -588,16 +588,33 @@
         }
         
         $(document).ready(function() {
-            // Payment method selection with animation
+            // Set initial payment method based on URL parameter
+            const paymentMethod = '{{ payment_method }}';
+            $('.payment-method').removeClass('active');
+            $(`.payment-method[data-method="${paymentMethod.toLowerCase()}"]`).addClass('active');
+            
+            // Show corresponding form
+            $('.payment-form').hide();
+            $(`#${paymentMethod.toLowerCase()}-form`).show();
+            
+            // Set amount
+            const amount = {{ amount }};
+            $('.amount-display').text('₹' + amount.toFixed(2));
+            $('button[type="submit"]').text('Pay ₹' + amount.toFixed(2));
+            
+            // Store other parameters as data attributes
+            $('body').data('merchantType', '{{ merchant_type }}');
+            $('body').data('deviceId', '{{ device_id }}');
+            $('body').data('location', '{{ location }}');
+            
+            // Payment method selection
             $('.payment-method').click(function() {
                 $('.payment-method').removeClass('active');
                 $(this).addClass('active');
                 
                 const method = $(this).data('method');
-                $('.payment-form').fadeOut(300);
-                setTimeout(() => {
-                    $(`#${method}-form`).fadeIn(300);
-                }, 300);
+                $('.payment-form').hide();
+                $('#' + method + '-form').show();
             });
             
             // Fraud meter updates
@@ -637,38 +654,38 @@
             
             // Card form submission
             $('#cardForm').on('submit', function(event) {
-            event.preventDefault();
+                event.preventDefault();
                 const cardNumber = $('#cardNumber').val().replace(/\s+/g, '');
                 const cvv = $('#cvv').val();
                 const expiry = $('#expiry').val();
                 const cardHolder = $('#cardHolder').val();
 
-            if (!isValidCardNumber(cardNumber)) {
+                if (!isValidCardNumber(cardNumber)) {
                     alert('Invalid card number. Please check and try again.');
-                return;
-            }
-            if (!isValidCVV(cvv)) {
+                    return;
+                }
+                if (!isValidCVV(cvv)) {
                     alert('Invalid CVV. Must be 3 digits.');
-                return;
-            }
-            if (!isValidExpiryDate(expiry)) {
+                    return;
+                }
+                if (!isValidExpiryDate(expiry)) {
                     alert('Invalid expiry date. Use MM/YY format and ensure date is in the future.');
-                return;
-            }
+                    return;
+                }
 
-            const data = {
+                const data = {
                     Transaction_ID: 'CARD_' + Date.now(),
-                Timestamp: new Date().toISOString(),
-                    Amount: 2500.00,
+                    Timestamp: new Date().toISOString(),
+                    Amount: {{ amount }},
                     Sender_ID: cardNumber.substring(0, 6) + '******' + cardNumber.substring(12),
                     Receiver_ID: 'Merchant_SynthHack',
-                Transaction_Type: 'Card',
-                Merchant_Type: 'Online',
-                    Device_ID: getDeviceId(),
-                    Location: getLocation()
-            };
+                    Transaction_Type: 'Card',
+                    Merchant_Type: $('body').data('merchantType'),
+                    Device_ID: $('body').data('deviceId'),
+                    Location: $('body').data('location')
+                };
                 
-            processTransaction(data);
+                processTransaction(data);
             });
             
             // UPI form submission
@@ -684,13 +701,13 @@
                 const data = {
                     Transaction_ID: 'UPI_' + Date.now(),
                     Timestamp: new Date().toISOString(),
-                    Amount: 2500.00,
+                    Amount: {{ amount }},
                     Sender_ID: upiId,
                     Receiver_ID: 'SynthHack@upi',
                     Transaction_Type: 'UPI',
-                    Merchant_Type: 'Online',
-                    Device_ID: getDeviceId(),
-                    Location: getLocation()
+                    Merchant_Type: $('body').data('merchantType'),
+                    Device_ID: $('body').data('deviceId'),
+                    Location: $('body').data('location')
                 };
                 
                 processTransaction(data);

@@ -499,3 +499,5 @@ Txn_03041,2025-04-09 16:19:29,693.71,User_397,Merchant_136,Card,Online_Retail,De
 Txn_08512,2025-03-13 12:14:56,1418.3596446929976,User_916,Merchant_394,UPI,Unknown,Device_456,"12.9716, 77.5946",1,Fraud,Account Takeover,0.7935
 Txn_03570,2025-04-11 09:42:29,867.04,User_70,Merchant_200,Card,Online_Retail,Device_354,"12.9716, 77.5946",0,Success,None,0.1921
 Txn_01832,2025-04-07 21:53:19,203.18,User_329,Merchant_70,Card,Utilities,Device_460,"12.9716, 77.5946",0,Success,None,0.1023
+UPI_1744428122342,2025-04-12T03:22:02.342Z,5.0,nandan@oksbi,SynthHack@upi,UPI,Unknown,Unknown_Device_8975,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
+UPI_1744428198222,2025-04-12T03:23:18.222Z,2.22,rpr092004@okaxis,SynthHack@upi,UPI,Utilities,Device_1535,"12.9716, 77.5946",True,Small Testing Transaction,0.95,BLOCKED

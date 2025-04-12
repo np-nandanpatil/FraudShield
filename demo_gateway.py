@@ -38,7 +38,20 @@ def admin_required(f):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    """Payment gateway home page"""
+    # Get payment parameters from URL
+    amount = request.args.get('amount', 2500.00)  # Default to 2500 if not specified
+    payment_method = request.args.get('paymentMethod', 'Card')
+    merchant_type = request.args.get('merchantType', 'Online_Retail')
+    device_id = request.args.get('deviceId', 'Device_1234')
+    location = request.args.get('location', '12.9716, 77.5946')
+    
+    return render_template('index.html', 
+                         amount=amount,
+                         payment_method=payment_method,
+                         merchant_type=merchant_type,
+                         device_id=device_id,
+                         location=location)
 
 @app.route('/dashboard')
 @admin_required
@@ -594,6 +607,11 @@ def admin_logout():
     """Admin logout"""
     session.pop('is_admin', None)
     return redirect(url_for('index'))
+
+@app.route('/payment_request')
+def payment_request():
+    """Payment request generation page"""
+    return render_template('payment_request.html')
 
 if __name__ == '__main__':
     # Ensure data directory exists
