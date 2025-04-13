@@ -3,7 +3,7 @@ Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,De
 Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",False,Fraud,-,0.7007
 Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",0,Success,None,0.0382
 Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",0,Success,None,0.0354
-Txn_02131,2025-04-08 20:25:40,1710.72,User_920,Merchant_422,UPI,Online_Retail,Device_1988,"12.9716, 77.5946",0,Success,None,0.0282
+Txn_02131,2025-04-08 20:25:40,1710.72,User_920,Merchant_422,UPI,Online_Retail,Device_1988,"12.9716, 77.5946",False,Success,-,0.0282
 Txn_07486,2025-04-08 00:18:35,496.69,User_997,Merchant_415,UPI,Food,Device_1444,"12.9716, 77.5946",0,Success,None,0.0176
 Txn_04384,2025-04-10 18:34:53,263.83,User_191,Merchant_383,UPI,Food,Device_270,"12.9716, 77.5946",0,Success,None,0.0879
 Txn_07636,2025-04-11 15:05:11,698.54,User_56,Merchant_22,UPI,Travel,Device_18,"12.9716, 77.5946",0,Success,None,0.1355
@@ -508,3 +508,4 @@ UPI_1744438823696,2025-04-12T06:20:23.697Z,2.5,rpr092004@okaxis,FraudShield@upi,
 UPI_1744439007594,2025-04-12T06:23:27.595Z,2.5,rpr092004@okaxis,FraudShield@upi,UPI,Utilities,Device_1651,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
 UPI_1744440254175,2025-04-12T06:44:14.175Z,2.5,rpr092004@okaxis,FraudShield@upi,UPI,Online_Retail,Unknown_Device_5829,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
 UPI_1744478669243,2025-04-12T17:24:29.243Z,2.22,rpr092004@okaxis,FraudShield@upi,UPI,Unknown,New_Device_3549,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
+UPI_1744519446739,2025-04-13T04:44:06.739Z,2.0,rpr092004@okaxis,FraudShield@upi,UPI,Unknown,Unknown_Device_3667,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
