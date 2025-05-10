@@ -1,5 +1,5 @@
 Transaction_ID,Timestamp,Amount,Sender_ID,Receiver_ID,Transaction_Type,Merchant_Type,Device_ID,Location,Is_Fraud,Status,Fraud_Type,Fraud_Probability
-Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,Device_167,"12.9716, 77.5946",True,Success,None,0.062
+Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,Device_167,"12.9716, 77.5946",False,Success,-,0.062
 Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",False,Fraud,-,0.7007
 Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",0,Success,None,0.0382
 Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",0,Success,None,0.0354

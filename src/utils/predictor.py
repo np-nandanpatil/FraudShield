@@ -414,258 +414,73 @@ class RealTimePredictor:
             return "Unknown Fraud Type"
 
     def _process_transaction(self, txn_df):
-        """
-        Process a transaction DataFrame through feature engineering.
-
-        Args:
-            txn_df (pd.DataFrame): Transaction data
-
-        Returns:
-            pd.DataFrame: Processed features
-        """
+        """Process a single transaction for prediction"""
         try:
-            # Ensure we have a DataFrame
+            # Convert to DataFrame if not already
             if not isinstance(txn_df, pd.DataFrame):
                 txn_df = pd.DataFrame([txn_df])
-
-            # Convert DataFrame to dictionary for feature engineering
-            transaction = txn_df.iloc[0].to_dict()
-
-            # Process through feature engineering pipeline
-            X = self.feature_engineer.process_single_transaction(transaction)
-
-            # Verify feature names match model expectations
-            missing_features = set(self.feature_engineer.encoded_cols) - set(X.columns)
-            if missing_features:
-                raise ValueError(f"Missing required features: {missing_features}")
-
-            # Ensure features are in the correct order
-            X = X[self.feature_engineer.encoded_cols]
-
+            
+            # Process features using the feature engineer
+            X = self.feature_engineer.process_transactions(txn_df)
+            
+            # Ensure no NaN values remain
+            if X.isna().any().any():
+                X = X.fillna(0)
+            
             return X
-
+            
         except Exception as e:
             logger.error(f"Error processing transaction: {str(e)}")
-            # Return a DataFrame with default values
-            return pd.DataFrame(
-                [[0] * len(self.feature_engineer.encoded_cols)],
-                columns=self.feature_engineer.encoded_cols,
-            )
+            raise
 
     def predict_transaction(self, transaction: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Predict fraud for a transaction.
-
-        Args:
-            transaction (dict): Transaction data
-
-        Returns:
-            dict: Prediction results
-        """
+        """Predict fraud for a single transaction"""
+        start_time = time.time()
+        
         try:
-            # Basic input validation
-            if not transaction:
-                logger.error("Empty transaction data received")
-                return {
-                    "is_fraud": False,  # Changed to False - empty data shouldn't auto-block
-                    "fraud_probability": 0.5,
-                    "fraud_type": "Empty Transaction Data",
-                }
-            
-            # Validate transaction has required fields
-            required_fields = ["Transaction_Type", "Amount"]
-            missing_fields = [field for field in required_fields if field not in transaction]
-            
-            if missing_fields:
-                logger.error(f"Missing required transaction fields: {missing_fields}")
-                return {
-                    "is_fraud": False,  # Changed to False - missing fields shouldn't auto-block
-                    "fraud_probability": 0.5,
-                    "fraud_type": f"Missing Required Fields: {', '.join(missing_fields)}",
-                }
-
-            # Make a copy to avoid modifying the original
-            transaction = transaction.copy()
-            
-            # Check for clear fraud patterns
-            amount = float(transaction.get("Amount", 0))
-            location = transaction.get("Location", "")
-            device_id = transaction.get("Device_ID", "")
-            merchant_type = transaction.get("Merchant_Type", "")
-            
-            # Define clear fraud patterns
-            is_suspicious = False
-            fraud_type = ""
-            
-            # Pattern 1: Very high amount (> 50,000)
-            if amount > 50000:
-                is_suspicious = True
-                fraud_type = "Unusually High Amount"
-            
-            # Pattern 2: Foreign location for first time transaction
-            if location and location != "12.9716, 77.5946":  # Not Bangalore
-                if "Recent_Txn_Count" in transaction and transaction["Recent_Txn_Count"] <= 1:
-                    is_suspicious = True
-                    fraud_type = "Unusual Location"
-            
-            # Pattern 3: Unknown device with high amount
-            if "Unknown_Device" in device_id and amount > 10000:
-                is_suspicious = True
-                fraud_type = "Unknown Device High Value"
-            
-            # Pattern 4: Very small amount testing
-            if amount < 10:
-                is_suspicious = True
-                fraud_type = "Small Testing Transaction"
-            
-            # If clearly suspicious, block immediately
-            if is_suspicious:
-                return {
-                    "is_fraud": True,
-                    "fraud_probability": 0.95,
-                    "fraud_type": fraud_type,
-                }
-            
-            # Log the transaction details for debugging (mask sensitive data)
-            sanitized_transaction = transaction.copy()
-            if "Sender_ID" in sanitized_transaction and sanitized_transaction["Transaction_Type"] == "Card":
-                sanitized_transaction["Sender_ID"] = "****" + str(sanitized_transaction["Sender_ID"])[-4:]
-            logger.info(f"Processing transaction: {json.dumps(sanitized_transaction, default=str)}")
-
-            # Handle UPI transactions with special formatting
-            if transaction["Transaction_Type"] == "UPI":
-                try:
-                    # Process sender ID for UPI transactions
-                    sender_id = transaction.get("Sender_ID", "")
-                    if sender_id:
-                        # Validate UPI ID format (username@provider)
-                        if "@" in sender_id:
-                            parts = sender_id.split("@")
-                            if len(parts) == 2:
-                                username, provider = parts
-                                
-                                # Fix common provider issues
-                                if not provider or len(provider) < 2:
-                                    # Default to a standard provider if missing
-                                    provider = "okaxis"
-                                elif "." in provider:
-                                    # Handle multiple dots in provider (e.g., "user@123.oksbi")
-                                    # Take the last part as the actual provider
-                                    provider_parts = provider.split(".")
-                                    provider = provider_parts[-1]
-                                
-                                # Reconstruct valid UPI ID
-                                transaction["Sender_ID"] = f"{username}@{provider}"
-                            else:
-                                # Too many @ symbols, use first part with default provider
-                                transaction["Sender_ID"] = f"{parts[0]}@okaxis"
-                        else:
-                            # No @ symbol, append default provider
-                            transaction["Sender_ID"] = f"{sender_id}@okaxis"
-                            
-                        logger.info(f"Processed UPI ID: {sender_id} -> {transaction['Sender_ID']}")
-                except Exception as e:
-                    logger.error(f"Error processing UPI Sender_ID: {sender_id} - {str(e)}")
-                    # Use a default value if cannot process
-                    transaction["Sender_ID"] = f"{sender_id}@upi"  # Changed to keep original ID
-                
-                # Also handle Receiver_ID for UPI transactions
-                try:
-                    receiver_id = transaction.get("Receiver_ID", "")
-                    if receiver_id and "@" in receiver_id:
-                        parts = receiver_id.split("@")
-                        if len(parts) == 2:
-                            username, provider = parts
-                            
-                            # Fix common provider issues
-                            if not provider or len(provider) < 2:
-                                provider = "upi"
-                            elif "." in provider:
-                                provider_parts = provider.split(".")
-                                provider = provider_parts[-1]
-                            
-                            # Reconstruct valid UPI ID
-                            transaction["Receiver_ID"] = f"{username}@{provider}"
-                except Exception as e:
-                    logger.error(f"Error processing UPI Receiver_ID: {receiver_id} - {str(e)}")
-                    # Keep original receiver ID
-                    transaction["Receiver_ID"] = receiver_id
-
-            # Convert timestamp string to datetime if needed
-            if "Timestamp" in transaction and isinstance(transaction["Timestamp"], str):
-                try:
-                    transaction["Timestamp"] = datetime.fromisoformat(
-                        transaction["Timestamp"].replace("Z", "+00:00")
-                    )
-                except (ValueError, TypeError):
-                    # If timestamp can't be parsed, use current time
-                    transaction["Timestamp"] = datetime.now()
-            elif "Timestamp" not in transaction:
-                transaction["Timestamp"] = datetime.now()
-
-            # Add transaction count feature
-            sender = transaction.get("Sender_ID", "Unknown")
-            transaction["Txn_Count_Last_10_Min"] = self.update_history(
-                sender, transaction["Timestamp"]
-            )
-
-            # Convert to DataFrame
+            # Convert transaction to DataFrame
             txn_df = pd.DataFrame([transaction])
-
-            # Convert amount to float if needed
-            if "Amount" in txn_df.columns and not pd.api.types.is_numeric_dtype(
-                txn_df["Amount"]
-            ):
-                txn_df["Amount"] = pd.to_numeric(txn_df["Amount"], errors="coerce")
-
-            # Prepare features
+            
+            # Process transaction
             X = self._process_transaction(txn_df)
-
-            # Make prediction
-            fraud_probability = self.model.predict_proba(X)[0, 1]
-            is_fraud = fraud_probability > 0.7  # Increased threshold to 0.7
-
-            # Infer fraud type if predicted as fraud
-            fraud_type = ""
-            if is_fraud:
-                fraud_type = self._infer_fraud_type(transaction, fraud_probability)
-
-            # Store transaction for continuous learning
-            stored_transaction = {
-                "transaction_id": transaction.get("Transaction_ID", "Unknown"),
-                "timestamp": transaction["Timestamp"],
-                "is_fraud": is_fraud,
-                "fraud_probability": fraud_probability,
-                "fraud_type": fraud_type if is_fraud else "",
-                "transaction": transaction
+            
+            # Predict
+            fraud_prob = self.model.predict_proba(X)[0][1]
+            is_fraud = fraud_prob >= self.threshold
+            
+            # Infer fraud type
+            fraud_type = self._infer_fraud_type(transaction, fraud_prob)
+            
+            # Calculate processing time
+            processing_time = (time.time() - start_time) * 1000  # Convert to milliseconds
+            
+            # Create result
+            result = {
+                'is_fraud': bool(is_fraud),
+                'fraud_probability': float(fraud_prob),
+                'fraud_type': fraud_type,
+                'processing_time': processing_time
             }
             
-            # Log prediction
+            # Add to prediction history
             with self.predictions_lock:
-                self.predictions_history.append(stored_transaction)
-                
-                # Keep only last 1000 predictions to prevent memory issues
-                if len(self.predictions_history) > 1000:
-                    self.predictions_history = self.predictions_history[-1000:]
-
-            # Auto-add to training data for obvious cases (very high/low probability)
-            # This serves as "system feedback" for clear cases
-            if fraud_probability > 0.9 or fraud_probability < 0.1:
-                self.add_to_training_data(transaction, is_fraud)
-
-            # Return results
-            return {
-                "is_fraud": is_fraud,
-                "fraud_probability": fraud_probability,
-                "fraud_type": fraud_type if is_fraud else "",
-            }
-
+                self.predictions_history.append({
+                    'transaction_id': transaction.get('Transaction_ID', 'unknown'),
+                    'transaction': transaction,
+                    'prediction': result
+                })
+            
+            return result
+            
         except Exception as e:
-            logger.error(f"Error processing transaction: {str(e)}")
+            logger.error(f"Error predicting transaction: {str(e)}")
+            # Return default result with processing time
+            processing_time = (time.time() - start_time) * 1000
             return {
-                "is_fraud": False,  # Changed to False - errors shouldn't auto-block
-                "fraud_probability": 0.5,
-                "fraud_type": "Processing Error",
+                'is_fraud': False,
+                'fraud_probability': 0.0,
+                'fraud_type': 'Error',
+                'processing_time': processing_time
             }
 
     def save_predictions(self, output_path: str):
