@@ -1,4 +1,4 @@
-# SynthHack: Real-Time Fraud Detection for UPI and Card Payments
+# FraudShield: Real-Time Fraud Detection for UPI and Card Payments
 
 ## Overview
 An AI-based system to detect and block financial fraud in real-time for UPI and card payment transactions. The system identifies suspicious activities associated with specific fraud types and flags or blocks them instantly to prevent financial loss.
