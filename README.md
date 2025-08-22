@@ -64,6 +64,7 @@ See [USAGE.md](USAGE.md) for detailed instructions and API documentation.
 │   └── demo.py         # Simplified demo implementation
 ├── README.md           # Project documentation
 └── requirements.txt    # Project dependencies
+
 ```
 
 ## Performance Metrics
