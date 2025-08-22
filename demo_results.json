@@ -1,110 +1,110 @@
 [
   {
     "Sender_ID": "USER_0",
-    "Amount": 957.0891647513371,
-    "Is_Fraud": 0,
+    "Amount": 5755.631314754738,
+    "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
-    "Fraud_Type": null,
-    "Processing_Time": 0.10884761810302734
+    "Fraud_Type": "Error",
+    "Processing_Time": 55.95898628234863
   },
   {
     "Sender_ID": "USER_1",
-    "Amount": 9038.947574421934,
-    "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.87,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.059149742126464844
+    "Amount": 396.2981838508805,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 1.0211467742919922
   },
   {
     "Sender_ID": "USER_2",
-    "Amount": 5226.310717000131,
+    "Amount": 5952.888419179721,
     "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.86,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.0738213062286377
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 1.163482666015625
   },
   {
     "Sender_ID": "USER_3",
-    "Amount": 5806.157519326714,
-    "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.87,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.0709841251373291
+    "Amount": 957.3342296185299,
+    "Is_Fraud": 0,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 0.0
   },
   {
     "Sender_ID": "USER_4",
-    "Amount": 951.0128594266662,
-    "Is_Fraud": 0,
+    "Amount": 9910.340783755997,
+    "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
-    "Fraud_Type": null,
-    "Processing_Time": 0.06818199157714844
+    "Fraud_Type": "Error",
+    "Processing_Time": 4.266023635864258
   },
   {
     "Sender_ID": "USER_5",
-    "Amount": 922.8045566310806,
-    "Is_Fraud": 0,
+    "Amount": 5641.384766981753,
+    "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
-    "Fraud_Type": null,
-    "Processing_Time": 0.06757402420043945
+    "Fraud_Type": "Error",
+    "Processing_Time": 1.3709068298339844
   },
   {
     "Sender_ID": "USER_6",
-    "Amount": 977.4583059869855,
+    "Amount": 594.118269486148,
     "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
-    "Fraud_Type": null,
-    "Processing_Time": 0.06426715850830078
+    "Fraud_Type": "Error",
+    "Processing_Time": 1.7390251159667969
   },
   {
     "Sender_ID": "USER_7",
-    "Amount": 9650.61214455702,
-    "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.86,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.06249046325683594
-  },
-  {
-    "Sender_ID": "USER_8",
-    "Amount": 8905.081998191203,
-    "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.87,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.05585908889770508
-  },
-  {
-    "Sender_ID": "USER_9",
-    "Amount": 90.32683211571648,
+    "Amount": 175.27255116651847,
     "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
-    "Fraud_Type": null,
-    "Processing_Time": 0.06320834159851074
+    "Fraud_Type": "Error",
+    "Processing_Time": 1.8353462219238281
+  },
+  {
+    "Sender_ID": "USER_8",
+    "Amount": 7267.089646320227,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 3.115415573120117
+  },
+  {
+    "Sender_ID": "USER_9",
+    "Amount": 6119.5189028516925,
+    "Is_Fraud": 1,
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 0.0
   },
   {
     "Sender_ID": "USER_TEST",
     "Amount": 5.0,
     "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.42,
-    "Fraud_Type": "QR Code Scam",
-    "Processing_Time": 0.06449413299560547
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 0.0
   },
   {
     "Sender_ID": "USER_TEST",
     "Amount": 8000.0,
     "Is_Fraud": 1,
-    "Predicted_Fraud": 1,
-    "Confidence": 0.41,
-    "Fraud_Type": "Small Testing",
-    "Processing_Time": 0.059309959411621094
+    "Predicted_Fraud": 0,
+    "Confidence": 0.0,
+    "Fraud_Type": "Error",
+    "Processing_Time": 0.0
   }
 ]
