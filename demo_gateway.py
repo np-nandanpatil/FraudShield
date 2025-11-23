@@ -19,12 +19,60 @@ app.secret_key = os.urandom(24)  # For session management
 # Load admin password from environment variable or use default for demo
 ADMIN_PASSWORD = os.environ.get('SYNTHHACK_ADMIN_PASSWORD', 'synthhack_admin')
 
-# Initialize the fraud detection system
-predictor = RealTimePredictor('models/fraud_detection_model.pkl', 'models/feature_engineer.pkl')
+# Initialize the fraud detection system with lower threshold for demonstration
+predictor = RealTimePredictor('models/fraud_detection_model.pkl', 'models/feature_engineer.pkl', threshold=0.05)
 
 # In-memory storage for transactions and OTPs
 transactions_db = {}
 otps = {}
+
+def validate_card_number(card_number):
+    """Validate card number using Luhn algorithm"""
+    card_number = ''.join(filter(str.isdigit, card_number))
+    if len(card_number) not in [13, 15, 16]:
+        return False
+
+    total = 0
+    reverse_digits = card_number[::-1]
+    for i, digit in enumerate(reverse_digits):
+        d = int(digit)
+        if i % 2 == 1:
+            d *= 2
+            if d > 9:
+                d -= 9
+        total += d
+    return total % 10 == 0
+
+def validate_cvv(cvv):
+    """Validate CVV (3 or 4 digits)"""
+    return cvv.isdigit() and len(cvv) in [3, 4]
+
+def validate_expiry(expiry):
+    """Validate expiry date (MM/YY)"""
+    if not expiry or len(expiry) != 5 or expiry[2] != '/':
+        return False
+
+    try:
+        month, year = map(int, expiry.split('/'))
+        if not (1 <= month <= 12):
+            return False
+
+        current_year = datetime.now().year % 100
+        current_month = datetime.now().month
+
+        if year < current_year or (year == current_year and month < current_month):
+            return False
+
+        return True
+    except ValueError:
+        return False
+
+def validate_upi_id(upi_id):
+    """Validate UPI ID format"""
+    import re
+    # Basic UPI ID pattern: alphanumeric, dots, hyphens, followed by @ and domain
+    pattern = r'^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, upi_id))
 
 # Add simple authentication decorator
 def admin_required(f):
@@ -37,16 +85,21 @@ def admin_required(f):
     return decorated_function
 
 @app.route('/')
-def index():
-    """Payment gateway home page"""
+def payment_request():
+    """Payment request generation page - landing page"""
+    return render_template('payment_request.html')
+
+@app.route('/pay')
+def payment_gateway():
+    """Payment gateway page - accessed after payment request"""
     # Get payment parameters from URL
     amount = request.args.get('amount', 2500.00)  # Default to 2500 if not specified
     payment_method = request.args.get('paymentMethod', 'Card')
     merchant_type = request.args.get('merchantType', 'Online_Retail')
     device_id = request.args.get('deviceId', 'Device_1234')
     location = request.args.get('location', '12.9716, 77.5946')
-    
-    return render_template('index.html', 
+
+    return render_template('index.html',
                          amount=amount,
                          payment_method=payment_method,
                          merchant_type=merchant_type,
@@ -213,11 +266,44 @@ def process_transaction():
         # Generate a unique transaction ID if not provided
         if 'Transaction_ID' not in transaction_data:
             transaction_data['Transaction_ID'] = f"TXN_{uuid.uuid4().hex[:10]}"
-        
+
         # Add Receiver_ID if not present
         if 'Receiver_ID' not in transaction_data:
             transaction_data['Receiver_ID'] = 'Merchant_' + str(hash(transaction_data.get('Merchant_Type', '')) % 10000)
-        
+
+        # Validate payment method specific fields
+        transaction_type = transaction_data.get('Transaction_Type', '').upper()
+        if transaction_type == 'CARD':
+            # Validate card details
+            card_number = transaction_data.get('card_number', '')
+            cvv = transaction_data.get('cvv', '')
+            expiry = transaction_data.get('expiry', '')
+
+            if not validate_card_number(card_number):
+                return jsonify({
+                    'status': 'error',
+                    'message': 'Invalid card number'
+                }), 400
+            if not validate_cvv(cvv):
+                return jsonify({
+                    'status': 'error',
+                    'message': 'Invalid CVV'
+                }), 400
+            if not validate_expiry(expiry):
+                return jsonify({
+                    'status': 'error',
+                    'message': 'Invalid expiry date'
+                }), 400
+
+        elif transaction_type == 'UPI':
+            # Validate UPI ID
+            upi_id = transaction_data.get('Sender_ID', '')
+            if not validate_upi_id(upi_id):
+                return jsonify({
+                    'status': 'error',
+                    'message': 'Invalid UPI ID format'
+                }), 400
+
         # Step 1: Fraud detection
         result = predictor.predict_transaction(transaction_data)
         
@@ -606,12 +692,9 @@ def admin_login():
 def admin_logout():
     """Admin logout"""
     session.pop('is_admin', None)
-    return redirect(url_for('index'))
+    return redirect(url_for('payment_request'))
 
-@app.route('/payment_request')
-def payment_request():
-    """Payment request generation page"""
-    return render_template('payment_request.html')
+
 
 if __name__ == '__main__':
     # Ensure data directory exists

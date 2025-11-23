@@ -7,248 +7,245 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-dark: #121212;
-            --card-bg: rgba(40, 40, 40, 0.8);
-            --primary: #6C63FF;
-            --secondary: #32CCBC;
-            --success: #56E39F;
-            --danger: #FF5C5C;
-            --warning: #FFC857;
-            --text: #F8F9FA;
-            --text-muted: #ADB5BD;
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
-        }
-        
-        body { 
-            font-family: 'Inter', 'Segoe UI', sans-serif; 
-            background-color: var(--bg-dark);
-            color: var(--text);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 35%),
-                radial-gradient(circle at 85% 30%, rgba(50, 204, 188, 0.08) 0%, transparent 35%);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
             min-height: 100vh;
         }
-        
-        .container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 20px; 
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(8px);
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: var(--transition);
-            overflow: hidden;
+
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: none;
+            margin-bottom: 2rem;
         }
-        
-        .glass-card:hover {
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-            transform: translateY(-5px);
+
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem;
         }
-        
+
+        .card-body {
+            padding: 2rem;
+        }
+
         .header {
-            padding: 30px 20px;
-            margin-bottom: 40px;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+            margin-bottom: 2rem;
+            padding: 2rem 0;
         }
-        
+
         .header h1 {
-            font-weight: 800;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-            background: linear-gradient(to right, #fff, #ddd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333333;
         }
-        
+
+        .header p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+
+        .security-badges {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .security-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 8px 16px;
-            margin: 8px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-weight: 500;
-            font-size: 14px;
+            display: inline-block;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            font-size: 0.875rem;
+            color: #6c757d;
         }
-        
+
         .security-badge i {
-            margin-right: 8px;
-            color: var(--success);
+            margin-right: 0.5rem;
+            color: #28a745;
         }
-        
+
         .payment-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
-            margin-bottom: 30px;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
-        
+
         .payment-method {
             cursor: pointer;
-            padding: 20px 15px;
-            border-radius: var(--border-radius);
-            background: rgba(30, 30, 30, 0.6);
+            padding: 1.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
             text-align: center;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.2s;
         }
-        
+
         .payment-method:hover {
-            background: rgba(40, 40, 40, 0.8);
-            transform: translateY(-3px);
+            border-color: #007bff;
         }
-        
+
         .payment-method.active {
-            border-color: var(--primary);
-            background: rgba(108, 99, 255, 0.15);
+            border-color: #007bff;
+            background-color: #f8f9ff;
         }
-        
+
         .payment-method img {
             height: 40px;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            margin-bottom: 0.5rem;
         }
-        
+
         .order-summary {
-            background: rgba(30, 30, 30, 0.6);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 4px solid var(--secondary);
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
-        
+
         .order-summary h5 {
-            color: var(--secondary);
+            color: #333333;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
-        
+
         .saved-cards {
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
         }
-        
+
         .saved-card {
-            padding: 15px;
-            border-radius: var(--border-radius);
-            background: rgba(30, 30, 30, 0.6);
-            margin-bottom: 15px;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            margin-bottom: 1rem;
             cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.2s;
         }
-        
+
         .saved-card:hover {
-            background: rgba(40, 40, 40, 0.8);
-            border-color: var(--primary);
-            transform: translateY(-2px);
+            border-color: #007bff;
         }
-        
-        .form-control, .btn {
-            border-radius: 10px;
-            padding: 12px 20px;
-            background: rgba(30, 30, 30, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text);
-            transition: var(--transition);
+
+        .form-control {
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 1rem;
         }
-        
+
         .form-control:focus {
-            background: rgba(40, 40, 40, 0.8);
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
-            color: var(--text);
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.1);
         }
-        
+
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+
+        .invalid-feedback {
+            display: none;
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #7A70FF);
+            background-color: #007bff;
             border: none;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
         }
-        
+
         .btn-primary:hover {
-            background: linear-gradient(135deg, #7A70FF, var(--primary));
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+            background-color: #0056b3;
         }
-        
+
         .fraud-detection-info {
-            margin-top: 30px;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            background: rgba(30, 30, 30, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f8f9fa;
         }
-        
+
         .fraud-detection-info h6 {
-            color: var(--text-muted);
-            margin-bottom: 15px;
+            color: #6c757d;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
-        
+
         .fraud-meter {
             height: 10px;
-            background: rgba(20, 20, 20, 0.6);
+            background-color: #e9ecef;
             border-radius: 5px;
-            margin: 15px 0;
+            margin: 1rem 0;
             overflow: hidden;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-        
+
         .fraud-meter-fill {
             height: 100%;
-            background: linear-gradient(to right, var(--success), var(--warning), var(--danger));
+            background: linear-gradient(to right, #28a745, #ffc107, #dc3545);
             width: 0%;
-            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: width 0.8s ease;
             border-radius: 5px;
         }
-        
+
         .result-card {
-            margin-top: 30px;
-            padding: 25px;
+            margin-top: 2rem;
+            padding: 2rem;
             text-align: center;
-            animation: fadeIn 0.5s ease;
+            border-radius: 8px;
         }
-        
+
         .result-card.alert-success {
-            background: rgba(86, 227, 159, 0.15);
-            border: 1px solid rgba(86, 227, 159, 0.3);
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
         }
-        
+
         .result-card.alert-danger {
-            background: rgba(255, 92, 92, 0.15);
-            border: 1px solid rgba(255, 92, 92, 0.3);
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
         }
-        
+
+        .text-muted {
+            color: #6c757d !important;
+        }
+
+        .text-success {
+            color: #28a745 !important;
+        }
+
+        .text-danger {
+            color: #dc3545 !important;
+        }
+
         .result-card.alert-info {
-            background: rgba(108, 99, 255, 0.15);
-            border: 1px solid rgba(108, 99, 255, 0.3);
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+
         @media (max-width: 768px) {
             .payment-methods {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -257,10 +254,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="header glass-card">
+        <div class="header">
             <h1>FraudShield Payment Gateway</h1>
-            <p class="mb-4">Secure Payments with Real-time Fraud Detection</p>
-            <div class="mt-4">
+            <p>Secure Payments with Real-time Fraud Detection</p>
+            <div class="security-badges">
                 <span class="security-badge"><i class="fas fa-shield-alt"></i> PCI DSS Compliant</span>
                 <span class="security-badge"><i class="fas fa-lock"></i> 256-bit Encryption</span>
                 <span class="security-badge"><i class="fas fa-fingerprint"></i> AI Fraud Detection</span>
@@ -268,11 +265,11 @@
             </div>
         </div>
         
-        <div class="glass-card mb-4">
-            <div class="card-header bg-transparent border-0 p-4">
-                <h4 class="mb-0 text-white">Choose Payment Method</h4>
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Choose Payment Method</h4>
             </div>
-            <div class="card-body p-4">
+            <div class="card-body">
                 <div class="payment-methods">
                     <div class="payment-method active" data-method="card">
                         <!-- <img src="https://via.placeholder.com/60x40?text=Card" alt="Credit/Debit Card"> -->
@@ -315,10 +312,10 @@
                 <div id="payment-forms">
                     <!-- Credit/Debit Card Form -->
                     <div id="card-form" class="payment-form">
-                        <h5 class="mt-4 mb-3 text-white">Credit/Debit Card</h5>
-                        
+                        <h5 class="mt-4 mb-3">Credit/Debit Card</h5>
+
                         <div class="saved-cards">
-                            <h6 class="mb-3 text-white opacity-75">Saved Cards</h6>
+                            <h6 class="mb-3 text-muted">Saved Cards</h6>
                             <div class="saved-card">
                                 <div class="d-flex justify-content-between">
                                     <span><i class="far fa-credit-card me-2"></i> XXXX XXXX XXXX 4242</span>
@@ -337,18 +334,21 @@
                             <div class="mb-4">
                                 <label for="cardNumber" class="form-label">Card Number:</label>
                                 <input type="text" id="cardNumber" class="form-control" required placeholder="XXXX XXXX XXXX XXXX">
+                                <div class="invalid-feedback" id="cardNumberError"></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-4">
                                         <label for="expiry" class="form-label">Expiry Date:</label>
                                         <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+                                        <div class="invalid-feedback" id="expiryError"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-4">
                                         <label for="cvv" class="form-label">CVV:</label>
                                         <input type="text" id="cvv" class="form-control" required placeholder="XXX">
+                                        <div class="invalid-feedback" id="cvvError"></div>
                                     </div>
                                 </div>
                             </div>
@@ -378,11 +378,12 @@
                     
                     <!-- UPI Form -->
                     <div id="upi-form" class="payment-form" style="display: none;">
-                        <h5 class="mt-4 mb-3 text-white">UPI Payment</h5>
+                        <h5 class="mt-4 mb-3">UPI Payment</h5>
                         <form id="upiForm">
                             <div class="mb-4">
                                 <label for="upiId" class="form-label">UPI ID:</label>
                                 <input type="text" id="upiId" class="form-control" required placeholder="example@upi">
+                                <div class="invalid-feedback" id="upiIdError"></div>
                             </div>
                             <div class="fraud-detection-info">
                                 <h6>Fraud Detection Status</h6>
@@ -402,8 +403,18 @@
                     <!-- Other forms would be defined here -->
                 </div>
             </div>
-            <div class="card-footer bg-transparent border-0 p-4 text-center">
-                <img src="https://via.placeholder.com/400x30?text=Secured+By+FraudShield+Fraud+Detection" alt="Security Badges" class="img-fluid">
+            <div class="card-footer text-center">
+                <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt"></i> Secured by FraudShield
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-brain"></i> AI Fraud Detection
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-lock"></i> 256-bit SSL Encryption
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -469,6 +480,21 @@
             return /^[\w.-]+@[\w.-]+$/.test(upiId);
         }
 
+        function showError(inputId, errorId, message) {
+            $(`#${inputId}`).addClass('is-invalid');
+            $(`#${errorId}`).text(message).show();
+        }
+
+        function clearError(inputId, errorId) {
+            $(`#${inputId}`).removeClass('is-invalid');
+            $(`#${errorId}`).text('').hide();
+        }
+
+        function clearAllErrors() {
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').text('').hide();
+        }
+
         function getDeviceId() {
             // Simple device ID generation
             if (localStorage.getItem('deviceId')) {
@@ -494,12 +520,13 @@
             if (isError) {
                 resultElement.className = 'glass-card result-card mt-4 alert-danger';
                 resultTitle.textContent = 'Transaction Blocked';
+                const confidencePercent = (data.confidence && !isNaN(data.confidence)) ? (data.confidence * 100).toFixed(2) + '%' : 'N/A';
                 resultDetails.innerHTML = `
                     <div class="mb-3">
                         <i class="fas fa-exclamation-circle fa-3x text-danger mb-3"></i>
                     </div>
-                    <p><strong>Reason:</strong> ${data.reason}</p>
-                    <p><strong>Confidence:</strong> ${(data.confidence * 100).toFixed(2)}%</p>
+                    <p><strong>Reason:</strong> ${data.reason || 'Suspicious activity detected'}</p>
+                    <p><strong>Confidence:</strong> ${confidencePercent}</p>
                     <p>Our fraud detection system has flagged this transaction. Please try a different payment method or contact your bank.</p>
                 `;
             } else if (data.status === 'pending_verification') {
@@ -623,11 +650,12 @@
             // Update initially
             setTimeout(updateFraudMeter, 500);
             
-            // Add card number formatting
+            // Add card number formatting and validation
             $('#cardNumber').on('input', function() {
+                clearError('cardNumber', 'cardNumberError');
                 let value = $(this).val().replace(/\D/g, '');
                 if (value.length > 16) value = value.substr(0, 16);
-                
+
                 // Add spaces after every 4 digits
                 let formattedValue = '';
                 for(let i = 0; i < value.length; i++) {
@@ -636,15 +664,26 @@
                     }
                     formattedValue += value[i];
                 }
-                
+
                 $(this).val(formattedValue);
             });
-            
-            // Add expiry date formatting
+
+            // Real-time validation for CVV
+            $('#cvv').on('input', function() {
+                clearError('cvv', 'cvvError');
+            });
+
+            // Real-time validation for UPI
+            $('#upiId').on('input', function() {
+                clearError('upiId', 'upiIdError');
+            });
+
+            // Add expiry date formatting and validation
             $('#expiry').on('input', function() {
+                clearError('expiry', 'expiryError');
                 let value = $(this).val().replace(/\D/g, '');
                 if (value.length > 4) value = value.substr(0, 4);
-                
+
                 if (value.length > 2) {
                     $(this).val(value.substr(0, 2) + '/' + value.substr(2));
                 } else {
@@ -655,23 +694,26 @@
             // Card form submission
             $('#cardForm').on('submit', function(event) {
                 event.preventDefault();
+                clearAllErrors();
                 const cardNumber = $('#cardNumber').val().replace(/\s+/g, '');
                 const cvv = $('#cvv').val();
                 const expiry = $('#expiry').val();
                 const cardHolder = $('#cardHolder').val();
 
+                let hasError = false;
                 if (!isValidCardNumber(cardNumber)) {
-                    alert('Invalid card number. Please check and try again.');
-                    return;
+                    showError('cardNumber', 'cardNumberError', 'Invalid card number. Please check and try again.');
+                    hasError = true;
                 }
                 if (!isValidCVV(cvv)) {
-                    alert('Invalid CVV. Must be 3 digits.');
-                    return;
+                    showError('cvv', 'cvvError', 'Invalid CVV. Must be 3 digits.');
+                    hasError = true;
                 }
                 if (!isValidExpiryDate(expiry)) {
-                    alert('Invalid expiry date. Use MM/YY format and ensure date is in the future.');
-                    return;
+                    showError('expiry', 'expiryError', 'Invalid expiry date. Use MM/YY format and ensure date is in the future.');
+                    hasError = true;
                 }
+                if (hasError) return;
 
                 const data = {
                     Transaction_ID: 'CARD_' + Date.now(),
@@ -682,7 +724,10 @@
                     Transaction_Type: 'Card',
                     Merchant_Type: $('body').data('merchantType'),
                     Device_ID: $('body').data('deviceId'),
-                    Location: $('body').data('location')
+                    Location: $('body').data('location'),
+                    card_number: cardNumber,
+                    cvv: cvv,
+                    expiry: expiry
                 };
                 
                 processTransaction(data);
@@ -691,10 +736,11 @@
             // UPI form submission
             $('#upiForm').on('submit', function(event) {
                 event.preventDefault();
+                clearAllErrors();
                 const upiId = $('#upiId').val();
-                
+
                 if (!isValidUPIId(upiId)) {
-                    alert('Invalid UPI ID format. Please use format like name@upi');
+                    showError('upiId', 'upiIdError', 'Invalid UPI ID format. Please use format like name@upi');
                     return;
                 }
                 

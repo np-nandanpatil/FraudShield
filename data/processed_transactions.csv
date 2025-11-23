@@ -1,13 +1,13 @@
 Transaction_ID,Timestamp,Amount,Sender_ID,Receiver_ID,Transaction_Type,Merchant_Type,Device_ID,Location,Is_Fraud,Status,Fraud_Type,Fraud_Probability
 Txn_03461,2025-04-11 04:26:49,1174.8,User_364,Merchant_333,Card,Entertainment,Device_167,"12.9716, 77.5946",False,Success,-,0.062
-Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",False,Fraud,-,0.7007
-Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",0,Success,None,0.0382
-Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",0,Success,None,0.0354
+Txn_06948,2025-04-07 18:53:22,4799.301074654552,User_1,Suspicious_21,UPI,Unknown,Device_1545,"12.9716, 77.5946",True,Fraud,Admin Flagged,0.7007
+Txn_06119,2025-04-09 21:38:41,1759.36,User_166,Merchant_168,UPI,Travel,Device_231,"12.9716, 77.5946",True,Success,None,0.0382
+Txn_08271,2025-04-07 23:00:16,964.99,User_461,Merchant_127,UPI,Utilities,Device_1308,"12.9716, 77.5946",False,Success,-,0.0354
 Txn_02131,2025-04-08 20:25:40,1710.72,User_920,Merchant_422,UPI,Online_Retail,Device_1988,"12.9716, 77.5946",False,Success,-,0.0282
 Txn_07486,2025-04-08 00:18:35,496.69,User_997,Merchant_415,UPI,Food,Device_1444,"12.9716, 77.5946",0,Success,None,0.0176
 Txn_04384,2025-04-10 18:34:53,263.83,User_191,Merchant_383,UPI,Food,Device_270,"12.9716, 77.5946",0,Success,None,0.0879
 Txn_07636,2025-04-11 15:05:11,698.54,User_56,Merchant_22,UPI,Travel,Device_18,"12.9716, 77.5946",0,Success,None,0.1355
-Txn_06916,2025-03-29 22:50:24,2040.748394712574,User_321,Merchant_142,UPI,Unknown,Unknown_Device_1,"12.9716, 77.5946",1,Fraud,Merchant Fraud,0.9212
+Txn_06916,2025-03-29 22:50:24,2040.748394712574,User_321,Merchant_142,UPI,Unknown,Unknown_Device_1,"12.9716, 77.5946",False,Fraud,-,0.9212
 Txn_06562,2025-04-09 21:53:17,1647.41,User_891,Merchant_91,UPI,Travel,Device_1999,"12.9716, 77.5946",0,Success,None,0.055
 Txn_03832,2025-03-23 09:49:43,1615.4385281400528,User_408,Merchant_461,UPI,Unknown,Device_1898,"12.9716, 77.5946",1,Fraud,Account Takeover,0.9023
 Txn_05586,2025-04-09 19:42:35,1687.76,User_700,Merchant_195,UPI,Entertainment,Device_139,"12.9716, 77.5946",0,Success,None,0.0445
@@ -509,3 +509,12 @@ UPI_1744439007594,2025-04-12T06:23:27.595Z,2.5,rpr092004@okaxis,FraudShield@upi,
 UPI_1744440254175,2025-04-12T06:44:14.175Z,2.5,rpr092004@okaxis,FraudShield@upi,UPI,Online_Retail,Unknown_Device_5829,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
 UPI_1744478669243,2025-04-12T17:24:29.243Z,2.22,rpr092004@okaxis,FraudShield@upi,UPI,Unknown,New_Device_3549,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
 UPI_1744519446739,2025-04-13T04:44:06.739Z,2.0,rpr092004@okaxis,FraudShield@upi,UPI,Unknown,Unknown_Device_3667,"-34.6037, -58.3816",True,Small Testing Transaction,0.95,BLOCKED
+UPI_1756442844878,2025-08-29T04:47:24.878Z,20000.0,nandan.cub@upi,FraudShield@upi,UPI,Entertainment,Device_8174,"12.9716, 77.5946",True,Small Testing,0.5505381414701803,BLOCKED
+UPI_1756443756839,2025-08-29T05:02:36.839Z,10000.0,nandan.cub@upi,FraudShield@upi,UPI,Travel,Unknown_Device_9941,"-34.6037, -58.3816",True,SIM Swap,0.5505381414701803,BLOCKED
+UPI_1756444018675,2025-08-29T05:06:58.675Z,10000.0,nandan.cub@upi,FraudShield@upi,UPI,Travel,Unknown_Device_9941,"-34.6037, -58.3816",True,SIM Swap,0.5505381414701803,BLOCKED
+UPI_1756444041450,2025-08-29T05:07:21.450Z,10000.0,nandan.cub@upi,FraudShield@upi,UPI,Travel,Unknown_Device_9941,"-34.6037, -58.3816",True,SIM Swap,0.5505381414701803,BLOCKED
+CARD_1756444438930,2025-08-29T05:13:58.930Z,1.0,508545******3172,FraudShield_Merchant,Card,Unknown,Unknown_Device_2733,"-34.6037, -58.3816",True,Data Breach Reuse,0.79,BLOCKED
+UPI_1763917900166,2025-11-23T17:11:40.166Z,2500.0,1mj22is065@mvjce.edu.in,FraudShield@upi,UPI,Online_Retail,Device_1234,"12.9716, 77.5946",True,QR Code Scam,0.4905381414701803,BLOCKED
+TEST_FRAUD_CARD_001,2025-01-20T10:40:00,10.0,Unknown,Test_Merchant_001,Card,Unknown,Device_9999,"12.9716, 77.5946",True,Card Skimming,1.0,BLOCKED
+TEST_FRAUD_UPI_001,2025-01-20T10:35:00,2000.0,user5678@oksbi.com,suspicious999@paytm.com,UPI,Unknown,Device_5678,"28.6139, 77.2090",True,QR Code Scam,0.7132186063445275,BLOCKED
+TEST_FRAUD_CARD_001,2025-01-20T10:40:00,10.0,Unknown,Test_Merchant_001,Card,Unknown,Device_9999,"12.9716, 77.5946",True,Card Skimming,1.0,BLOCKED

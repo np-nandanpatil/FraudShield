@@ -421,7 +421,24 @@ class RealTimePredictor:
                 txn_df = pd.DataFrame([txn_df])
             
             # Process features using the feature engineer
-            X = self.feature_engineer.process_transactions(txn_df)
+            # Support multiple FeatureEngineer interfaces for backward compatibility
+            if hasattr(self.feature_engineer, 'process_transactions'):
+                # New interface in src/utils/feature_engineer.py
+                X = self.feature_engineer.process_transactions(txn_df)
+            elif hasattr(self.feature_engineer, 'process_single_transaction'):
+                # Older interface in src/features/feature_engineering.py
+                # Expects a dict and returns a processed DataFrame
+                X = self.feature_engineer.process_single_transaction(txn_df.iloc[0].to_dict())
+            elif hasattr(self.feature_engineer, 'process_data'):
+                # Fallback to generic process_data(df, fit=False) -> (X, y)
+                processed = self.feature_engineer.process_data(txn_df, fit=False)
+                # process_data may return (X, y) or just X
+                if isinstance(processed, tuple) and len(processed) >= 1:
+                    X = processed[0]
+                else:
+                    X = processed
+            else:
+                raise AttributeError("Loaded FeatureEngineer has no compatible processing method")
             
             # Ensure no NaN values remain
             if X.isna().any().any():

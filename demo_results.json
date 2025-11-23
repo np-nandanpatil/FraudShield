@@ -1,93 +1,93 @@
 [
   {
     "Sender_ID": "USER_0",
-    "Amount": 5755.631314754738,
-    "Is_Fraud": 1,
+    "Amount": 805.6688358988216,
+    "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 55.95898628234863
+    "Processing_Time": 35.820722579956055
   },
   {
     "Sender_ID": "USER_1",
-    "Amount": 396.2981838508805,
-    "Is_Fraud": 0,
+    "Amount": 9152.913490094186,
+    "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 1.0211467742919922
+    "Processing_Time": 2.4836063385009766
   },
   {
     "Sender_ID": "USER_2",
-    "Amount": 5952.888419179721,
+    "Amount": 5898.603901432439,
     "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 1.163482666015625
+    "Processing_Time": 2.01416015625
   },
   {
     "Sender_ID": "USER_3",
-    "Amount": 957.3342296185299,
+    "Amount": 698.752932495083,
     "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 0.0
+    "Processing_Time": 1.8901824951171875
   },
   {
     "Sender_ID": "USER_4",
-    "Amount": 9910.340783755997,
-    "Is_Fraud": 1,
+    "Amount": 513.1396945445438,
+    "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 4.266023635864258
+    "Processing_Time": 2.460479736328125
   },
   {
     "Sender_ID": "USER_5",
-    "Amount": 5641.384766981753,
+    "Amount": 7938.238113772271,
     "Is_Fraud": 1,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 1.3709068298339844
+    "Processing_Time": 2.040863037109375
   },
   {
     "Sender_ID": "USER_6",
-    "Amount": 594.118269486148,
+    "Amount": 86.44462636456882,
     "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 1.7390251159667969
+    "Processing_Time": 2.176046371459961
   },
   {
     "Sender_ID": "USER_7",
-    "Amount": 175.27255116651847,
+    "Amount": 583.0820888788543,
     "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 1.8353462219238281
+    "Processing_Time": 2.125263214111328
   },
   {
     "Sender_ID": "USER_8",
-    "Amount": 7267.089646320227,
-    "Is_Fraud": 1,
+    "Amount": 352.92770528645735,
+    "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 3.115415573120117
+    "Processing_Time": 2.2258758544921875
   },
   {
     "Sender_ID": "USER_9",
-    "Amount": 6119.5189028516925,
-    "Is_Fraud": 1,
+    "Amount": 909.2203653823352,
+    "Is_Fraud": 0,
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 0.0
+    "Processing_Time": 2.536296844482422
   },
   {
     "Sender_ID": "USER_TEST",
@@ -96,7 +96,7 @@
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 0.0
+    "Processing_Time": 1.0838508605957031
   },
   {
     "Sender_ID": "USER_TEST",
@@ -105,6 +105,6 @@
     "Predicted_Fraud": 0,
     "Confidence": 0.0,
     "Fraud_Type": "Error",
-    "Processing_Time": 0.0
+    "Processing_Time": 2.1317005157470703
   }
 ]
