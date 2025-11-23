@@ -518,3 +518,4 @@ UPI_1763917900166,2025-11-23T17:11:40.166Z,2500.0,1mj22is065@mvjce.edu.in,FraudS
 TEST_FRAUD_CARD_001,2025-01-20T10:40:00,10.0,Unknown,Test_Merchant_001,Card,Unknown,Device_9999,"12.9716, 77.5946",True,Card Skimming,1.0,BLOCKED
 TEST_FRAUD_UPI_001,2025-01-20T10:35:00,2000.0,user5678@oksbi.com,suspicious999@paytm.com,UPI,Unknown,Device_5678,"28.6139, 77.2090",True,QR Code Scam,0.7132186063445275,BLOCKED
 TEST_FRAUD_CARD_001,2025-01-20T10:40:00,10.0,Unknown,Test_Merchant_001,Card,Unknown,Device_9999,"12.9716, 77.5946",True,Card Skimming,1.0,BLOCKED
+TEST_FRAUD_001,2025-11-23T23:45:00.000Z,5000.0,suspicious@user.com,Merchant_999,UPI,Unknown,Unknown_Device_123,"12.9716, 77.5946",True,Fake UPI App,0.82,BLOCKED

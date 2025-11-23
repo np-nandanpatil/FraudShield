@@ -196,6 +196,33 @@ def ensure_transaction_csv_exists():
     # Return False if file already existed
     return False
 
+def log_transaction(transaction_data, prediction_result, status):
+    """Log transaction to CSV file"""
+    try:
+        ensure_transaction_csv_exists()
+        csv_path = 'data/processed_transactions.csv'
+        
+        with open(csv_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                transaction_data.get('Transaction_ID', 'Unknown'),
+                transaction_data.get('Timestamp', datetime.now().isoformat()),
+                transaction_data.get('Amount', 0),
+                transaction_data.get('Sender_ID', 'Unknown'),
+                transaction_data.get('Receiver_ID', 'Unknown'),
+                transaction_data.get('Transaction_Type', 'Unknown'),
+                transaction_data.get('Merchant_Type', 'Unknown'),
+                transaction_data.get('Device_ID', 'Unknown'),
+                transaction_data.get('Location', 'Unknown'),
+                prediction_result.get('is_fraud', False),
+                prediction_result.get('fraud_type', '-'),
+                prediction_result.get('fraud_probability', 0),
+                status
+            ])
+        app.logger.info(f"Transaction {transaction_data.get('Transaction_ID')} logged with status {status}")
+    except Exception as e:
+        app.logger.error(f"Error logging transaction: {str(e)}")
+
 @app.route('/payment_methods')
 def payment_methods():
     """Display available payment methods"""
@@ -306,7 +333,10 @@ def process_transaction():
 
         # Step 1: Fraud detection
         result = predictor.predict_transaction(transaction_data)
-        
+
+        # Debug logging
+        app.logger.info(f"Fraud detection result: {result}")
+
         # If fraudulent, block immediately
         if result['is_fraud']:
             log_transaction(transaction_data, result, "BLOCKED")

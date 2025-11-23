@@ -15,49 +15,73 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
         }
 
         .card {
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             box-shadow: none;
-            margin-bottom: 2rem;
         }
 
         .card-header {
             background-color: #f8f9fa;
             border-bottom: 1px solid #e0e0e0;
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         .card-body {
-            padding: 2rem;
+            padding: 1rem;
+        }
+
+        .card-header h4, .card-header h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem 0;
+            margin-bottom: 1rem;
+            padding: 0.75rem 0;
         }
 
         .header h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             color: #333333;
         }
 
         .header p {
             color: #6c757d;
             margin-bottom: 0;
+            font-size: 0.9rem;
         }
 
         .security-badges {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 0.75rem;
         }
 
         .security-badge {
@@ -65,32 +89,33 @@
             background-color: #f8f9fa;
             border: 1px solid #e0e0e0;
             border-radius: 20px;
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
-            font-size: 0.875rem;
+            padding: 0.35rem 0.75rem;
+            margin: 0.2rem;
+            font-size: 0.75rem;
             color: #6c757d;
         }
 
         .security-badge i {
-            margin-right: 0.5rem;
+            margin-right: 0.3rem;
             color: #28a745;
         }
 
         .payment-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .payment-method {
             cursor: pointer;
-            padding: 1.5rem 1rem;
+            padding: 0.75rem 0.5rem;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 6px;
             background-color: #ffffff;
             text-align: center;
             transition: border-color 0.2s;
+            font-size: 0.85rem;
         }
 
         .payment-method:hover {
@@ -103,36 +128,45 @@
         }
 
         .payment-method img {
-            height: 40px;
-            margin-bottom: 0.5rem;
+            height: 30px;
+            margin-bottom: 0.3rem;
         }
 
         .order-summary {
             background-color: #f8f9fa;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
+            padding: 1rem;
         }
 
         .order-summary h5 {
             color: #333333;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .saved-cards {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            display: none;
         }
 
         .saved-card {
-            padding: 1rem;
+            padding: 0.75rem;
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 6px;
             background-color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             cursor: pointer;
             transition: border-color 0.2s;
+            font-size: 0.9rem;
         }
 
         .saved-card:hover {
@@ -142,8 +176,8 @@
         .form-control {
             border: 1px solid #d0d0d0;
             border-radius: 6px;
-            padding: 0.75rem;
-            font-size: 1rem;
+            padding: 0.6rem;
+            font-size: 0.95rem;
         }
 
         .form-control:focus {
@@ -158,25 +192,35 @@
         .invalid-feedback {
             display: none;
             color: #dc3545;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
         }
 
         .btn-primary {
             background-color: #007bff;
             border: none;
             border-radius: 6px;
-            padding: 0.75rem 1.5rem;
+            padding: 0.65rem 1.25rem;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
         }
 
+        .btn-lg {
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.75rem !important;
+            font-size: 0.85rem !important;
+        }
+
         .fraud-detection-info {
-            margin-top: 2rem;
-            padding: 1.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             background-color: #f8f9fa;
@@ -184,8 +228,9 @@
 
         .fraud-detection-info h6 {
             color: #6c757d;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .fraud-meter {
@@ -206,9 +251,24 @@
 
         .result-card {
             margin-top: 2rem;
-            padding: 2rem;
+            padding: 1.25rem;
             text-align: center;
             border-radius: 8px;
+        }
+
+        .result-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .result-card.alert-success {
@@ -241,13 +301,48 @@
             color: #0c5460;
         }
 
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 0.75rem;
+        }
+
+        .form-check {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .payment-methods {
                 grid-template-columns: repeat(2, 1fr);
             }
 
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.3rem;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -258,177 +353,133 @@
             <h1>FraudShield Payment Gateway</h1>
             <p>Secure Payments with Real-time Fraud Detection</p>
             <div class="security-badges">
-                <span class="security-badge"><i class="fas fa-shield-alt"></i> PCI DSS Compliant</span>
-                <span class="security-badge"><i class="fas fa-lock"></i> 256-bit Encryption</span>
-                <span class="security-badge"><i class="fas fa-fingerprint"></i> AI Fraud Detection</span>
-                <span class="security-badge"><i class="fas fa-check-circle"></i> 3D Secure 2.0</span>
+                <span class="security-badge"><i class="fas fa-shield-alt"></i> PCI DSS</span>
+                <span class="security-badge"><i class="fas fa-lock"></i> 256-bit SSL</span>
+                <span class="security-badge"><i class="fas fa-fingerprint"></i> AI Detection</span>
+                <span class="security-badge"><i class="fas fa-check-circle"></i> 3D Secure</span>
             </div>
         </div>
-        
-        <div class="card mb-4">
-            <div class="card-header">
-                <h4 class="mb-0">Choose Payment Method</h4>
-            </div>
-            <div class="card-body">
-                <div class="payment-methods">
-                    <div class="payment-method active" data-method="card">
-                        <!-- <img src="https://via.placeholder.com/60x40?text=Card" alt="Credit/Debit Card"> -->
-                        <div class="mt-2">Card</div>
-                    </div>
-                    <div class="payment-method" data-method="upi">
-                        <!-- <img src="https://via.placeholder.com/60x40?text=UPI" alt="UPI"> -->
-                        <div class="mt-2">UPI</div>
-                    </div>
-                    <div class="payment-method" data-method="netbanking">
-                        <!-- <img src="https://via.placeholder.com/60x40?text=NetBanking" alt="Net Banking"> -->
-                        <div class="mt-2">Net Banking</div>
-                    </div>
-                    <div class="payment-method" data-method="wallet">
-                        <!-- <img src="https://via.placeholder.com/60x40?text=Wallet" alt="Wallet"> -->
-                        <div class="mt-2">Wallet</div>
-                    </div>
-                </div>
-                
-                <div class="order-summary">
-                    <h5>Order Summary</h5>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Product:</span>
-                        <span>Demo Product</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Merchant:</span>
-                        <span>FraudShield Demo Store</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Order ID:</span>
-                        <span>ORD-<script>document.write(Math.floor(Math.random()*900000)+100000)</script></span>
-                    </div>
-                    <div class="d-flex justify-content-between font-weight-bold">
-                        <span class="fw-bold">Amount:</span>
-                        <span class="fw-bold amount-display">₹{{ amount }}.00</span>
-                    </div>
-                </div>
-                
-                <div id="payment-forms">
-                    <!-- Credit/Debit Card Form -->
-                    <div id="card-form" class="payment-form">
-                        <h5 class="mt-4 mb-3">Credit/Debit Card</h5>
 
-                        <div class="saved-cards">
-                            <h6 class="mb-3 text-muted">Saved Cards</h6>
-                            <div class="saved-card">
-                                <div class="d-flex justify-content-between">
-                                    <span><i class="far fa-credit-card me-2"></i> XXXX XXXX XXXX 4242</span>
-                                    <span>Expires: 12/25</span>
-                                </div>
+        <div class="main-layout">
+            <!-- LEFT COLUMN: Order Summary & Results -->
+            <div class="left-panel">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Order Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="order-summary-item">
+                            <span>Product:</span>
+                            <span>Demo Product</span>
+                        </div>
+                        <div class="order-summary-item">
+                            <span>Merchant:</span>
+                            <span>FraudShield Store</span>
+                        </div>
+                        <div class="order-summary-item">
+                            <span>Order ID:</span>
+                            <span>ORD-<script>document.write(Math.floor(Math.random()*900000)+100000)</script></span>
+                        </div>
+                        <div class="order-summary-item" style="font-weight: 600; font-size: 1rem; border-top: 1px solid #e0e0e0; padding-top: 0.75rem; margin-top: 0.75rem;">
+                            <span>Amount:</span>
+                            <span class="amount-display">₹{{ amount }}.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="result" class="result-card" style="display: none;"></div>
+            </div>
+
+            <!-- RIGHT COLUMN: Payment Methods & Forms -->
+            <div class="right-panel">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Payment Method</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-methods">
+                            <div class="payment-method active" data-method="card">
+                                <div>Card</div>
                             </div>
-                            <div class="saved-card">
-                                <div class="d-flex justify-content-between">
-                                    <span><i class="far fa-credit-card me-2"></i> XXXX XXXX XXXX 5678</span>
-                                    <span>Expires: 08/24</span>
-                                </div>
+                            <div class="payment-method" data-method="upi">
+                                <div>UPI</div>
+                            </div>
+                            <div class="payment-method" data-method="netbanking">
+                                <div>Net Bank</div>
+                            </div>
+                            <div class="payment-method" data-method="wallet">
+                                <div>Wallet</div>
                             </div>
                         </div>
-                        
-                        <form id="cardForm">
-                            <div class="mb-4">
-                                <label for="cardNumber" class="form-label">Card Number:</label>
-                                <input type="text" id="cardNumber" class="form-control" required placeholder="XXXX XXXX XXXX XXXX">
-                                <div class="invalid-feedback" id="cardNumberError"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-4">
-                                        <label for="expiry" class="form-label">Expiry Date:</label>
-                                        <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
-                                        <div class="invalid-feedback" id="expiryError"></div>
+
+                        <div id="payment-forms">
+                            <!-- Credit/Debit Card Form -->
+                            <div id="card-form" class="payment-form">
+                                <h5 class="mt-3 mb-3">Card Details</h5>
+                                <form id="cardForm">
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Card Number</label>
+                                        <input type="text" id="cardNumber" class="form-control" required placeholder="XXXX XXXX XXXX XXXX">
+                                        <div class="invalid-feedback" id="cardNumberError"></div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-4">
-                                        <label for="cvv" class="form-label">CVV:</label>
-                                        <input type="text" id="cvv" class="form-control" required placeholder="XXX">
-                                        <div class="invalid-feedback" id="cvvError"></div>
+                                    <div class="form-group-row">
+                                        <div>
+                                            <label for="expiry" class="form-label">Expiry</label>
+                                            <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+                                            <div class="invalid-feedback" id="expiryError"></div>
+                                        </div>
+                                        <div>
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="text" id="cvv" class="form-control" required placeholder="XXX">
+                                            <div class="invalid-feedback" id="cvvError"></div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="mb-3">
+                                        <label for="cardHolder" class="form-label">Card Holder Name</label>
+                                        <input type="text" id="cardHolder" class="form-control" required placeholder="JOHN DOE">
+                                    </div>
+                                    <div class="fraud-detection-info">
+                                        <h6>Fraud Detection</h6>
+                                        <div class="fraud-meter">
+                                            <div class="fraud-meter-fill" id="fraud-meter"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
+                                            <small class="text-success">Low</small>
+                                            <small class="text-warning">Medium</small>
+                                            <small class="text-danger">High</small>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mt-3">Pay ₹{{ amount }}.00</button>
+                                </form>
                             </div>
-                            <div class="mb-4">
-                                <label for="cardHolder" class="form-label">Card Holder Name:</label>
-                                <input type="text" id="cardHolder" class="form-control" required placeholder="JOHN DOE">
+                            
+                            <!-- UPI Form -->
+                            <div id="upi-form" class="payment-form" style="display: none;">
+                                <h5 class="mt-3 mb-3">UPI Details</h5>
+                                <form id="upiForm">
+                                    <div class="mb-3">
+                                        <label for="upiId" class="form-label">UPI ID</label>
+                                        <input type="text" id="upiId" class="form-control" required placeholder="example@upi">
+                                        <div class="invalid-feedback" id="upiIdError"></div>
+                                    </div>
+                                    <div class="fraud-detection-info">
+                                        <h6>Fraud Detection</h6>
+                                        <div class="fraud-meter">
+                                            <div class="fraud-meter-fill" id="fraud-meter-upi"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
+                                            <small class="text-success">Low</small>
+                                            <small class="text-warning">Medium</small>
+                                            <small class="text-danger">High</small>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mt-3">Pay ₹{{ amount }}.00</button>
+                                </form>
                             </div>
-                            <div class="form-check mb-4">
-                                <input type="checkbox" id="saveCard" class="form-check-input">
-                                <label for="saveCard" class="form-check-label">Save card for future payments</label>
-                            </div>
-                            <div class="fraud-detection-info">
-                                <h6>Fraud Detection Status</h6>
-                                <div class="fraud-meter">
-                                    <div class="fraud-meter-fill" id="fraud-meter"></div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <small class="text-success">Low Risk</small>
-                                    <small class="text-warning">Medium Risk</small>
-                                    <small class="text-danger">High Risk</small>
-                                </div>
-                                <p class="mt-3 mb-0 text-muted"><small>Our AI is constantly analyzing this transaction for fraud patterns.</small></p>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹{{ amount }}.00</button>
-                        </form>
-                    </div>
-                    
-                    <!-- UPI Form -->
-                    <div id="upi-form" class="payment-form" style="display: none;">
-                        <h5 class="mt-4 mb-3">UPI Payment</h5>
-                        <form id="upiForm">
-                            <div class="mb-4">
-                                <label for="upiId" class="form-label">UPI ID:</label>
-                                <input type="text" id="upiId" class="form-control" required placeholder="example@upi">
-                                <div class="invalid-feedback" id="upiIdError"></div>
-                            </div>
-                            <div class="fraud-detection-info">
-                                <h6>Fraud Detection Status</h6>
-                                <div class="fraud-meter">
-                                    <div class="fraud-meter-fill" id="fraud-meter-upi"></div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <small class="text-success">Low Risk</small>
-                                    <small class="text-warning">Medium Risk</small>
-                                    <small class="text-danger">High Risk</small>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">Pay ₹{{ amount }}.00</button>
-                        </form>
-                    </div>
-                    
-                    <!-- Other forms would be defined here -->
-                </div>
-            </div>
-            <div class="card-footer text-center">
-                <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-                    <div class="security-badge">
-                        <i class="fas fa-shield-alt"></i> Secured by FraudShield
-                    </div>
-                    <div class="security-badge">
-                        <i class="fas fa-brain"></i> AI Fraud Detection
-                    </div>
-                    <div class="security-badge">
-                        <i class="fas fa-lock"></i> 256-bit SSL Encryption
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div id="result" class="glass-card result-card mt-4" style="display: none;">
-            <h4 id="resultTitle" class="mb-3"></h4>
-            <div id="resultDetails"></div>
-        </div>
-        
-        <div class="text-center mt-4">
-            <!-- Remove public dashboard link, add developer comment instead -->
-            <!-- 
-            Admin access only: 
-            <a href="/admin" class="btn btn-outline-light">Admin Dashboard</a>
-            -->
         </div>
     </div>
     
@@ -510,53 +561,58 @@
             return '12.9716, 77.5946'; // Default to Bangalore coordinates
         }
 
+        function getFraudTypeDescription(fraudType) {
+            const descriptions = {
+                'Phishing Link': 'Detected phishing attempt with suspicious link',
+                'QR Code Scam': 'Suspicious QR code used for payment',
+                'SIM Swap': 'Transaction detected from unusual location/device',
+                'Fake UPI App': 'Potential fraudulent app installation detected',
+                'Small Testing': 'Multiple small transactions detected',
+                'Unusual Location': 'Transaction from unexpected location',
+                'Card Skimming': 'Card data may be compromised',
+                'Data Breach Reuse': 'Card information linked to known data breach',
+                'CNP Fraud': 'Card-not-present fraud detected',
+                'Suspicious Card Transaction': 'Unusual card transaction pattern',
+                'Suspicious UPI Transaction': 'Unusual UPI transaction pattern'
+            };
+            return descriptions[fraudType] || fraudType;
+        }
+
         function showResult(data, isError) {
             const resultElement = document.getElementById('result');
-            const resultTitle = document.getElementById('resultTitle');
-            const resultDetails = document.getElementById('resultDetails');
-            
+
             resultElement.style.display = 'block';
-            
+
+            console.log('showResult called with:', { data, isError });
+
             if (isError) {
-                resultElement.className = 'glass-card result-card mt-4 alert-danger';
-                resultTitle.textContent = 'Transaction Blocked';
-                const confidencePercent = (data.confidence && !isNaN(data.confidence)) ? (data.confidence * 100).toFixed(2) + '%' : 'N/A';
-                resultDetails.innerHTML = `
-                    <div class="mb-3">
-                        <i class="fas fa-exclamation-circle fa-3x text-danger mb-3"></i>
-                    </div>
-                    <p><strong>Reason:</strong> ${data.reason || 'Suspicious activity detected'}</p>
-                    <p><strong>Confidence:</strong> ${confidencePercent}</p>
-                    <p>Our fraud detection system has flagged this transaction. Please try a different payment method or contact your bank.</p>
+                resultElement.className = 'result-card alert-danger';
+                const confidencePercent = (data.confidence && !isNaN(data.confidence)) ? (data.confidence * 100).toFixed(1) : 'N/A';
+                const fraudDescription = getFraudTypeDescription(data.reason);
+                console.log('Confidence calculation:', { confidence: data.confidence, confidencePercent, isNaN: isNaN(data.confidence) });
+                resultElement.innerHTML = `
+                    <h5 class="mb-3">⚠️ Transaction Blocked</h5>
+                    <p class="mb-2"><strong>Reason:</strong></p>
+                    <p class="mb-3" style="font-size: 0.95rem;">${fraudDescription}</p>
+                    <p class="mb-3"><strong>Confidence Level:</strong> ${confidencePercent}%</p>
+                    <p class="text-muted" style="font-size: 0.85rem;">Please try a different payment method or contact your bank.</p>
                 `;
             } else if (data.status === 'pending_verification') {
-                resultElement.className = 'glass-card result-card mt-4 alert-info';
-                resultTitle.textContent = 'Verification Required';
-                resultDetails.innerHTML = `
-                    <div class="mb-3">
-                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
-                    </div>
-                    <p>Your transaction requires additional verification.</p>
-                    <p>You will be redirected to the verification page.</p>
-                    <div class="text-center mt-4">
-                        <a href="${data.redirect_url}" class="btn btn-primary">Proceed to Verification</a>
+                resultElement.className = 'result-card alert-info';
+                resultElement.innerHTML = `
+                    <h5 class="mb-3">🔒 Verification Required</h5>
+                    <p class="mb-3">Your transaction requires additional verification.</p>
+                    <div class="text-center">
+                        <a href="${data.redirect_url}" class="btn btn-primary btn-sm">Proceed to Verification</a>
                     </div>
                 `;
             } else {
-                resultElement.className = 'glass-card result-card mt-4 alert-success';
-                resultTitle.textContent = 'Transaction Approved';
-                resultDetails.innerHTML = `
-                    <div class="mb-3">
-                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-                    </div>
-                    <p><strong>Status:</strong> Payment Successful</p>
-                    <p><strong>Confidence:</strong> ${(data.confidence * 100).toFixed(2)}%</p>
-                    <p>Your transaction has been processed successfully. Thank you for using our payment gateway!</p>
+                resultElement.className = 'result-card alert-success';
+                resultElement.innerHTML = `
+                    <h5 class="mb-3">✓ Payment Successful</h5>
+                    <p class="text-muted" style="font-size: 0.9rem;">Your transaction has been processed successfully.</p>
                 `;
             }
-            
-            // Scroll to result
-            resultElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         
         // Simulate real-time fraud detection
@@ -761,16 +817,15 @@
         });
 
         function processTransaction(data) {
-            // Show loading indicator
-            document.getElementById('result').style.display = 'block';
-            document.getElementById('result').className = 'glass-card result-card mt-4 alert-info';
-            document.getElementById('resultTitle').textContent = 'Processing Transaction...';
-            document.getElementById('resultDetails').innerHTML = `
+            const resultElement = document.getElementById('result');
+            resultElement.style.display = 'block';
+            resultElement.className = 'result-card alert-info';
+            resultElement.innerHTML = `
                 <div class="text-center">
-                    <div class="spinner-border text-primary" role="status">
+                    <div class="spinner-border spinner-border-sm text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="mt-3">Please wait while we process your payment and analyze for potential fraud...</p>
+                    <p class="mt-2" style="font-size: 0.9rem;">Processing your payment...</p>
                 </div>
             `;
             
@@ -787,9 +842,9 @@
                 showResult(data, isError);
             })
             .catch(error => {
-                document.getElementById('result').className = 'glass-card result-card mt-4 alert-danger';
-                document.getElementById('resultTitle').textContent = 'Error';
-                document.getElementById('resultDetails').innerHTML = `<p>An error occurred: ${error.message}</p>`;
+                const resultElement = document.getElementById('result');
+                resultElement.className = 'result-card alert-danger';
+                resultElement.innerHTML = `<p>Error: ${error.message}</p>`;
             });
         }
     </script>
